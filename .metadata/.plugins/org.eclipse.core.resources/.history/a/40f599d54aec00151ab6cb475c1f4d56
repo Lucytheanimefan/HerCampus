@@ -16,7 +16,6 @@ res.raise_for_status
 
 soup=bs4.BeautifulSoup(html,'html.parser')
 
-# get all article urls 
 for i in soup.findAll('li',{"class" : "search-result"}):
-    print i.a['href']
+    print i
     
