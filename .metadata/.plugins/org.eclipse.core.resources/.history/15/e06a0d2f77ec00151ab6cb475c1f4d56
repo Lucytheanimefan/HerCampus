@@ -1,0 +1,32 @@
+'''
+Created on Mar 17, 2016
+
+@author: lucy
+'''
+from tweepy import Stream
+from tweepy.streaming import StreamListener
+import tweepy
+
+consumer_key='uwAcM2cGOqcuslNIFHgYoyJRL'
+consumer_secret='aV03HYizmS1vmMJ5dZROeVVcXQWGMiq48CsTgFGCZK1xiahRBx'
+access_token='1486245986-nwqzW414I9CvVyHfpAksoZW1gz95tAnv3zoCJNP'
+access_token_secret='JlBa1Fewyhk6S4sLw9I4D5GEOTI849gL8TShPQVeUlV5l'
+auth=tweepy.OAuthHandler(consumer_key,consumer_secret)
+auth.set_access_token(access_token,access_token_secret)
+api=tweepy.API(auth)
+class MyListener(StreamListener):
+    def on_data(self, data):
+        try:
+            with open('python.json','a') as f:
+                f.write(data)
+                return True
+        except BaseException as e:
+            print ("error on_data: %s" % str(e))
+        return True
+ 
+    def on_error(self, status):
+        print(status)
+        return True
+ 
+twitter_stream = Stream(auth, MyListener())
+twitter_stream.filter(track=['#python'])

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Trending Word Cloud Scraper/topGoogleSearchTerms&apos; to &apos;topGoogleSearchTerms.txt&apos;" description="Rename resource &apos;topGoogleSearchTerms&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="topGoogleSearchTerms" name="topGoogleSearchTerms.txt" stamp="1458250875571" updateReferences="true"/>
+</session>
