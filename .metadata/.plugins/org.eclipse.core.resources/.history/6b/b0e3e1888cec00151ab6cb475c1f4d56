@@ -12,10 +12,11 @@ driver = init_driver()
 lookup(driver, "college")
 html=driver.page_source
 
-
 soup=bs4.BeautifulSoup(html,'html.parser')
+
 # get all article urls 
 for i in soup.findAll('li',{"class" : "search-result"}):
+    print 'hi'
     url=i.a['href']
     print url
     # write all of the urls to a text file
