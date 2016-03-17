@@ -12,7 +12,7 @@ driver = init_driver()
 lookup(driver, "college")
 html=driver.page_source
 
-print 'hi'
+
 soup=bs4.BeautifulSoup(html,'html.parser')
 # get all article urls 
 for i in soup.findAll('li',{"class" : "search-result"}):
