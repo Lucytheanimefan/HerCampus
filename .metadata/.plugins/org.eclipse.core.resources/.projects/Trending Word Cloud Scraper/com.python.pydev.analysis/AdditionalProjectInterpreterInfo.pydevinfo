@@ -1,43 +1,54 @@
 -- VERSION_4
 -- START DISKCACHE_2
 C:\Users\lucy\Documents\GitHub\HerCampus\.metadata\.plugins\org.eclipse.core.resources\.projects\Trending Word Cloud Scraper\com.python.pydev.analysis\v2_indexcache
-Twitter_hashtags_twython|1458243280523661000|C:\Users\lucy\Documents\GitHub\HerCampus\Trending Word Cloud Scraper\Twitter_hashtags_twython.py
+Twitter_hashtags_twython|1458243567153055000|C:\Users\lucy\Documents\GitHub\HerCampus\Trending Word Cloud Scraper\Twitter_hashtags_twython.py
+get_text|1458325174021384000|C:\Users\lucy\Documents\GitHub\HerCampus\Trending Word Cloud Scraper\get_text.py
 Twitter_hashtags|1458243787308647000|C:\Users\lucy\Documents\GitHub\HerCampus\Trending Word Cloud Scraper\Twitter_hashtags.py
+get_all_urls|1458330460491753000|C:\Users\lucy\Documents\GitHub\HerCampus\Trending Word Cloud Scraper\get_all_urls.py
 Automate_Searches|1458223889893818000|C:\Users\lucy\Documents\GitHub\HerCampus\Trending Word Cloud Scraper\Automate_Searches.py
+getWords|1458340644603251000|C:\Users\lucy\Documents\GitHub\HerCampus\Trending Word Cloud Scraper\getWords.py
 -- END DISKCACHE
 -- START DICTIONARY
-3
-3=MyListener
+7
+6=Twitter_hashtags_twython
+7=MyListener
+2=get_text
 1=Twitter_hashtags
-2=Automate_Searches
+3=get_all_urls
+5=Automate_Searches
+4=getWords
 -- END DICTIONARY
 -- START TREE 1
-19
+27
 acc|2|access_token!11@access_token_secret!11@
+all|0|
 api|1|api!11@
 aut|1|auth!11@
 con|2|consumer_key!11@consumer_secret!11@
-dri|0|
-get|0|
-her|0|
-htm|0|
-i|0|
-ini|1|init_driver!18@
-log|0|
-loo|1|lookup!18@
+dri|1|driver!19@
+fil|0|
+get|3|getText!26@getFrequency!34@getWords!34@
+goo|0|
+her|1|herCampusUrls!19@
+htm|1|html!19@
+ini|1|init_driver!42@
+lin|1|lines!27@
+loo|1|lookup!42@
 myl|1|MyListener!9@
-res|0|
-sea|0|
-sou|0|
-ter|0|
-twi|1|twitter_stream!11@
-url|0|
+num|0|
+sea|1|search!51@
+sou|1|soup!19@
+t|1|t!51@
+ter|1|terms!35@
+tex|1|text!35@
+the|1|thefile!35@
+twe|1|tweets!51@
+twi|5|TWITTER_ACCESS_TOKEN_SECRET!51@twitter_stream!11@TWITTER_APP_KEY!51@TWITTER_ACCESS_TOKEN!51@TWITTER_APP_KEY_SECRET!51@
+url|1|url!19@
+wor|0|
+wri|1|write_to_csv!34@
 -- END TREE
 -- START TREE 2
-5
-dri|0|
-on_|2|on_error!3&10@on_data!3&10@
-set|0|
-tea|0|
-tes|0|
+1
+on_|2|on_error!7&10@on_data!7&10@
 -- END TREE

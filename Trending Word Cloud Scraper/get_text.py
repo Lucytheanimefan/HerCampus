@@ -6,10 +6,10 @@ Getting all of the text from articles that contain a set list of hashtags
 from Automate_Searches import *
 import bs4
 
-herCampusUrls=open('herCampusUrls.txt','w')
+herCampusUrls=open('herCampusUrlsf.txt','w')
 # get sites
 driver = init_driver()
-lookup(driver, "college")
+lookup(driver, "food")
 html=driver.page_source
 
 print 'hi'

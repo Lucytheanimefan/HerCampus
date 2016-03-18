@@ -1,0 +1,32 @@
+'''
+Word frequencies
+@author: lucy Zhang
+'''
+import csv
+wordFreq={}
+
+# Get word frequencies
+# Parameter: textFile name as seen in the topGoogleSearchTerms text file 
+def getFrequency(textFile):
+    afile=open(textFile+'.txt')
+    words=afile.readlines()
+    for word in words:
+        if word in wordFreq.keys():
+            wordFreq[word]=wordFreq[word]+1
+        else:
+            wordFreq[word]=1;
+    return wordFreq
+
+# Parameters: textFile-name as seen in the topGoogleSearchTerms file
+# wordFreq: the dictionary
+def write_to_csv(textFile, wordFreq):
+    outputCount=open(textFile+'.csv','w', newline='')
+    outputWriter=csv.writer(outputCount)
+# Write data to text file
+wordFrequency=open('LacrosseWordFrequencyWords.txt','w')
+for key in wordFreq.keys():
+    wordFrequency.write(key+'\n')
+    
+numFrequency=open('LacrosseWordFrequencyNums.txt','w')
+for key in wordFreq.keys():
+    numFrequency.write(str(wordFreq.get(key))+'\n')
