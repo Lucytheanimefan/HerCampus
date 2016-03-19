@@ -1,0 +1,34 @@
+'''
+Created on Mar 19, 2016
+
+@author: lucy
+'''
+import csv
+
+# parameter words is the array of words
+def getFrequency(words):
+    for word in words:
+        if word in wordFreq.keys():
+            wordFreq[word]=wordFreq[word]+1
+        else:
+            wordFreq[word]=1;
+    return wordFreq
+
+# Parameters: textFile-name as seen in the topGoogleSearchTerms file
+# wordFreq: the dictionary
+def write_to_csv(textFile, wordFreq):
+    outputCount=open(textFile+'.csv','w', newline='')
+    outputWriter=csv.writer(outputCount)
+    for key in wordFreq.keys():
+        outputWriter.writerow([key, wordFreq.get(key)])
+
+# get frequencies of the words
+terms = [line.rstrip('\n') for line in open('topGoogleSearchTerms.txt')]
+
+for term in terms:
+    print term
+    thefile=open(term+'_AllWords.txt')
+    text=thefile.read()
+    print text.split()
+    wordFreq=getFrequency(text.split())
+    write_to_csv(term, wordFreq)

@@ -27,9 +27,18 @@ def getFrequency(textFile):
             wordFreq[word]=1;
     return wordFreq
 
+# Parameters: textFile-name as seen in the topGoogleSearchTerms file
+# wordFreq: the dictionary
+def write_to_csv(textFile, wordFreq):
+    outputCount=open(textFile+'.csv','w', newline='')
+    outputWriter=csv.writer(outputCount)
+    for key in wordFreq.keys():
+        outputWriter.writerow([key, wordFreq.get(key)])
+
+
 # write all of the <p> text to files
 terms = [line.rstrip('\n') for line in open('topGoogleSearchTerms.txt')]
-
+'''
 for term in terms:
     print term
     allwords=open(term+'_AllWords.txt','w')
@@ -38,5 +47,11 @@ for term in terms:
         #print url
         #print getWords(url)
         allwords.write(getWords(url))
-        
+'''        
+# get frequencies of the words
+for term in terms:
+    print term
+    thefile=open(term+'_AllWords.txt')
+    text=thefile.read()
+    print text.split()
     
