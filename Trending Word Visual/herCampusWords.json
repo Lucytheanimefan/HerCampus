@@ -1,0 +1,55 @@
+{
+ "name": "flare",
+ "children": [
+  {
+   "name": "amazon",
+   "children": [
+    {
+     "name": "cluster",
+     "children": [
+      {"name": "Amazon", "size": 29},
+      {"name": "available", "size": 22},
+      {"name": "Christmas", "size": 18},
+      {"name": "Google", "size": 18},
+      {"name": "Instant", "size": 18},
+      {"name": "Play", "size": 16},
+      {"name": "Netflix", "size": 12},
+      {"name": "new", "size": 9},
+      {"name": "Apply", "size": 9},
+      {"name": "books", "size": 9}
+     ]
+    }
+   ]
+  },
+  {
+   "name": "acquarius",
+   "children": [
+    {"name": "Gemini", "size": 7},
+    {"name": "Sagittarius", "size": 6},
+    {"name": "Virgo", "size": 6},
+    {"name": "Libra", "size": 5},
+    {"name": "Virgo", "size": 6},
+    {"name": "Scorpio", "size": 5},
+    {"name": "Cancer", "size": 5},
+    {"name": "Taurus", "size": 5},
+    {"name": "Aries", "size": 5},
+    {"name": "Leo", "size": 5}
+   ]
+  },
+  {
+   "name": "Craigslist",
+   "children": [
+    {"name": "selling", "size": 19},
+    {"name": "Craigslist", "size": 16},
+    {"name": "items", "size": 15},
+    {"name": "college", "size": 12},
+    {"name": "most", "size": 12},
+    {"name": "time", "size": 12},
+    {"name": "doing", "size": 12},
+    {"name": "here", "size": 12},
+    {"name": "free", "size": 12},
+    {"name": "friends", "size": 11}
+   ]
+  }
+ ]
+}

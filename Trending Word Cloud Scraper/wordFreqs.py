@@ -31,7 +31,7 @@ terms = [line.rstrip('\n') for line in open('topGoogleSearchTerms.txt')]
 for term in terms:
     print term
     thefile=open(term+'_AllWords.txt')
-    text=thefile.read().replace(',','').replace('(','').replace('.','').replace(')','').replace('"','').replace(';','').replace(':','').replace('?','')
+    text=thefile.read().replace(',','').replace('(','').replace('.','').replace(')','').replace('"','').replace(';','').replace(':','').replace('?','').replace('!','')
     print text.split()
     wordFreq=getFrequency(text.split())
     write_to_csv(term, wordFreq)
