@@ -2,53 +2,174 @@
  "name": "flare",
  "children": [
   {
-   "name": "amazon",
+   "name": "American Sniper",
    "children": [
-    {
-     "name": "cluster",
-     "children": [
-      {"name": "Amazon", "size": 29},
-      {"name": "available", "size": 22},
-      {"name": "Christmas", "size": 18},
-      {"name": "Google", "size": 18},
-      {"name": "Instant", "size": 18},
-      {"name": "Play", "size": 16},
-      {"name": "Netflix", "size": 12},
-      {"name": "new", "size": 9},
-      {"name": "Apply", "size": 9},
-      {"name": "books", "size": 9}
-     ]
-    }
+    {"name": "American", "size": 23},
+    {"name": "film", "size": 20},
+    {"name": "Sniper", "size": 17},
+    {"name": "movie", "size": 16},
+    {"name": "Chris", "size": 10},
+    {"name": "Kyle", "size": 9},
+    {"name": "he", "size": 9},
+    {"name": "love", "size": 7},
+    {"name": "time", "size": 7},
+    {"name": "Rogen", "size": 6}
    ]
   },
   {
-   "name": "acquarius",
+   "name": "Caitlyn Jenner",
    "children": [
-    {"name": "Gemini", "size": 7},
-    {"name": "Sagittarius", "size": 6},
-    {"name": "Virgo", "size": 6},
-    {"name": "Libra", "size": 5},
-    {"name": "Virgo", "size": 6},
-    {"name": "Scorpio", "size": 5},
-    {"name": "Cancer", "size": 5},
-    {"name": "Taurus", "size": 5},
-    {"name": "Aries", "size": 5},
-    {"name": "Leo", "size": 5}
+    {"name": "Caitlyn", "size": 38},
+    {"name": "Jenner", "size": 30},
+    {"name": "woman", "size": 16},
+    {"name": "people", "size": 13},
+    {"name": "name", "size": 12},
+    {"name": "transgender", "size": 12},
+    {"name": "world", "size": 10},
+    {"name": "vanity", "size": 9},
+    {"name": "marriage", "size": 8},
+    {"name": "award", "size": 6},
+    {"name": "community", "size": 6},
+    {"name": "same-sex", "size": 6},
+    {"name": "right", "size": 6},
+    {"name": "magazine", "size": 6},
+    {"name": "political", "size": 4},
+    {"name": "lesbian", "size": 3},
+    {"name": "released", "size": 3}
    ]
   },
   {
-   "name": "Craigslist",
+   "name": "Chris Kyle",
    "children": [
-    {"name": "selling", "size": 19},
-    {"name": "Craigslist", "size": 16},
-    {"name": "items", "size": 15},
-    {"name": "college", "size": 12},
-    {"name": "most", "size": 12},
-    {"name": "time", "size": 12},
-    {"name": "doing", "size": 12},
-    {"name": "here", "size": 12},
-    {"name": "free", "size": 12},
-    {"name": "friends", "size": 11}
+    {"name": "daughter", "size": 36},
+    {"name": "Chris", "size": 35},
+    {"name": "movie", "size": 21},
+    {"name": "Kyle", "size": 19},
+    {"name": "film", "size": 17},
+    {"name": "best", "size": 16},
+    {"name": "American", "size": 13},
+    {"name": "life", "size": 12},
+    {"name": "love", "size": 12},
+    {"name": "home", "size": 10},
+    {"name": "war", "size": 8},
+    {"name": "Taya", "size": 8},
+    {"name": "makes", "size": 8},
+    {"name": "baby", "size": 8}
+   ]
+  },
+  {
+   "name": "Fallout 4",
+   "children": [
+    {"name": "Fallout", "size": 16},
+    {"name": "game", "size": 10},
+    {"name": "shadow", "size": 9},
+    {"name": "color", "size": 9},
+    {"name": "eye", "size": 9},
+    {"name": "dark", "size": 8},
+    {"name": "through", "size": 8},
+    {"name": "good", "size": 8},
+    {"name": "world", "size": 8},
+    {"name": "life", "size": 7},
+    {"name": "love", "size": 7},
+    {"name": "video", "size": 7},
+    {"name": "know", "size": 7},
+    {"name": "hair", "size": 7},
+    {"name": "gold", "size": 6}
+   ]
+  },
+  {
+   "name": "Jurassic World",
+   "children": [
+    {"name": "World", "size": 19},
+    {"name": "Jurassic", "size": 18},
+    {"name": "year", "size": 16},
+    {"name": "Park", "size": 9},
+    {"name": "Chris", "size": 6},
+    {"name": "film", "size": 6},
+    {"name": "costume", "size": 6},
+    {"name": "Halloween", "size": 6},
+    {"name": "Pratt", "size": 5},
+    {"name": "years", "size": 5},
+    {"name": "original", "size": 5},
+    {"name": "major", "size": 5},
+    {"name": "last", "size": 5},
+    {"name": "Marywood", "size": 5},
+    {"name": "dinosaurs", "size": 3}
+   ]
+  },
+  {
+   "name": "Lamar Odom",
+   "children": [
+    {"name": "Lamar", "size": 75},
+    {"name": "Khloe", "size": 52},
+    {"name": "Odom", "size": 30},
+    {"name": "Kardashian", "size": 21},
+    {"name": "drugs", "size": 19},
+    {"name": "hospital", "size": 18},
+    {"name": "love", "size": 16},
+    {"name": "media", "size": 15},
+    {"name": "found", "size": 14},
+    {"name": "divorce", "size": 11},
+    {"name": "couple", "size": 11},
+    {"name": "family", "size": 9},
+    {"name": "overdose", "size": 9},
+    {"name": "player", "size": 8},
+    {"name": "brothel", "size": 8}
+   ]
+  },
+  {
+   "name": "Paris",
+   "children": [
+    {"name": "Paris", "size": 24},
+    {"name": "prayers", "size": 6},
+    {"name": "people", "size": 4},
+    {"name": "t'aime", "size": 3},
+    {"name": "abroad", "size": 3},
+    {"name": "#PrayforParis", "size": 2},
+    {"name": "Valentina", "size": 2},
+    {"name": "Holy", "size": 2},
+    {"name": "community", "size": 2},
+    {"name": "violence", "size": 2},
+    {"name": "senseless", "size": 2},
+    {"name": "lost", "size": 2}
+   ]
+  },
+  {
+   "name": "Ronda Rousey",
+   "children": [
+    {"name": "Rousey", "size": 65},
+    {"name": "fight", "size": 46},
+    {"name": "women", "size": 32},
+    {"name": "Ronda", "size": 23},
+    {"name": "UFC", "size": 17},
+    {"name": "Holm", "size": 15},
+    {"name": "undefeated", "size": 13},
+    {"name": "Mayweather", "size": 12},
+    {"name": "body", "size": 11},
+    {"name": "female", "size": 10},
+    {"name": "MMA", "size": 7},
+    {"name": "beat", "size": 7},
+    {"name": "opponent", "size": 6},
+    {"name": "champion", "size": 5},
+    {"name": "martial", "size": 5}
+   ]
+  },
+  {
+   "name": "Straight Outta Compton",
+   "children": [
+    {"name": "Compton", "size": 17},
+    {"name": "Outta", "size": 14},
+    {"name": "Straight", "size": 14},
+    {"name": "film", "size": 12},
+    {"name": "major", "size": 9},
+    {"name": "director", "size": 5},
+    {"name": "hip-hop", "size": 5},
+    {"name": "Atlanta", "size": 4},
+    {"name": "enjoy", "size": 4},
+    {"name": "great", "size": 4},
+    {"name": "showing", "size": 4},
+    {"name": "favorite", "size": 4},
+    {"name": "break", "size": 3}
    ]
   }
  ]
