@@ -2,4 +2,7 @@ MODULES_MANAGER_V2
 Automate_Searches|C:\Users\lucy\Documents\GitHub\HerCampus\Trending Word Cloud Scraper\Automate_Searches.py
 Twitter_hashtags|C:\Users\lucy\Documents\GitHub\HerCampus\Trending Word Cloud Scraper\Twitter_hashtags.py
 Twitter_hashtags_twython|C:\Users\lucy\Documents\GitHub\HerCampus\Trending Word Cloud Scraper\Twitter_hashtags_twython.py
+getWords|C:\Users\lucy\Documents\GitHub\HerCampus\Trending Word Cloud Scraper\getWords.py
+get_all_urls|C:\Users\lucy\Documents\GitHub\HerCampus\Trending Word Cloud Scraper\get_all_urls.py
 get_text|C:\Users\lucy\Documents\GitHub\HerCampus\Trending Word Cloud Scraper\get_text.py
+wordFreqs|C:\Users\lucy\Documents\GitHub\HerCampus\Trending Word Cloud Scraper\wordFreqs.py

@@ -19,6 +19,6 @@ for i in soup.findAll('li',{"class" : "search-result"}):
     url=i.a['href']
     print url
     # write all of the urls to a text file
-    #herCampusUrls.write(url+'\n')
+    #\herCampusUrls.write(url+'\n')
     
     

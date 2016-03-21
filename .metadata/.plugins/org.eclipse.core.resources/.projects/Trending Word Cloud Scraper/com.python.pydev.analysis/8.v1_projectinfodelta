@@ -1,10 +1,1 @@
-INSTUPwordFreqs
-C:\Users\lucy\Documents\GitHub\HerCampus\Trending Word Cloud Scraper\wordFreqs.py
-INFOS:&&2|1|2|0&&2|3|2|0&&3|4|2|0&&3|5|2|0&&3|6|2|0&&3|7|2|0
-terms=4
-getFrequency=1
-thefile=5
-wordFreq=7
-text=6
-write_to_csv=3
-wordFreqs=2
+DELSTRwordFreqs
