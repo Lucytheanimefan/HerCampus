@@ -10,10 +10,12 @@ text {
 <body>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
+var color = d3.scale.ordinal()
+  .range(["#FF0067", "#FF3184", "#FF5831", "#FF3100", "#60FEA0", "#00FF67", "#31FF84", "#A2FF31", "#8CFF00"]);
 
 var diameter = 960,
     format = d3.format(",d"),
-    color = d3.scale.category10();
+    color = color;
 
 var bubble = d3.layout.pack()
     .sort(null)
