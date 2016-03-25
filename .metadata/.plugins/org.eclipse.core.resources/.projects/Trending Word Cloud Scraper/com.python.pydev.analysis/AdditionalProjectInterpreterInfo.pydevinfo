@@ -1,53 +1,38 @@
 -- VERSION_4
 -- START DISKCACHE_2
 C:\Users\lucy\Documents\GitHub\HerCampus\.metadata\.plugins\org.eclipse.core.resources\.projects\Trending Word Cloud Scraper\com.python.pydev.analysis\v2_indexcache
-Twitter_hashtags_twython|1458243567153055000|C:\Users\lucy\Documents\GitHub\HerCampus\Trending Word Cloud Scraper\Twitter_hashtags_twython.py
-get_text|1458325174021384000|C:\Users\lucy\Documents\GitHub\HerCampus\Trending Word Cloud Scraper\get_text.py
-Twitter_hashtags|1458243787308647000|C:\Users\lucy\Documents\GitHub\HerCampus\Trending Word Cloud Scraper\Twitter_hashtags.py
-get_all_urls|1458330460491753000|C:\Users\lucy\Documents\GitHub\HerCampus\Trending Word Cloud Scraper\get_all_urls.py
-Automate_Searches|1458414543795126000|C:\Users\lucy\Documents\GitHub\HerCampus\Trending Word Cloud Scraper\Automate_Searches.py
-getWords|1458408614380983000|C:\Users\lucy\Documents\GitHub\HerCampus\Trending Word Cloud Scraper\getWords.py
-wordFreqs|1458411360625059000|C:\Users\lucy\Documents\GitHub\HerCampus\Trending Word Cloud Scraper\wordFreqs.py
+get_text|1458564245900882000|C:\Users\lucy\Documents\GitHub\HerCampus\Trending Word Cloud Scraper\get_text.py
+get_all_urls|1458564245900882000|C:\Users\lucy\Documents\GitHub\HerCampus\Trending Word Cloud Scraper\get_all_urls.py
+Automate_Searches|1458564245889882000|C:\Users\lucy\Documents\GitHub\HerCampus\Trending Word Cloud Scraper\Automate_Searches.py
+getWords|1458564245901882000|C:\Users\lucy\Documents\GitHub\HerCampus\Trending Word Cloud Scraper\getWords.py
+wordFreqs|1458564245918883000|C:\Users\lucy\Documents\GitHub\HerCampus\Trending Word Cloud Scraper\wordFreqs.py
 -- END DISKCACHE
 -- START DICTIONARY
-8
-7=Twitter_hashtags_twython
-8=MyListener
-3=get_text
-1=Twitter_hashtags
-4=get_all_urls
-6=Automate_Searches
-2=getWords
-5=wordFreqs
+5
+2=get_text
+3=get_all_urls
+5=Automate_Searches
+1=getWords
+4=wordFreqs
 -- END DICTIONARY
 -- START TREE 1
-24
-acc|2|access_token!11@access_token_secret!11@
-all|1|allwords!19@
-api|1|api!11@
-aut|1|auth!11@
-con|2|consumer_key!11@consumer_secret!11@
-dri|1|driver!27@
-get|4|getText!34@getFrequency!18@getFrequency!42@getWords!18@
-her|1|herCampusUrls!27@
-htm|1|html!27@
-ini|1|init_driver!50@
-lin|2|lines!19@lines!35@
-loo|1|lookup!50@
-myl|1|MyListener!9@
-sea|1|search!59@
-sou|1|soup!27@
-t|1|t!59@
-ter|2|terms!43@terms!19@
-tex|1|text!43@
-the|1|thefile!43@
-twe|1|tweets!59@
-twi|5|TWITTER_ACCESS_TOKEN_SECRET!59@twitter_stream!11@TWITTER_APP_KEY!59@TWITTER_ACCESS_TOKEN!59@TWITTER_APP_KEY_SECRET!59@
-url|1|url!27@
-wor|1|wordFreq!43@
-wri|1|write_to_csv!42@
+15
+all|1|allwords!11@
+dri|1|driver!19@
+get|4|getText!26@getFrequency!10@getFrequency!34@getWords!10@
+her|1|herCampusUrls!19@
+htm|1|html!19@
+ini|1|init_driver!42@
+lin|2|lines!11@lines!27@
+loo|1|lookup!42@
+sou|1|soup!19@
+ter|2|terms!35@terms!11@
+tex|1|text!35@
+the|1|thefile!35@
+url|1|url!19@
+wor|1|wordFreq!35@
+wri|1|write_to_csv!34@
 -- END TREE
 -- START TREE 2
-1
-on_|2|on_error!8&10@on_data!8&10@
+0
 -- END TREE

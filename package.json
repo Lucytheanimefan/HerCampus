@@ -1,0 +1,19 @@
+{
+  "name": "hercampus",
+  "version": "1.0.0",
+  "description": "hercampus",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lucytheanimefan/HerCampus.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lucytheanimefan/HerCampus/issues"
+  },
+  "homepage": "https://github.com/Lucytheanimefan/HerCampus#readme"
+}
