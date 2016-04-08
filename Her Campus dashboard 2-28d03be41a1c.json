@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "her-campus-dashboard-2",
+  "private_key_id": "28d03be41a1c41b771784483e011bf7d7451fe9a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCbYy81kEdcBKe4\npDyBA+oaIgRLdUZH3ED7TEMPYtaqWgAdKZUb5qvn00Pfp0XPCEgp7NrW08kkT90h\nJeX15RAZ+DgfBNEVnSuYoUNi9RxgUTfeAAjbWlLVdhLyhC5xOzZYewvozHKZN92v\n61RJU2UXF3xtls+cpBujxcg7vLIrfQpj50mArdJIKz1NEEuwNhKcmDTlU/9KjfCr\nMPHLgesN0LkFB4nE6m+/SUIahDqkslhnBL6eZv4Jmpvf1cl/H30VRfGeaiyO8DFW\nG3uTrYDbHlhIx1HUE7Fu6evZwdS3PLyM7r1ER2wQNgzR9s7YKv+7bmaQTiUpfDev\n2DWTVjavAgMBAAECggEAet/DxSeCRlGoD2pQLfVaea/MlZ73JHwXJqD3poMSHUNu\nM6FeN+IAriFx2rn7ieuSpRSXOKngtMYyprPBVOD+CosuVdkJPX47q0ZaczZAainP\nc82zM0IJnqLv+LZtwzx/jRhAIqcJN//lXedJj3JSzh/UVRSct9FNygPsgtCEU74Z\nxXZhCRt6fERe3SQsdVKBAPMjxsEiiUuSIhD2uJc0DoCnch0hnT5UBaoXfDLZkJ2q\nGZfNSr+mJV7kmXNPZ78UUZLyw8Ba7231gc571scqiixWwh1ABdB1b2eIQmqeqhiH\nEolD9nH/VW8AYKcvsB4mgbtvODHvhE3HRE6YQnBTAQKBgQD5jbGburpMs4UgnlgR\nhnW+UPkMl4YIcN7XeCmnaFAhjiSFN6YH1yLlY7+ex1f4zC3e7pKiihe8+L+Q/BQP\nDbu7lP7vt4/N2KtbogdqMdA55bZGQCEmbz3RilnPpWkV3p9mLBA29NaImUdCMbO+\nnHkp0KTYBgv3r98J4zTw/1B2pwKBgQCfZsRjFgheqAS+OeNpskC7lFCmjkY2WCbw\n0r8WLRCHeZBF41SbK1lvn5j8NcyYIwNvAHVlLPvx7N54jSwlpCOEt/ZeV3cG+3YM\n30qxpI54lkqVy7ElIoVwSyrnwQSQ5wr0omOXJYWlisd7RlwdypqQ6yxE3CKGXE4B\nh0sorFLIuQKBgQCy+q/GK/8PobU6NradIx1xOKvWHxpvFVyNls3xFfxahJKmxMmc\nV+zcLlUxMHFkrDO97sdWMcpiqtjhyBkuzr+1AmBxVuqZTOthVe0RedaIn7rB2Z6s\n7R2eGibdqRmcKMWTxsh+Uc1HvP8Bd5odfCXeGpkPog6VPxqtAbpnmgWAgwKBgEq+\nuron27bfHJJCvNOURWxwKL1hG6ViAqiMehQg/443P6K17bdxRVflQ6yIYa65RGPp\nmCLgTCfuRYfL0va3l/wk8z7bzrGUeo+gqPrRygjbmI/TWvap0F6OsMjJpqV34ZhD\nCWYXryqn/9Bbdth1Z7Mqw7BqdToB0IZA9cpVu9/pAoGAEwmAaN04WeptS+K5nBWa\nxrGwijg0qIsmjeIK8GEg+qgxSjMNWGRl3jaoUsha9gke2K3AqF73WZy9wK/ffDIJ\nAeBGgjWCYc0rMaQiFPdYY22+poxQrxOAG8UEb6GYwTCOJ7EIkPpkaSYpIhEaUGhM\nGFBg4LHXFPasJVDw85on22g=\n-----END PRIVATE KEY-----\n",
+  "client_email": "hercampusinterns@her-campus-dashboard-2.iam.gserviceaccount.com",
+  "client_id": "116524604688408811995",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/hercampusinterns%40her-campus-dashboard-2.iam.gserviceaccount.com"
+}
