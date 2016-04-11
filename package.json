@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Lucytheanimefan/HerCampus/issues"
   },
-  "homepage": "https://github.com/Lucytheanimefan/HerCampus#readme"
+  "homepage": "https://github.com/Lucytheanimefan/HerCampus#readme",
+  "dependencies": {
+    "get-twitter-followers": "^2.0.0"
+  }
 }

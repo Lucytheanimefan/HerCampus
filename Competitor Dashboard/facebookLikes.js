@@ -49,6 +49,16 @@ var pageIDs = {
 	'10799255126': 'Marie Claire'
 };
 
+var pageIDs2 = {
+	'Her Campus':'113692773321',
+	'Teen Vogue':'6636341311',
+	'Seventeen':'8028997215',
+	'Glamour':'26815555478',
+	'Refinery 29':'86973707921',
+	'Cosmopolitan':'8358247707',
+	'Marie Claire':'10799255126'
+};
+
 var access_token = '1725954970975324|sidVOHslF41oAH_KWdlnhNRuDWk'
 id = '113692773321'
 
@@ -60,6 +70,92 @@ getPost(access_token, id, 1, function(d) {
 	console.log(d);
 })
 
+console.log("HERE:"+pageIDs[1]);
+//Her Campus data
+var herCampusInterval=setInterval(function(){
+	var div=document.getElementById("Her Campus");
+	getTotLikes(access_token,pageIDs2["Her Campus"], function(likes, name){
+		div.innerHTML = div.innerHTML + "<br>Facebook likes: "+numberWithCommas(likes);
+	});
+	getPost(access_token, pageIDs2["Her Campus"], 1, function(media, title, message, likes) {
+			div.innerHTML = div.innerHTML + "<br>" + "Most recent post: " + title + ": " + message + "<br> Number of likes: "+likes+"<br><br>";
+	});
+	div.innerHTML="Her Campus"; //reset the div
+},3000)
+
+//Her Campus data
+var TeenVogueInterval=setInterval(function(){
+	var div=document.getElementById("Teen Vogue");
+	getTotLikes(access_token,pageIDs2["Teen Vogue"], function(likes, name){
+		div.innerHTML = div.innerHTML + "<br>Facebook likes: "+numberWithCommas(likes);
+	});
+	getPost(access_token, pageIDs2["Teen Vogue"], 1, function(media, title, message, likes) {
+			div.innerHTML = div.innerHTML + "<br>" + "Most recent post: " + title + ": " + message + "<br> Number of likes: "+likes+"<br><br>";
+	});
+	div.innerHTML="Teen Vogue"; //reset the div
+},3000)
+
+//Seventeen data
+var SeventeenInterval=setInterval(function(){
+	var div=document.getElementById("Seventeen");
+	getTotLikes(access_token,pageIDs2["Seventeen"], function(likes, name){
+		div.innerHTML = div.innerHTML + "<br>Facebook likes: "+numberWithCommas(likes);
+	});
+	getPost(access_token, pageIDs2["Seventeen"], 1, function(media, title, message, likes) {
+			div.innerHTML = div.innerHTML + "<br>" + "Most recent post: " + title + ": " + message + "<br> Number of likes: "+likes+"<br><br>";
+	});
+	div.innerHTML="Seventeen"; //reset the div
+},3000)
+
+//Glamour data
+var GlamourInterval=setInterval(function(){
+	var div=document.getElementById("Glamour");
+	getTotLikes(access_token,pageIDs2["Glamour"], function(likes, name){
+		div.innerHTML = div.innerHTML + "<br>Facebook likes: "+numberWithCommas(likes);
+	});
+	getPost(access_token, pageIDs2["Glamour"], 1, function(media, title, message, likes) {
+			div.innerHTML = div.innerHTML + "<br>" + "Most recent post: " + title + ": " + message + "<br> Number of likes: "+likes+"<br><br>";
+	});
+	div.innerHTML="Glamour"; //reset the div
+},3000)
+
+//Refinery29 data
+var Refinery29Interval=setInterval(function(){
+	var div=document.getElementById("Refinery 29");
+	getTotLikes(access_token,pageIDs2["Refinery 29"], function(likes, name){
+		div.innerHTML = div.innerHTML + "<br>Facebook likes: "+numberWithCommas(likes);
+	});
+	getPost(access_token, pageIDs2["Refinery 29"], 1, function(media, title, message, likes) {
+			div.innerHTML = div.innerHTML + "<br>" + "Most recent post: " + title + ": " + message + "<br> Number of likes: "+likes+"<br><br>";
+	});
+	div.innerHTML="Refinery 29"; //reset the div
+},3000)
+
+//Cosmopolitan data
+var CosmopolitanInterval=setInterval(function(){
+	var div=document.getElementById("Cosmopolitan");
+	getTotLikes(access_token,pageIDs2["Cosmopolitan"], function(likes, name){
+		div.innerHTML = div.innerHTML + "<br>Facebook likes: "+numberWithCommas(likes);
+	});
+	getPost(access_token, pageIDs2["Cosmopolitan"], 1, function(media, title, message, likes) {
+			div.innerHTML = div.innerHTML + "<br>" + "Most recent post: " + title + ": " + message + "<br> Number of likes: "+likes+"<br><br>";
+	});
+	div.innerHTML="Cosmopolitan"; //reset the div
+},3000)
+
+//Cosmopolitan data
+var MarieClaireInterval=setInterval(function(){
+	var div=document.getElementById("Marie Claire");
+	getTotLikes(access_token,pageIDs2["Marie Claire"], function(likes, name){
+		div.innerHTML = div.innerHTML + "<br>Facebook likes: "+numberWithCommas(likes);
+	});
+	getPost(access_token, pageIDs2["Marie Claire"], 1, function(media, title, message, likes) {
+			div.innerHTML = div.innerHTML + "<br>" + "Most recent post: " + title + ": " + message + "<br> Number of likes: "+likes+"<br>";
+	});
+	div.innerHTML="Marie Claire"; //reset the div
+},3000)
+
+/**
 var interval = setInterval(function() {
 	for (var key in pageIDs) {
 		var div = document.getElementById("Facebook likes")
@@ -72,6 +168,7 @@ var interval = setInterval(function() {
 	div.innerHTML = "";
 }, 10000);
 
+
 var postInterval = setInterval(function() {
 	for (var key in pageIDs) {
 		var div = document.getElementById('Facebook posts');
@@ -82,3 +179,4 @@ var postInterval = setInterval(function() {
 	}
 	div.innerHTML = "";
 }, 10000);
+**/
