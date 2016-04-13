@@ -2,21 +2,36 @@
 access_token = '3039584474.1677ed0.fa83f841e7374682954ee8017e26ee21'
 ID='36456825'
 
+function numberWithCommas(x) {
+	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 //returns number of followers
 function getInsta(access_token, user_id, callback) {
 	url = 'https://api.instagram.com/v1/users/' + user_id + '?access_token=' + access_token
 	console.log(url);
 	$.getJSON(url, function(json) {
+		console.log(json);
+		//callback(json);
 		callback(json.data.counts.followed_by);
 	})
 }
 
 getInsta(access_token, '36456825',function(follows){
-	console.log("In the function!");
+	//console.log("In the function!");
 	console.log("Instagram follows: "+follows);
 });
 
 console.log("Hi");
+
+var herCampusInterval=setInterval(function(){
+	var div=document.getElementById("Her Campus");
+	getInsta(access_token,ID, function(follows){
+		div.innerHTML = div.innerHTML + "<br>Instagram followers: "+numberWithCommas(follows);
+	});
+	div.innerHTML="Her Campus"; //reset the div
+},3000)
+
 
 /**
 $(function() {
@@ -48,4 +63,4 @@ $(function() {
 			}
 		}
 	});
-	**/
+**/
