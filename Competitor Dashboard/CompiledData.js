@@ -109,17 +109,27 @@ for (var row = 0; row < 7; row++) {
 
 	});
 	promise.then(function(stuff) {
-		console.log("ID: " + media[stuff.row]); //UNDEFINED? WHY?!!! (yes, this again-__-)
-		getTotLikes(fb_access_token, fbpageIDs2[media[stuff.row]], function(likes) {
-			console.log("HERE:" + likes);
-			stuff.data["Cell" + stuff.row + 1].innerHTML = numberWithCommas(likes);
-		});
-		getInsta(inst_access_token, instIDs[media[stuff.row]], function(followers) {
-			console.log("Followers: " + followers);
-			stuff.data["Cell" + stuff.row + 3].innerHTML=numberWithCommas(followers);
-		})
+		var interval = setInterval(function() {
 
-		console.log("hello I am here but nothing to do.")
+
+			//facebook page likes
+			getTotLikes(fb_access_token, fbpageIDs2[media[stuff.row]], function(likes) {
+				console.log("HERE:" + likes);
+				stuff.data["Cell" + stuff.row + 1].innerHTML = numberWithCommas(likes);
+			});
+
+			//most recent facebook post likes
+			getPost(fb_access_token, fbpageIDs2[media[stuff.row]], 1, function(media, title, message, likes) {
+				stuff.data["Cell" + stuff.row + 2].innerHTML = likes;
+			});
+
+			//Instagram followers
+			getInsta(inst_access_token, instIDs[media[stuff.row]], function(followers) {
+				console.log("Followers: " + followers);
+				stuff.data["Cell" + stuff.row + 3].innerHTML = numberWithCommas(followers);
+			})
+
+		}, 1000);
 	});
 	/**
 	for (var i = 0; i < numColumns; i++) {
