@@ -28,8 +28,17 @@ var fbpageIDs2 = {
 	'Marie Claire': '10799255126'
 };
 
+var instIDs = {
+	'Her Campus': '36456825',
+	'Teen Vogue': '4073479',
+	'Seventeen': '22492633',
+	'Glamour': '10070230',
+	'Refinery 29': '2983181',
+	'Cosmopolitan': '42725516',
+	'Marie Claire': '17372994'
+};
 var fb_access_token = '1725954970975324|sidVOHslF41oAH_KWdlnhNRuDWk'
-
+var inst_access_token = '3039584474.1677ed0.fa83f841e7374682954ee8017e26ee21'
 
 function getTotLikes(fb_access_token, pageID, callback) {
 	var url = 'https://graph.facebook.com/v2.3/' + pageID + '?fields=likes&access_token=' + fb_access_token;
@@ -55,6 +64,17 @@ function getPost(fb_access_token, pageID, postNum, callback) {
 	})
 }
 
+//returns number of Instagram followers
+function getInsta(access_token, user_id, callback) {
+	url = 'https://api.instagram.com/v1/users/' + user_id + '?access_token=' + access_token
+	console.log(url);
+	$.getJSON(url, function(json) {
+		console.log(json);
+		//callback(json);
+		callback(json.data.counts.followed_by);
+	})
+}
+
 function numberWithCommas(x) {
 	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
@@ -67,15 +87,54 @@ var date = setInterval(
 
 
 //create table cells
+//map & filter later!
 var data = []; // holds all of the cells
 for (var row = 0; row < 7; row++) {
 	var table = document.getElementById("myTable");
 	var myRow = table.insertRow(table.rows.length);
+	var promise = new Promise(function(resolve, reject) {
+		for (var i = 0; i < numColumns; i++) {
+			data["Cell" + row + i] = myRow.insertCell(i);
+			console.log("Cell" + row + i);
+		}
+		//media titles
+		data["Cell" + row + 0].innerHTML = media[row];
+		console.log("Length: " + Object.keys(data).length);
+		//if all cells are created, resolve
+
+		resolve({
+			data: data,
+			row: row
+		});
+
+	});
+	promise.then(function(stuff) {
+		console.log("ID: " + media[stuff.row]); //UNDEFINED? WHY?!!! (yes, this again-__-)
+		getTotLikes(fb_access_token, fbpageIDs2[media[stuff.row]], function(likes) {
+			console.log("HERE:" + likes);
+			stuff.data["Cell" + stuff.row + 1].innerHTML = numberWithCommas(likes);
+		});
+		getInsta(inst_access_token, instIDs[media[stuff.row]], function(followers) {
+			console.log("Followers: " + followers);
+			stuff.data["Cell" + stuff.row + 3].innerHTML=numberWithCommas(followers);
+		})
+
+		console.log("hello I am here but nothing to do.")
+	});
+	/**
 	for (var i = 0; i < numColumns; i++) {
 		data["Cell"+row+i] = myRow.insertCell(i);
 		console.log("Cell"+row+i);
 	}
+	//media titles
 	data["Cell"+row+0].innerHTML = media[row];
+
+	//facebook data
+	getTotLikes(fb_access_token, fbpageIDs2[media[row]], function(likes, name) {
+		console.log("HERE:" + likes);
+		data["Cell" + row + 1].innerHTML = numberWithCommas(likes);
+	});
+	**/
 }
 
 //update table by row

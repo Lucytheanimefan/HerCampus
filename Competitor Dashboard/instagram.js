@@ -1,6 +1,15 @@
 //instagram
-access_token = '3039584474.1677ed0.fa83f841e7374682954ee8017e26ee21'
-ID='36456825'
+inst_access_token = '3039584474.1677ed0.fa83f841e7374682954ee8017e26ee21'
+instID = '36456825'
+instIDs = {
+	'Her Campus': '36456825',
+	'Teen Vogue': '4073479',
+	'Seventeen': '22492633',
+	'Glamour': '10070230',
+	'Refinery 29': '2983181',
+	'Cosmopolitan': '42725516',
+	'Marie Claire': '17372994'
+};
 
 function numberWithCommas(x) {
 	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -17,20 +26,20 @@ function getInsta(access_token, user_id, callback) {
 	})
 }
 
-getInsta(access_token, '36456825',function(follows){
+getInsta(access_token, '36456825', function(follows) {
 	//console.log("In the function!");
-	console.log("Instagram follows: "+follows);
+	console.log("Instagram follows: " + follows);
 });
 
 console.log("Hi");
 
-var herCampusInterval=setInterval(function(){
-	var div=document.getElementById("Her Campus");
-	getInsta(access_token,ID, function(follows){
-		div.innerHTML = div.innerHTML + "<br>Instagram followers: "+numberWithCommas(follows);
+var herCampusInterval = setInterval(function() {
+	var div = document.getElementById("Her Campus");
+	getInsta(inst_access_token, instID, function(follows) {
+		div.innerHTML = div.innerHTML + "<br>Instagram followers: " + numberWithCommas(follows);
 	});
-	div.innerHTML="Her Campus"; //reset the div
-},3000)
+	div.innerHTML = "Her Campus"; //reset the div
+}, 3000)
 
 
 /**
