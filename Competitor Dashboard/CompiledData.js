@@ -3,7 +3,7 @@
 //access token: 1725954970975324|sidVOHslF41oAH_KWdlnhNRuDWk
 
 //All of the data from Facebook, Instagram and Twitter
-var numColumns = 4;
+var numColumns = 5;
 var media = ['Her Campus', 'Teen Vogue', 'Seventeen', 'Glamour', 'Refinery 29',
 	'Cosmopolitan', 'Marie Claire'
 ];
@@ -75,10 +75,59 @@ function getInsta(access_token, user_id, callback) {
 	})
 }
 
+//returns number of Instagram posts
+function getInstaMedia(access_token, user_id, callback) {
+	url = 'https://api.instagram.com/v1/users/' + user_id + '?access_token=' + access_token
+	console.log(url);
+	$.getJSON(url, function(json) {
+		console.log(json);
+		//callback(json);
+		callback(json.data.counts.media);
+	})
+}
+
 function numberWithCommas(x) {
 	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
+// Tiny object for getting counts
+var socialGetter = (function() {
+	/* just a utility to do the script injection */
+	function injectScript(url) {
+		var script = document.createElement('script');
+		script.async = true;
+		script.src = url;
+		document.body.appendChild(script);
+	}
+
+	return {
+		getFacebookCount: function(url, callbackName) {
+			injectScript('https://graph.facebook.com/?id=' + url + '&callback=' + callbackName);
+		},
+		/*getTwitterCount: function(url, callbackName) {
+			injectScript('http://urls.api.twitter.com/1/urls/count.json?url=' + url + '&callback=' + callbackName);
+		}*/
+	};
+})();
+
+// Callbacks to do something with the result
+/*function twitterCallback(result) {
+	result.count && console.log('The count is: ', result.count);
+}*/
+
+function facebookCallback(result) {
+	result.shares && console.log('The count is: ', result.shares);
+	var output=document.getElementById("output");
+	output.innerHTML="Number of fb shares: "+numberWithCommas(result.shares);
+}
+//Clicking button to get number of shares
+document.getElementById("SubmitButton").onclick=function(){
+	var text=document.getElementById('Text').value;
+	console.log(text);
+	socialGetter.getFacebookCount(text, 'facebookCallback');
+}
+
+//setting to today's date
 var date = setInterval(
 	function() {
 		var today = new Date().toJSON().slice(0, 10);
@@ -129,9 +178,17 @@ for (var row = 0; row < 7; row++) {
 				stuff.data["Cell" + stuff.row + 3].innerHTML = numberWithCommas(followers);
 			})
 
+			//Instagram Post count
+			getInstaMedia(inst_access_token, instIDs[media[stuff.row]], function(media) {
+				console.log("Media: " + media);
+				stuff.data["Cell" + stuff.row + 4].innerHTML = numberWithCommas(media);
+			})
+
+
 		}, 1000);
 	});
-	/**
+}
+/***
 	for (var i = 0; i < numColumns; i++) {
 		data["Cell"+row+i] = myRow.insertCell(i);
 		console.log("Cell"+row+i);
@@ -144,7 +201,7 @@ for (var row = 0; row < 7; row++) {
 		console.log("HERE:" + likes);
 		data["Cell" + row + 1].innerHTML = numberWithCommas(likes);
 	});
-	**/
+	
 }
 
 //update table by row
@@ -158,6 +215,7 @@ var fbtotLikes = setInterval(function() {
 	}
 }, 1000)
 **/
+/*
 //Her Campus data row 1
 var herCampusInterval = setInterval(function() {
 	var div = document.getElementById("Her Campus");
@@ -240,4 +298,4 @@ var MarieClaireInterval = setInterval(function() {
 		div.innerHTML = div.innerHTML + "<br>" + "most recent fb post: " + title + ": " + message + "<br> Number of likes: " + likes + "<br>";
 	});
 	div.innerHTML = "Marie Claire"; //reset the div
-}, 3000)
+}, 3000)*/

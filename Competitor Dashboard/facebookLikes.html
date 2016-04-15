@@ -2,93 +2,41 @@
 <html lang="en">
 <head>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <style type="text/css">
-  .Table
-  {
-    display: table;
-  }
-  .Title
-  {
-    display: table-caption;
-    text-align: center;
-    font-weight: bold;
-    font-size: larger;
-  }
-  .Heading
-  {
-    display: table-row;
-    font-weight: bold;
-    text-align: center;
-  }
-  .Row
-  {
-    display: table-row;
-  }
-  .Cell
-  {
-    display: table-cell;
-    border: solid;
-    border-width: thin;
-    padding-left: 5px;
-    padding-right: 5px;
-  }
-  </style>
   <meta charset="UTF-8">
   <title>FB likes</title>
 
 </head>
 <body>
+  <h1>Stats and stuff</h1>
+  <div id="Date"></div>
   <table id="myTable" border="1">
     <tr>
       <td></td>
       <td>Facebook Page Likes</td>
       <td>Most recent FB post Likes</td>
       <td>Instagram Followers</td>
+      <td>Instagram Media Count</td>
     </tr>
-    <!--
-    <tr id="HerCampus">
-      <td>Her Campus</td>
-    </tr>
-    <tr id="Seventeen">
-      <td>Seventeen</td>
-    </tr>
-    <tr id="Teen Vogue">
-      <td>Teen Vogue</td>
-    </tr>
-    <tr id="Glamour">
-      <td>Glamour</td>
-    </tr>
-    <tr id="Refinery29">
-      <td>Refinery29</td>
-    </tr>
-    <tr id="Cosmopolitan">
-      <td>Cosmopolitan</td>
-    </tr>
-    <tr id="Marie Claire">
-      <td>Marie Claire</td>
-    </tr>
-    <tr>
-      
-    </tr>
-  -->
   </table>
   <div class="container">
-    <h2>Total Competitor facebook page likes</h2>
-    <div id="Date"></div>
     <div id="Facebook likes"></div>
     <div id="Facebook posts"></div>
-    <div id="Her Campus">Her Campus</div>
+    <div id="Her Campus"></div>
     <div id="Teen Vogue"></div>
     <div id="Seventeen"></div>
     <div id="Glamour"></div>
     <div id="Refinery 29"></div>
     <div id="Cosmopolitan"></div>
     <div id="Marie Claire"></div>
+
+    <form action="demo_form.asp">
+      Look up number of Facebook shares: <input type="text" id="Text" ><br>
+      <button type="button" id="SubmitButton" value="Submit">Submit</button>
+      <div id="output"></div>
+    </body>
     <script src="jquery-2.2.1.js"></script>
     <!--<script src="facebookLikes.js"></script>-->
     <!--<script src="twitter.js"></script>-->
     <!--<script src="instagram.js"></script>-->
     <script src="CompiledData.js"></script>
-
-  </body>
-  </html>
+    </html>
