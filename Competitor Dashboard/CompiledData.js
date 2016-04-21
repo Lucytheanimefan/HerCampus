@@ -67,9 +67,7 @@ function getPost(fb_access_token, pageID, postNum, callback) {
 //returns number of Instagram followers
 function getInsta(access_token, user_id, callback) {
 	url = 'https://api.instagram.com/v1/users/' + user_id + '?access_token=' + access_token
-	console.log(url);
 	$.getJSON(url, function(json) {
-		console.log(json);
 		//callback(json);
 		callback(json.data.counts.followed_by);
 	})
@@ -78,9 +76,8 @@ function getInsta(access_token, user_id, callback) {
 //returns number of Instagram posts
 function getInstaMedia(access_token, user_id, callback) {
 	url = 'https://api.instagram.com/v1/users/' + user_id + '?access_token=' + access_token
-	console.log(url);
 	$.getJSON(url, function(json) {
-		console.log(json);
+		//console.log(json);
 		//callback(json);
 		callback(json.data.counts.media);
 	})
@@ -110,11 +107,6 @@ var socialGetter = (function() {
 	};
 })();
 
-// Callbacks to do something with the result
-/*function twitterCallback(result) {
-	result.count && console.log('The count is: ', result.count);
-}*/
-
 function facebookCallback(result) {
 	result.shares && console.log('The count is: ', result.shares);
 	var output=document.getElementById("output");
@@ -123,7 +115,7 @@ function facebookCallback(result) {
 //Clicking button to get number of shares
 document.getElementById("SubmitButton").onclick=function(){
 	var text=document.getElementById('Text').value;
-	console.log(text);
+	//console.log(text);
 	socialGetter.getFacebookCount(text, 'facebookCallback');
 }
 
@@ -144,11 +136,10 @@ for (var row = 0; row < 7; row++) {
 	var promise = new Promise(function(resolve, reject) {
 		for (var i = 0; i < numColumns; i++) {
 			data["Cell" + row + i] = myRow.insertCell(i);
-			console.log("Cell" + row + i);
 		}
 		//media titles
 		data["Cell" + row + 0].innerHTML = media[row];
-		console.log("Length: " + Object.keys(data).length);
+		//console.log("Length: " + Object.keys(data).length);
 		//if all cells are created, resolve
 
 		resolve({
@@ -158,12 +149,12 @@ for (var row = 0; row < 7; row++) {
 
 	});
 	promise.then(function(stuff) {
-		var interval = setInterval(function() {
+		//var interval = setInterval(function() {
 
 
 			//facebook page likes
 			getTotLikes(fb_access_token, fbpageIDs2[media[stuff.row]], function(likes) {
-				console.log("HERE:" + likes);
+				//console.log("HERE:" + likes);
 				stuff.data["Cell" + stuff.row + 1].innerHTML = numberWithCommas(likes);
 			});
 
@@ -174,18 +165,18 @@ for (var row = 0; row < 7; row++) {
 
 			//Instagram followers
 			getInsta(inst_access_token, instIDs[media[stuff.row]], function(followers) {
-				console.log("Followers: " + followers);
+				//console.log("Followers: " + followers);
 				stuff.data["Cell" + stuff.row + 3].innerHTML = numberWithCommas(followers);
 			})
 
 			//Instagram Post count
 			getInstaMedia(inst_access_token, instIDs[media[stuff.row]], function(media) {
-				console.log("Media: " + media);
+				//console.log("Media: " + media);
 				stuff.data["Cell" + stuff.row + 4].innerHTML = numberWithCommas(media);
 			})
 
 
-		}, 1000);
+		//}, 1000);
 	});
 }
 /***
