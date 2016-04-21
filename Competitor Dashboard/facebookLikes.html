@@ -30,6 +30,11 @@
       Look up number of Facebook shares: <input type="text" id="Text" ><br>
       <button type="button" id="SubmitButton" value="Submit">Submit</button>
       <div id="output"></div>
+      <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button>
+
+<div id="status">
+</div>
     </body>
     <script src="jquery-2.2.1.js"></script>
     <!--<script src="facebookLikes.js"></script>-->
