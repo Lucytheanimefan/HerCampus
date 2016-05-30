@@ -57,6 +57,12 @@ function dsPieChart() {
 		.attr("transform", "translate(" + outerRadius + "," + outerRadius + ")") //move the center of the pie chart from 0, 0 to radius, radius
 	;
 
+/**
+	vis.append("rect")
+		.attr("width", "100%")
+		.attr("height", "100%")
+		.attr("fill",function(d){return "#2C3546";})
+**/
 	var arc = d3.svg.arc() //this will create <path> elements for us using arc data
 		.outerRadius(outerRadius).innerRadius(innerRadius);
 
@@ -120,7 +126,8 @@ function dsPieChart() {
 		.attr("dy", ".35em")
 		.attr("text-anchor", "middle")
 		.text("TOTAL: 14,991,104")
-		.attr("class", "title");
+		.attr("class", "title")
+		.attr("fill", "white");
 
     
 	function mouseover() {
@@ -408,6 +415,12 @@ function dsBarChart() {
 		.attr("height", height + margin.top + margin.bottom)
 		.attr("id", "barChartPlot");
 
+/**
+	svg.append("rect")
+		.attr("width", "100%")
+		.attr("height", "100%")
+		.attr("fill",function(d){return "#2C3546";})
+**/
 	var plot = svg
 		.append("g")
 		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -474,6 +487,7 @@ function dsBarChart() {
 		})
 		.attr("y", 15)
 		.attr("class", "xAxis")
+		.style('fill', 'white')
 		//.attr("style", "font-size: 12; font-family: Helvetica, sans-serif")
 	;
 
@@ -484,6 +498,7 @@ function dsBarChart() {
 		.attr("y", 15)
 		.attr("class", "title")
 		.attr("text-anchor", "middle")
+		.attr('fill','white')
 		.text("Overall Breakdown 2016");
 }
 
@@ -552,6 +567,7 @@ function updateBarChart(group, colorChosen) {
 		.text(function(d) {
 			return formatAsInteger(d3.round(d.measure));
 		})
+		.style("fill", 'white')
 		.attr("class", "yAxis");
 
 
@@ -560,7 +576,8 @@ function updateBarChart(group, colorChosen) {
 		.attr("y", 15)
 		.attr("class", "title")
 		.attr("text-anchor", "middle")
-		.text(group + "'s Overall Breakdown 2016");
+		.text(group + "'s Overall Breakdown 2016")
+		.style('fill', 'white');
 }
 
 
