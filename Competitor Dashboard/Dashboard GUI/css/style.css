@@ -107,7 +107,7 @@ head, body{
 	height: 250px;
 }
 
-.slice {
+#socialmediareach .slice {
    font-size: 8pt;
    font-family: Verdana;
    fill: white; //svg specific - instead of color
@@ -115,50 +115,50 @@ head, body{
   		} 
 
 /*for line chart*/
-.axis path, .axis line {
+#socialmediareach .axis path, .axis line {
     fill: none;
     stroke: black;
     shape-rendering: crispEdges; //The shape-rendering property is an SVG attribute, used here to make sure our axis and its tick mark lines are pixel-perfect. 
 }
 
-.line {
+#socialmediareach .line {
   fill: none;
   /*stroke: steelblue;*/
   stroke-width: 3px;
 }
 
-.dot {
+#socialmediareach .dot {
   /*fill: white;*/
   /*stroke: steelblue;*/
   stroke-width: 1.5px;
   }
 				
 
-.axis text {
+#socialmediareach .axis text {
     font-family: Verdana;
     font-size: 11px;
 }
 
-.title {
+#socialmediareach .title {
 	 font-family: Verdana;
     font-size: 15px;	
 		
 }
 
-.xAxis {
+#socialmediareach .xAxis {
     font-family: verdana;
     font-size: 11px;
     fill: black;
 }  
 
-.yAxis {
+#socialmediareach .yAxis {
     font-family: verdana;
     font-size: 11px;
     fill: black;
 }
 
   
-table {
+#socialmediareach table {
 	border-collapse:collapse;
 	border: 0px;	
 	font-family: Verdana;	
@@ -167,7 +167,7 @@ table {
 	text-align: right;			
 }
 
-td {
+#socialmediareach td {
 	padding-left: 10px;		
 }
 
@@ -186,4 +186,22 @@ td {
 	text-anchor: middle;
 	font-weight: bold;
 	/*font-style: italic;*/
+}
+
+
+/*------------------------------Line graphs--------------------------*/
+#monthlyUniques path {
+	stroke: steelblue;
+	stroke-width: 2;
+	fill: none;
+}
+
+#monthlyUniques line {
+	stroke: black;
+	fill:none;
+}
+
+#monthlyUniques text {
+	font-family: Arial;
+	font-size: 9pt;
 }

@@ -1,6 +1,133 @@
+//------------------------------MONTHLY UNIQUES/PAGEVIEW-------------------------
+var hercampus = {
+	'February': 6000000,
+	'March': 5000000,
+	'April': 5000000
+}
+
+var influenceher = {
+	'February': 6000000,
+	'March': 6754083,
+	'April': 5000000
+}
+
+var Betches = {
+	'February': 1000000,
+	'March': 1500000,
+	'April': 1500000
+}
+
+function findMax(data1, data2, data3) {
+	return d3.max(d3.values(data1).concat(d3.values(data2)).concat(d3.values(data3)))
+}
+
+console.log(findMax(hercampus, influenceher, Betches))
+
+function createLineGraphs(data1, data2, data3) {
+	w = 400;
+	h = 200;
+	margin = 50;
+	y = d3.scale.linear().domain([0, findMax(data1, data2, data3)]).range([0 + margin, h - margin]);
+	var x = d3.scale.ordinal()
+		.rangeRoundBands([0, w])
+		.domain(d3.values(data1).map(function(d) {
+			return d.key;
+		}));
+
+	var xAxis = d3.svg.axis()
+		.scale(x)
+		.orient("bottom");
+
+
+	var vis = d3.select("#monthlyUniques")
+		.append("svg:svg")
+		.attr("width", w)
+		.attr("height", h)
+
+	var g = vis.append("svg:g")
+		.attr("transform", "translate(0, 200)");
+
+	var line = d3.svg.line()
+		.x(function(d, i) {
+			return x(i);
+		})
+		.y(function(d) {
+			return -1 * y(d);
+		})
+
+	g.append("svg:path").attr("d", line(data1));
+
+	g.append("svg:line")
+		.attr("x1", x(0))
+		.attr("y1", -1 * y(0))
+		.attr("x2", x(w))
+		.attr("y2", -1 * y(0))
+
+	g.append("svg:line")
+		.attr("x1", x(0))
+		.attr("y1", -1 * y(0))
+		.attr("x2", x(0))
+		.attr("y2", -1 * y(findMax(data1, data2, data3)))
+		/**
+			g.selectAll(".xLabel")
+				.data(x.ticks(3))
+				.enter().append("svg:text")
+				.attr("class", "xLabel")
+				.text(String)
+				.attr("x", function(d) {
+					console.log(d)
+					console.log(x(d))
+					console.log(d3.keys(data1)[d])
+					return (d3.keys(data1))[d]
+				})
+				.attr("y", 0)
+				.attr("text-anchor", "middle")
+		**/
+	g.selectAll(".yLabel")
+		.data(y.ticks(4))
+		.enter().append("svg:text")
+		.attr("class", "yLabel")
+		.text(String)
+		.attr("x", 0)
+		.attr("y", function(d) {
+			return -1 * y(d)
+		})
+		.attr("text-anchor", "right")
+		.attr("dy", 4)
+
+/**
+	g.selectAll(".xTicks")
+		.data(x.ticks(5))
+		.enter().append("svg:line")
+		.attr("class", "xTicks")
+		.attr("x1", function(d) {
+			return x(d);
+		})
+		.attr("y1", -1 * y(0))
+		.attr("x2", function(d) {
+			return x(d);
+		})
+		.attr("y2", -1 * y(-0.3))
+**/
+	g.selectAll(".yTicks")
+		.data(y.ticks(4))
+		.enter().append("svg:line")
+		.attr("class", "yTicks")
+		.attr("y1", function(d) {
+			return -1 * y(d);
+		})
+		.attr("x1", x(-0.3))
+		.attr("y2", function(d) {
+			return -1 * y(d);
+		})
+		.attr("x2", x(0))
+}
+
+createLineGraphs(hercampus, influenceher, Betches);
+//------------------------------SOCIAL MEDIA REACH-------------------------------
 
 /*
-################ FORMATS ##################
+################ formats ##################
 -------------------------------------------
 */
 
@@ -16,11 +143,9 @@ var formatAsPercentage = d3.format("%"),
 	fmon = d3.time.format("%b");
 
 /*
-############# PIE CHART ###################
+############# pie chart ###################
 -------------------------------------------
 */
-
-
 
 function dsPieChart() {
 
@@ -58,12 +183,12 @@ function dsPieChart() {
 		.attr("transform", "translate(" + outerRadius + "," + outerRadius + ")") //move the center of the pie chart from 0, 0 to radius, radius
 	;
 
-/**
-	vis.append("rect")
-		.attr("width", "100%")
-		.attr("height", "100%")
-		.attr("fill",function(d){return "#2C3546";})
-**/
+	/**
+		vis.append("rect")
+			.attr("width", "100%")
+			.attr("height", "100%")
+			.attr("fill",function(d){return "#2C3546";})
+	**/
 	var arc = d3.svg.arc() //this will create <path> elements for us using arc data
 		.outerRadius(outerRadius).innerRadius(innerRadius);
 
@@ -130,7 +255,7 @@ function dsPieChart() {
 		.attr("class", "title")
 		.attr("fill", "white");
 
-    
+
 	function mouseover() {
 		d3.select(this).select("path").transition()
 			.duration(750)
@@ -190,13 +315,11 @@ var datasetBarChart = [{
 	group: "All",
 	category: "Tumblr",
 	measure: 56097.0151
-},
-{
+}, {
 	group: "All",
 	category: "Snapchat",
 	measure: 56097.0151
-},
-{
+}, {
 	group: "All",
 	category: "Bloglovin",
 	measure: 56097.0151
@@ -224,11 +347,11 @@ var datasetBarChart = [{
 	group: "INFLUENCEHER",
 	category: "Tumblr",
 	measure: 22913.2728
-},{
+}, {
 	group: "INFLUENCEHER",
 	category: "Snapchat",
 	measure: 0
-},  {
+}, {
 	group: "INFLUENCEHER",
 	category: "Bloglovin",
 	measure: 7637.7576
@@ -252,21 +375,19 @@ var datasetBarChart = [{
 	group: "NATIONAL",
 	category: "Youtube",
 	measure: 0
-}, 
-{
+}, {
 	group: "NATIONAL",
 	category: "Tumblr",
 	measure: 0
-}, 
-{
+}, {
 	group: "NATIONAL",
 	category: "Snapchat",
 	measure: 2430.1956
-},{
+}, {
 	group: "NATIONAL",
 	category: "Bloglovin",
 	measure: 0
-},  {
+}, {
 	group: "CHAPTERS",
 	category: "Facebook",
 	measure: 15275.5152
@@ -278,32 +399,27 @@ var datasetBarChart = [{
 	group: "CHAPTERS",
 	category: "Instagram",
 	measure: 11803.8072
-}, 
-{
+}, {
 	group: "CHAPTERS",
 	category: "Pinterest",
 	measure: 0
-},
-{
+}, {
 	group: "CHAPTERS",
 	category: "Youtube",
 	measure: 0
-},
-{
+}, {
 	group: "CHAPTERS",
 	category: "Tumblr",
 	measure: 0
-},
-{
+}, {
 	group: "CHAPTERS",
 	category: "Snapchat",
 	measure: 0
-},
-{
+}, {
 	group: "CHAPTERS",
 	category: "Bloglovin",
 	measure: 0
-},{
+}, {
 	group: "BETCHES",
 	category: "Facebook",
 	measure: 7406.3104
@@ -319,22 +435,19 @@ var datasetBarChart = [{
 	group: "BETCHES",
 	category: "Pinterest",
 	measure: 8563.5464
-},
-{
+}, {
 	group: "BETCHES",
 	category: "Youtube",
 	measure: 0
-},{
+}, {
 	group: "BETCHES",
 	category: "Tumblr",
 	measure: 0
-}, 
-{
+}, {
 	group: "BETCHES",
 	category: "Snapchat",
 	measure: 0
-},
-{
+}, {
 	group: "BETCHES",
 	category: "Bloglovin",
 	measure: 0
@@ -416,12 +529,12 @@ function dsBarChart() {
 		.attr("height", height + margin.top + margin.bottom)
 		.attr("id", "barChartPlot");
 
-/**
-	svg.append("rect")
-		.attr("width", "100%")
-		.attr("height", "100%")
-		.attr("fill",function(d){return "#2C3546";})
-**/
+	/**
+		svg.append("rect")
+			.attr("width", "100%")
+			.attr("height", "100%")
+			.attr("fill",function(d){return "#2C3546";})
+	**/
 	var plot = svg
 		.append("g")
 		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -499,7 +612,7 @@ function dsBarChart() {
 		.attr("y", 15)
 		.attr("class", "title")
 		.attr("text-anchor", "middle")
-		.attr('fill','white')
+		.attr('fill', 'white')
 		.text("Overall Breakdown 2016");
 }
 
@@ -586,30 +699,91 @@ function updateBarChart(group, colorChosen) {
 ############# LINE CHART ##################
 -------------------------------------------
 */
-var datasetLineChart = [
-{ group: "All", category: 2008, measure: 289309 }, 
-{ group: "All", category: 2009, measure: 234998 }, 
-{ group: "All", category: 2010, measure: 310900 }, 
-{ group: "All", category: 2011, measure: 223900 }, 
-{ group: "All", category: 2016, measure: 234500 }, 
-{ group: "INFLUENCEHER", category: 2008, measure: 81006.52 }, 
-{ group: "INFLUENCEHER", category: 2009, measure: 70499.4 }, 
-{ group: "INFLUENCEHER", category: 2010, measure: 96379 }, 
-{ group: "INFLUENCEHER", category: 2011, measure: 64931 },  
-{ group: "NATIONAL", category: 2008, measure: 63647.98 }, 
-{ group: "NATIONAL", category: 2009, measure: 61099.48 }, 
-{ group: "NATIONAL", category: 2010, measure: 87052 }, 
-{ group: "NATIONAL", category: 2011, measure: 58214 }, 
-{ group: "CHAPTERS", category: 2008, measure: 23144.72 }, 
-{ group: "CHAPTERS", category: 2009, measure: 14099.88 }, 
-{ group: "CHAPTERS", category: 2010, measure: 15545 }, 
-{ group: "CHAPTERS", category: 2011, measure: 11195 }, 
-{ group: "BETCHES", category: 2016, measure: 11725 }, 
-{ group: "BETCHES", category: 2008, measure: 34717.08 }, 
-{ group: "BETCHES", category: 2009, measure: 30549.74 }, 
-{ group: "BETCHES", category: 2010, measure: 34199 }, 
-]
-;
+var datasetLineChart = [{
+	group: "All",
+	category: 2008,
+	measure: 289309
+}, {
+	group: "All",
+	category: 2009,
+	measure: 234998
+}, {
+	group: "All",
+	category: 2010,
+	measure: 310900
+}, {
+	group: "All",
+	category: 2011,
+	measure: 223900
+}, {
+	group: "All",
+	category: 2016,
+	measure: 234500
+}, {
+	group: "INFLUENCEHER",
+	category: 2008,
+	measure: 81006.52
+}, {
+	group: "INFLUENCEHER",
+	category: 2009,
+	measure: 70499.4
+}, {
+	group: "INFLUENCEHER",
+	category: 2010,
+	measure: 96379
+}, {
+	group: "INFLUENCEHER",
+	category: 2011,
+	measure: 64931
+}, {
+	group: "NATIONAL",
+	category: 2008,
+	measure: 63647.98
+}, {
+	group: "NATIONAL",
+	category: 2009,
+	measure: 61099.48
+}, {
+	group: "NATIONAL",
+	category: 2010,
+	measure: 87052
+}, {
+	group: "NATIONAL",
+	category: 2011,
+	measure: 58214
+}, {
+	group: "CHAPTERS",
+	category: 2008,
+	measure: 23144.72
+}, {
+	group: "CHAPTERS",
+	category: 2009,
+	measure: 14099.88
+}, {
+	group: "CHAPTERS",
+	category: 2010,
+	measure: 15545
+}, {
+	group: "CHAPTERS",
+	category: 2011,
+	measure: 11195
+}, {
+	group: "BETCHES",
+	category: 2016,
+	measure: 11725
+}, {
+	group: "BETCHES",
+	category: 2008,
+	measure: 34717.08
+}, {
+	group: "BETCHES",
+	category: 2009,
+	measure: 30549.74
+}, {
+	group: "BETCHES",
+	category: 2010,
+	measure: 34199
+}, ];
 // set initial category value
 var group = "All";
 
@@ -656,16 +830,6 @@ function dsLineChart() {
 		.datum(firstDatasetLineChart)
 		.attr("width", width + margin.left + margin.right)
 		.attr("height", height + margin.top + margin.bottom)
-
-	/* descriptive titles as part of plot -- start */
-	var dsLength = firstDatasetLineChart.length;
-
-	plot.append("text")
-		.text(firstDatasetLineChart[dsLength - 1].measure)
-		.attr("id", "lineChartTitle2")
-		.attr("x", width / 2)
-		.attr("y", height / 2);
-	/* descriptive titles -- end */
 
 	svg.append("text")
 		.attr("id", "lineChartTitle1")
