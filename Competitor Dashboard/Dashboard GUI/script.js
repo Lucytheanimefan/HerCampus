@@ -24,26 +24,17 @@ var formatAsPercentage = d3.format("%"),
 function dsPieChart() {
 
 	var dataset = [{
-		category: "Her Campus",
+		category: "BETCHES",
 		measure: 0.30
 	}, {
-		category: "Teen Vogue",
+		category: "NATIONAL",
 		measure: 0.25
 	}, {
-		category: "Seventeen",
-		measure: 0.15
+		category: "CHAPTERS",
+		measure: 0.25
 	}, {
-		category: "Glamour",
-		measure: 0.05
-	}, {
-		category: "Refinery 29",
-		measure: 0.18
-	}, {
-		category: "Cosmopolitan",
-		measure: 0.04
-	}, {
-		category: "Marie Claire",
-		measure: 0.03
+		category: "INFLUENCEHER",
+		measure: 0.2
 	}];
 
 	var width = 400,
@@ -54,7 +45,7 @@ function dsPieChart() {
 		innerRadiusFinal = outerRadius * .5,
 		innerRadiusFinal3 = outerRadius * .45,
 		color = d3.scale.ordinal()
-  			.range(["#6640CC ","#FF0066", "#FCBD12" , "#74F065"]); //builtin range of colors
+		.range(["#6640CC ", "#FF0066", "#FCBD12", "#00D6C2"]); //builtin range of colors
 	;
 
 	var vis = d3.select("#pieChart")
@@ -124,16 +115,14 @@ function dsPieChart() {
 		return a > 90 ? a - 180 : a;
 	}
 
-
 	// Pie chart title			
 	vis.append("svg:text")
 		.attr("dy", ".35em")
 		.attr("text-anchor", "middle")
-		.text("Online Presence 2016")
+		.text("TOTAL: 14,991,104")
 		.attr("class", "title");
 
-
-
+    
 	function mouseover() {
 		d3.select(this).select("path").transition()
 			.duration(750)
@@ -171,165 +160,177 @@ dsPieChart();
 
 var datasetBarChart = [{
 	group: "All",
-	category: "Twitter Followers",
+	category: "Facebook",
 	measure: 63850.4963
 }, {
 	group: "All",
-	category: "Page likes",
+	category: "Twitter",
 	measure: 78258.0845
 }, {
 	group: "All",
-	category: "Instagram Followers",
+	category: "Instagram",
 	measure: 60610.2355
 }, {
 	group: "All",
-	category: "Hits this month",
+	category: "Pinterest",
 	measure: 30493.1686
 }, {
 	group: "All",
-	category: "?????",
+	category: "Youtube",
 	measure: 56097.0151
 }, {
-	group: "Her Campus",
-	category: "Twitter Followers",
+	group: "All",
+	category: "Tumblr",
+	measure: 56097.0151
+},
+{
+	group: "All",
+	category: "Snapchat",
+	measure: 56097.0151
+},
+{
+	group: "All",
+	category: "Bloglovin",
+	measure: 56097.0151
+}, {
+	group: "INFLUENCEHER",
+	category: "Facebook",
 	measure: 19441.5648
 }, {
-	group: "Her Campus",
-	category: "Page likes",
+	group: "INFLUENCEHER",
+	category: "Twitter",
 	measure: 25922.0864
 }, {
-	group: "Her Campus",
-	category: "Instagram Followers",
+	group: "INFLUENCEHER",
+	category: "Instagram",
 	measure: 9720.7824
 }, {
-	group: "Her Campus",
-	category: "Hits this month",
+	group: "INFLUENCEHER",
+	category: "Pinterest",
 	measure: 6480.5216
 }, {
-	group: "Her Campus",
-	category: "?????",
+	group: "INFLUENCEHER",
+	category: "Youtube",
 	measure: 19441.5648
 }, {
-	group: "Teen Vogue",
-	category: "Twitter Followers",
+	group: "INFLUENCEHER",
+	category: "Tumblr",
 	measure: 22913.2728
-}, {
-	group: "Teen Vogue",
-	category: "Page likes",
+},{
+	group: "INFLUENCEHER",
+	category: "Snapchat",
+	measure: 0
+},  {
+	group: "INFLUENCEHER",
+	category: "Bloglovin",
 	measure: 7637.7576
 }, {
-	group: "Teen Vogue",
-	category: "Instagram Followers",
+	group: "NATIONAL",
+	category: "Facebook",
 	measure: 23549.7526
 }, {
-	group: "Teen Vogue",
-	category: "Hits this month",
+	group: "NATIONAL",
+	category: "Twitter",
 	measure: 1909.4394
 }, {
-	group: "Teen Vogue",
-	category: "?????",
+	group: "NATIONAL",
+	category: "Instagram",
 	measure: 7637.7576
 }, {
-	group: "Seventeen",
-	category: "Twitter Followers",
+	group: "NATIONAL",
+	category: "Pinterest",
 	measure: 1041.5124
 }, {
-	group: "Seventeen",
-	category: "Page likes",
+	group: "NATIONAL",
+	category: "Youtube",
+	measure: 0
+}, 
+{
+	group: "NATIONAL",
+	category: "Tumblr",
+	measure: 0
+}, 
+{
+	group: "NATIONAL",
+	category: "Snapchat",
 	measure: 2430.1956
-}, {
-	group: "Seventeen",
-	category: "Instagram Followers",
+},{
+	group: "NATIONAL",
+	category: "Bloglovin",
+	measure: 0
+},  {
+	group: "CHAPTERS",
+	category: "Facebook",
 	measure: 15275.5152
 }, {
-	group: "Seventeen",
-	category: "Hits this month",
+	group: "CHAPTERS",
+	category: "Twitter",
 	measure: 4166.0496
 }, {
-	group: "Seventeen",
-	category: "?????",
+	group: "CHAPTERS",
+	category: "Instagram",
 	measure: 11803.8072
-}, {
-	group: "Glamour",
-	category: "Twitter Followers",
+}, 
+{
+	group: "CHAPTERS",
+	category: "Pinterest",
+	measure: 0
+},
+{
+	group: "CHAPTERS",
+	category: "Youtube",
+	measure: 0
+},
+{
+	group: "CHAPTERS",
+	category: "Tumblr",
+	measure: 0
+},
+{
+	group: "CHAPTERS",
+	category: "Snapchat",
+	measure: 0
+},
+{
+	group: "CHAPTERS",
+	category: "Bloglovin",
+	measure: 0
+},{
+	group: "BETCHES",
+	category: "Facebook",
 	measure: 7406.3104
 }, {
-	group: "Glamour",
-	category: "Page likes",
+	group: "BETCHES",
+	category: "Twitter",
 	measure: 2545.9192
 }, {
-	group: "Glamour",
-	category: "Instagram Followers",
+	group: "BETCHES",
+	category: "Instagram",
 	measure: 1620.1304
 }, {
-	group: "Glamour",
-	category: "Hits this month",
+	group: "BETCHES",
+	category: "Pinterest",
 	measure: 8563.5464
-}, {
-	group: "Glamour",
-	category: "?????",
-	measure: 3008.8136
-}, {
-	group: "Refinery 29",
-	category: "Twitter Followers",
-	measure: 7637.7576
-}, {
-	group: "Refinery 29",
-	category: "Page likes",
-	measure: 35411.4216
-}, {
-	group: "Refinery 29",
-	category: "Instagram Followers",
-	measure: 8332.0992
-}, {
-	group: "Refinery 29",
-	category: "Hits this month",
-	measure: 6249.0744
-}, {
-	group: "Refinery 29",
-	category: "?????",
-	measure: 11803.8072
-}, {
-	group: "Cosmopolitan",
-	category: "Twitter Followers",
-	measure: 3182.399
-}, {
-	group: "Cosmopolitan",
-	category: "Page likes",
-	measure: 867.927
-}, {
-	group: "Cosmopolitan",
-	category: "Instagram Followers",
-	measure: 1808.18125
-}, {
-	group: "Cosmopolitan",
-	category: "Hits this month",
-	measure: 795.59975
-}, {
-	group: "Cosmopolitan",
-	category: "?????",
-	measure: 578.618
-}, {
-	group: "Marie Claire",
-	category: "Twitter Followers",
-	measure: 2227.6793
-}, {
-	group: "Marie Claire",
-	category: "Page likes",
-	measure: 3442.7771
-}, {
-	group: "Marie Claire",
-	category: "Instagram Followers",
-	measure: 303.77445
-}, {
-	group: "Marie Claire",
-	category: "Hits this month",
-	measure: 2328.93745
-}, {
-	group: "Marie Claire",
-	category: "?????",
-	measure: 1822.6467
-}, ];
+},
+{
+	group: "BETCHES",
+	category: "Youtube",
+	measure: 0
+},{
+	group: "BETCHES",
+	category: "Tumblr",
+	measure: 0
+}, 
+{
+	group: "BETCHES",
+	category: "Snapchat",
+	measure: 0
+},
+{
+	group: "BETCHES",
+	category: "Bloglovin",
+	measure: 0
+}];
 
 // set initial group value
 var group = "All";
@@ -356,8 +357,8 @@ function dsBarChartBasics() {
 		width = 500 - margin.left - margin.right,
 		height = 250 - margin.top - margin.bottom,
 		//colorBar = d3.scale.category20(),
-		colorBar=d3.scale.ordinal()
-  			.range(["#6640CC ","#FF0066", "#FCBD12" , "#74F065"]);
+		colorBar = d3.scale.ordinal()
+		.range(["#6640CC ", "#FF0066", "#FCBD12", "#00D6C2"]);
 	barPadding = 1;
 	console.log(colorBar)
 	return {
@@ -567,169 +568,30 @@ function updateBarChart(group, colorChosen) {
 ############# LINE CHART ##################
 -------------------------------------------
 */
-
-var datasetLineChart = [{
-	group: "All",
-	category: 2008,
-	measure: 289309
-}, {
-	group: "All",
-	category: 2009,
-	measure: 234998
-}, {
-	group: "All",
-	category: 2010,
-	measure: 310900
-}, {
-	group: "All",
-	category: 2011,
-	measure: 223900
-}, {
-	group: "All",
-	category: 2016,
-	measure: 234500
-}, {
-	group: "Her Campus",
-	category: 2008,
-	measure: 81006.52
-}, {
-	group: "Her Campus",
-	category: 2009,
-	measure: 70499.4
-}, {
-	group: "Her Campus",
-	category: 2010,
-	measure: 96379
-}, {
-	group: "Her Campus",
-	category: 2011,
-	measure: 64931
-}, {
-	group: "Her Campus",
-	category: 2016,
-	measure: 70350
-}, {
-	group: "Teen Vogue",
-	category: 2008,
-	measure: 63647.98
-}, {
-	group: "Teen Vogue",
-	category: 2009,
-	measure: 61099.48
-}, {
-	group: "Teen Vogue",
-	category: 2010,
-	measure: 87052
-}, {
-	group: "Teen Vogue",
-	category: 2011,
-	measure: 58214
-}, {
-	group: "Teen Vogue",
-	category: 2016,
-	measure: 58625
-}, {
-	group: "Glamour",
-	category: 2008,
-	measure: 23144.72
-}, {
-	group: "Glamour",
-	category: 2009,
-	measure: 14099.88
-}, {
-	group: "Glamour",
-	category: 2010,
-	measure: 15545
-}, {
-	group: "Glamour",
-	category: 2011,
-	measure: 11195
-}, {
-	group: "Glamour",
-	category: 2016,
-	measure: 11725
-}, {
-	group: "Seventeen",
-	category: 2008,
-	measure: 34717.08
-}, {
-	group: "Seventeen",
-	category: 2009,
-	measure: 30549.74
-}, {
-	group: "Seventeen",
-	category: 2010,
-	measure: 34199
-}, {
-	group: "Seventeen",
-	category: 2011,
-	measure: 33585
-}, {
-	group: "Seventeen",
-	category: 2016,
-	measure: 35175
-}, {
-	group: "Refinery 29",
-	category: 2008,
-	measure: 69434.16
-}, {
-	group: "Refinery 29",
-	category: 2009,
-	measure: 46999.6
-}, {
-	group: "Refinery 29",
-	category: 2010,
-	measure: 62180
-}, {
-	group: "Refinery 29",
-	category: 2011,
-	measure: 40302
-}, {
-	group: "Refinery 29",
-	category: 2016,
-	measure: 42210
-}, {
-	group: "Cosmopolitan",
-	category: 2008,
-	measure: 7232.725
-}, {
-	group: "Cosmopolitan",
-	category: 2009,
-	measure: 4699.96
-}, {
-	group: "Cosmopolitan",
-	category: 2010,
-	measure: 6218
-}, {
-	group: "Cosmopolitan",
-	category: 2011,
-	measure: 8956
-}, {
-	group: "Cosmopolitan",
-	category: 2016,
-	measure: 9380
-}, {
-	group: "Marie Claire",
-	category: 2008,
-	measure: 10125.815
-}, {
-	group: "Marie Claire",
-	category: 2009,
-	measure: 7049.94
-}, {
-	group: "Marie Claire",
-	category: 2010,
-	measure: 9327
-}, {
-	group: "Marie Claire",
-	category: 2011,
-	measure: 6717
-}, {
-	group: "Marie Claire",
-	category: 2016,
-	measure: 7035
-}];
-
+var datasetLineChart = [
+{ group: "All", category: 2008, measure: 289309 }, 
+{ group: "All", category: 2009, measure: 234998 }, 
+{ group: "All", category: 2010, measure: 310900 }, 
+{ group: "All", category: 2011, measure: 223900 }, 
+{ group: "All", category: 2016, measure: 234500 }, 
+{ group: "INFLUENCEHER", category: 2008, measure: 81006.52 }, 
+{ group: "INFLUENCEHER", category: 2009, measure: 70499.4 }, 
+{ group: "INFLUENCEHER", category: 2010, measure: 96379 }, 
+{ group: "INFLUENCEHER", category: 2011, measure: 64931 },  
+{ group: "NATIONAL", category: 2008, measure: 63647.98 }, 
+{ group: "NATIONAL", category: 2009, measure: 61099.48 }, 
+{ group: "NATIONAL", category: 2010, measure: 87052 }, 
+{ group: "NATIONAL", category: 2011, measure: 58214 }, 
+{ group: "CHAPTERS", category: 2008, measure: 23144.72 }, 
+{ group: "CHAPTERS", category: 2009, measure: 14099.88 }, 
+{ group: "CHAPTERS", category: 2010, measure: 15545 }, 
+{ group: "CHAPTERS", category: 2011, measure: 11195 }, 
+{ group: "BETCHES", category: 2016, measure: 11725 }, 
+{ group: "BETCHES", category: 2008, measure: 34717.08 }, 
+{ group: "BETCHES", category: 2009, measure: 30549.74 }, 
+{ group: "BETCHES", category: 2010, measure: 34199 }, 
+]
+;
 // set initial category value
 var group = "All";
 
@@ -772,35 +634,10 @@ function dsLineChart() {
 		width = basics.width,
 		height = basics.height;
 
-	var xScale = d3.scale.linear()
-		.domain([0, firstDatasetLineChart.length - 1])
-		.range([0, width]);
-
-	var yScale = d3.scale.linear()
-		.domain([0, d3.max(firstDatasetLineChart, function(d) {
-			return d.measure;
-		})])
-		.range([height, 0]);
-
-	var line = d3.svg.line()
-		//.x(function(d) { return xScale(d.category); })
-		.x(function(d, i) {
-			return xScale(i);
-		})
-		.y(function(d) {
-			return yScale(d.measure);
-		});
-
 	var svg = d3.select("#lineChart").append("svg")
 		.datum(firstDatasetLineChart)
 		.attr("width", width + margin.left + margin.right)
 		.attr("height", height + margin.top + margin.bottom)
-		// create group and move it so that margins are respected (space for axis and title)
-
-	var plot = svg
-		.append("g")
-		.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-		.attr("id", "lineChartPlot");
 
 	/* descriptive titles as part of plot -- start */
 	var dsLength = firstDatasetLineChart.length;
@@ -812,36 +649,7 @@ function dsLineChart() {
 		.attr("y", height / 2);
 	/* descriptive titles -- end */
 
-	plot.append("path")
-		.attr("class", "line")
-		.attr("d", line)
-		// add color
-		.attr("stroke", "lightgrey");
-
-	plot.selectAll(".dot")
-		.data(firstDatasetLineChart)
-		.enter().append("circle")
-		.attr("class", "dot")
-		//.attr("stroke", function (d) { return d.measure==datasetMeasureMin ? "red" : (d.measure==datasetMeasureMax ? "green" : "steelblue") } )
-		.attr("fill", function(d) {
-			return d.measure == d3.min(firstDatasetLineChart, function(d) {
-				return d.measure;
-			}) ? "red" : (d.measure == d3.max(firstDatasetLineChart, function(d) {
-				return d.measure;
-			}) ? "green" : "white")
-		})
-		//.attr("stroke-width", function (d) { return d.measure==datasetMeasureMin || d.measure==datasetMeasureMax ? "3px" : "1.5px"} )
-		.attr("cx", line.x())
-		.attr("cy", line.y())
-		.attr("r", 3.5)
-		.attr("stroke", "lightgrey")
-		.append("title")
-		.text(function(d) {
-			return d.category + ": " + formatAsInteger(d.measure);
-		});
-
 	svg.append("text")
-		.text("Performance 2016")
 		.attr("id", "lineChartTitle1")
 		.attr("x", margin.left + ((width + margin.right) / 2))
 		.attr("y", 10);
