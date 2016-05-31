@@ -108,56 +108,56 @@ head, body{
 }
 
 #socialmediareach .slice {
-   font-size: 8pt;
-   font-family: Verdana;
-   fill: white; //svg specific - instead of color
-   font-weight: bold;	
-  		} 
+	font-size: 8pt;
+	font-family: Verdana;
+	fill: white; //svg specific - instead of color
+	font-weight: bold;	
+} 
 
 /*for line chart*/
 #socialmediareach .axis path, .axis line {
-    fill: none;
-    stroke: black;
-    shape-rendering: crispEdges; //The shape-rendering property is an SVG attribute, used here to make sure our axis and its tick mark lines are pixel-perfect. 
+	fill: none;
+	stroke: black;
+	shape-rendering: crispEdges; //The shape-rendering property is an SVG attribute, used here to make sure our axis and its tick mark lines are pixel-perfect. 
 }
 
 #socialmediareach .line {
-  fill: none;
-  /*stroke: steelblue;*/
-  stroke-width: 3px;
+	fill: none;
+	/*stroke: steelblue;*/
+	stroke-width: 3px;
 }
 
 #socialmediareach .dot {
-  /*fill: white;*/
-  /*stroke: steelblue;*/
-  stroke-width: 1.5px;
-  }
-				
+	/*fill: white;*/
+	/*stroke: steelblue;*/
+	stroke-width: 1.5px;
+}
+
 
 #socialmediareach .axis text {
-    font-family: Verdana;
-    font-size: 11px;
+	font-family: Verdana;
+	font-size: 11px;
 }
 
 #socialmediareach .title {
-	 font-family: Verdana;
-    font-size: 15px;	
-		
+	font-family: Verdana;
+	font-size: 15px;	
+
 }
 
 #socialmediareach .xAxis {
-    font-family: verdana;
-    font-size: 11px;
-    fill: black;
+	font-family: verdana;
+	font-size: 11px;
+	fill: black;
 }  
 
 #socialmediareach .yAxis {
-    font-family: verdana;
-    font-size: 11px;
-    fill: black;
+	font-family: verdana;
+	font-size: 11px;
+	fill: black;
 }
 
-  
+
 #socialmediareach table {
 	border-collapse:collapse;
 	border: 0px;	
@@ -190,18 +190,27 @@ head, body{
 
 
 /*------------------------------Line graphs--------------------------*/
-#monthlyUniques path {
-	stroke: steelblue;
-	stroke-width: 2;
-	fill: none;
+#monthlyUniques{
+	background-color: #2C3546;
 }
 
 #monthlyUniques line {
-	stroke: black;
+	stroke: #A4B3BA;
 	fill:none;
 }
 
 #monthlyUniques text {
 	font-family: Arial;
 	font-size: 9pt;
+}
+
+#visualisation .axis path {
+	fill: none;
+	stroke: #A4B3BA;
+	shape-rendering: crispEdges;
+}
+#visualisation .axis text {
+	font-family: Lato;
+	font-size: 13px;
+	stroke: #A4B3BA;
 }

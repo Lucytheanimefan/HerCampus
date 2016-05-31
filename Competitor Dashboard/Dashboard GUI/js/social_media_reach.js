@@ -1,129 +1,111 @@
 //------------------------------MONTHLY UNIQUES/PAGEVIEW-------------------------
-var hercampus = {
-	'February': 6000000,
-	'March': 5000000,
-	'April': 5000000
+var colors = ["#6640CC ", "#FF0066", "#FCBD12", "#00D6C2"]
+var aquablue = d3.rgb(0, 214, 194);
+var hotpink = d3.rgb(255, 0, 102);
+var indigo = d3.rgb(102, 64, 204);
+
+var hercampus = [{
+	"sale": "6000000",
+	"month": "2"
+}, {
+	"sale": "5000000",
+	"month": "3"
+}, {
+	"sale": "5000000",
+	"month": "4"
+}];
+
+var influenceher = [{
+	"sale": "5000000",
+	"month": "2"
+}, {
+	"sale": "6754083",
+	"month": "3"
+}, {
+	"sale": "4500000",
+	"month": "4"
+}];
+
+var betches=[{
+	"sale": "1000000",
+	"month": "2"
+}, {
+	"sale": "1554083",
+	"month": "3"
+}, {
+	"sale": "1000000",
+	"month": "4"
+}];
+console.log(d3.values(hercampus));
+
+function getMax(data, data1) {
+	var stuff = data.map(function(x) {
+		return x.sale;
+	})
+	var stuff1 = data1.map(function(x) {
+		return x.sale;
+	})
+	var array = stuff.concat(stuff1);
+
+	return d3.max(array);
 }
 
-var influenceher = {
-	'February': 6000000,
-	'March': 6754083,
-	'April': 5000000
-}
+function InitChart(data, data2, data3) {
+	var vis = d3.select("#visualisation"),
+		WIDTH = 350,
+		HEIGHT = 150,
+		MARGINS = {
+			top: 20,
+			right: 50,
+			bottom: 20,
+			left: 80
+		},
+		xScale = d3.scale.linear().range([MARGINS.left, WIDTH - MARGINS.right]).domain([1.5, 4.5]),
+		yScale = d3.scale.linear().range([HEIGHT - MARGINS.top, MARGINS.bottom]).domain([0, getMax(data, data2)]),
+		xAxis = d3.svg.axis()
+		.scale(xScale),
+		yAxis = d3.svg.axis()
+		.scale(yScale)
+		.orient("left");
 
-var Betches = {
-	'February': 1000000,
-	'March': 1500000,
-	'April': 1500000
-}
+	xAxis.ticks(3)
 
-function findMax(data1, data2, data3) {
-	return d3.max(d3.values(data1).concat(d3.values(data2)).concat(d3.values(data3)))
-}
+	vis.append("svg:g")
+		.attr("class", "x axis")
+		.attr("transform", "translate(0," + (HEIGHT - MARGINS.bottom) + ")")
+		.call(xAxis);
+	vis.append("svg:g")
+		.attr("class", "y axis")
+		.attr("transform", "translate(" + (MARGINS.left) + ",0)")
+		.call(yAxis);
 
-console.log(findMax(hercampus, influenceher, Betches))
-
-function createLineGraphs(data1, data2, data3) {
-	w = 400;
-	h = 200;
-	margin = 50;
-	y = d3.scale.linear().domain([0, findMax(data1, data2, data3)]).range([0 + margin, h - margin]);
-	var x = d3.scale.ordinal()
-		.rangeRoundBands([0, w])
-		.domain(d3.values(data1).map(function(d) {
-			return d.key;
-		}));
-
-	var xAxis = d3.svg.axis()
-		.scale(x)
-		.orient("bottom");
-
-
-	var vis = d3.select("#monthlyUniques")
-		.append("svg:svg")
-		.attr("width", w)
-		.attr("height", h)
-
-	var g = vis.append("svg:g")
-		.attr("transform", "translate(0, 200)");
-
-	var line = d3.svg.line()
-		.x(function(d, i) {
-			return x(i);
+	var lineGen = d3.svg.line()
+		.x(function(d) {
+			return xScale(d.month);
 		})
 		.y(function(d) {
-			return -1 * y(d);
+			return yScale(d.sale);
 		})
+		//.interpolate("basis");
+	vis.append('svg:path')
+		.attr('d', lineGen(data))
+		.attr('stroke', hotpink)
+		.attr('stroke-width', 2)
+		.attr('fill', 'none');
 
-	g.append("svg:path").attr("d", line(data1));
+	vis.append('svg:path')
+		.attr('d', lineGen(data2))
+		.attr('stroke', aquablue)
+		.attr('stroke-width', 2)
+		.attr('fill', 'none');
 
-	g.append("svg:line")
-		.attr("x1", x(0))
-		.attr("y1", -1 * y(0))
-		.attr("x2", x(w))
-		.attr("y2", -1 * y(0))
-
-	g.append("svg:line")
-		.attr("x1", x(0))
-		.attr("y1", -1 * y(0))
-		.attr("x2", x(0))
-		.attr("y2", -1 * y(findMax(data1, data2, data3)))
-		/**
-			g.selectAll(".xLabel")
-				.data(x.ticks(3))
-				.enter().append("svg:text")
-				.attr("class", "xLabel")
-				.text(String)
-				.attr("x", function(d) {
-					console.log(d)
-					console.log(x(d))
-					console.log(d3.keys(data1)[d])
-					return (d3.keys(data1))[d]
-				})
-				.attr("y", 0)
-				.attr("text-anchor", "middle")
-		**/
-	g.selectAll(".yLabel")
-		.data(y.ticks(4))
-		.enter().append("svg:text")
-		.attr("class", "yLabel")
-		.text(String)
-		.attr("x", 0)
-		.attr("y", function(d) {
-			return -1 * y(d)
-		})
-		.attr("text-anchor", "right")
-		.attr("dy", 4)
-
-/**
-	g.selectAll(".xTicks")
-		.data(x.ticks(5))
-		.enter().append("svg:line")
-		.attr("class", "xTicks")
-		.attr("x1", function(d) {
-			return x(d);
-		})
-		.attr("y1", -1 * y(0))
-		.attr("x2", function(d) {
-			return x(d);
-		})
-		.attr("y2", -1 * y(-0.3))
-**/
-	g.selectAll(".yTicks")
-		.data(y.ticks(4))
-		.enter().append("svg:line")
-		.attr("class", "yTicks")
-		.attr("y1", function(d) {
-			return -1 * y(d);
-		})
-		.attr("x1", x(-0.3))
-		.attr("y2", function(d) {
-			return -1 * y(d);
-		})
-		.attr("x2", x(0))
+	vis.append('svg:path')
+		.attr('d', lineGen(data3))
+		.attr('stroke', indigo)
+		.attr('stroke-width', 2)
+		.attr('fill', 'none');
 }
-
-createLineGraphs(hercampus, influenceher, Betches);
+InitChart(hercampus, influenceher, betches);
 //------------------------------SOCIAL MEDIA REACH-------------------------------
 
 /*
