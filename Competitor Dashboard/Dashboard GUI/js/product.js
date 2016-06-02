@@ -5,60 +5,95 @@ var indigo = d3.rgb(102, 64, 204);
 
 //------------------------------Newsletter-------------------------
 var timeRange = [new Date(2016, 1, 1), new Date(2016, 4, 0)];
-var newsData = [150, 200, 220];
-drawNewsletter(timeRange, newsData);
+var arrData = [
+	["2012-10-00", 200],
+	["2012-11-00", 300],
+	["2012-12-10", 250]
+];
+drawNewsletter(arrData);
 
-function drawNewsletter(timeRange, data) {
+function drawNewsletter(arrData) {
 	var margin = {
 			top: 10,
-			right: 10,
-			bottom: 20,
-			left: 20
+			right: 5,
+			bottom: 30,
+			left: 100
 		},
-		width = 250 - margin.left - margin.right,
-		height = 200 - margin.top - margin.bottom;
+		width = 320 - margin.left - margin.right,
+		height = 120 - margin.top - margin.bottom;
+
+
+	var parseDate = d3.time.format("%Y-%m-%d").parse;
+
 
 	var x = d3.time.scale()
-		.domain(timeRange)
-		.range([0, width]);
+		.range([0, width])
+
+	var y = d3.scale.linear()
+		.range([height, 0]);
 
 	var xAxis = d3.svg.axis()
 		.scale(x)
-		.orient("bottom")
-		.ticks(d3.time.months)
-		.tickSize(3, 0)
-		.tickFormat(d3.time.format("%B"));
-
-	var yScale = d3.scale.linear()
-		.range([height - margin.top, margin.bottom])
-		.domain([0, d3.max(data)]);
+		.ticks(3)
+		.orient("bottom");
 
 	var yAxis = d3.svg.axis()
-		.scale(yScale)
-		.ticks(4)
+		.scale(y)
+		.ticks(3)
 		.orient("left");
+
+	var line = d3.svg.line()
+		.x(function(d) {
+			return x(d.date);
+		})
+		.y(function(d) {
+			return y(d.close);
+		});
 
 	var svg = d3.select("#newsletter").append("svg")
 		.attr("width", width + margin.left + margin.right)
 		.attr("height", height + margin.top + margin.bottom)
 		.append("g")
-		.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-		.attr("id","newsletterChart");
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-	svg.append('g')
+	var data = arrData.map(function(d) {
+		return {
+			date: parseDate(d[0]),
+			close: d[1]
+		};
+
+	});
+
+	console.log(data);
+
+
+	x.domain(d3.extent(data, function(d) {
+		return d.date;
+	}));
+	y.domain(d3.extent(data, function(d) {
+		return d.close;
+	}));
+
+	svg.append("g")
 		.attr("class", "x axis")
 		.attr("transform", "translate(0," + height + ")")
-		.call(xAxis)
-		.selectAll(".tick text")
-		.style("text-anchor", "start")
-		.attr("x", 6)
-		.attr("y", 6);
+		.call(xAxis);
 
 	svg.append("g")
 		.attr("class", "y axis")
-		.attr('stroke-width', 1)
-		.attr("transform", "translate(" + (margin.left) + ",0)")
-		.call(yAxis);
+		.call(yAxis)
+		.append("text")
+		.attr("transform", "rotate(-90)")
+		.attr("y", 6)
+		.attr("dy", ".71em")
+		.style("text-anchor", "end");
+
+	svg.append("path")
+		.datum(data)
+		.attr("class", "line")
+		.attr("d", line);
+
+
 }
 
 
@@ -116,8 +151,8 @@ function InitChart(data, data2, data3) {
 	var MARGINS = {
 		top: 20,
 		right: 50,
-		bottom: 10,
-		left: 70
+		bottom: 30,
+		left: 120
 	};
 	var vis = d3.select("#monthlyUniques")
 		.append("div")
