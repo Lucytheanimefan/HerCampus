@@ -11,13 +11,13 @@ head, html, body{
 }
 
 @media screen and (max-width: 600px) {
-   #one { 
-    float: none;
-    margin-right:0;
-    width:auto;
-    border:0;
-    border-bottom:2px solid #000;    
-  }
+	#one { 
+		float: none;
+		margin-right:0;
+		width:auto;
+		border:0;
+		border-bottom:2px solid #000;    
+	}
 }
 /*-----------------------tab bar-------------------------------*/
 #tabs{
@@ -240,40 +240,74 @@ head, html, body{
 }
 
 #visualisation .svg-container {
-    display: inline-block;
-    position: relative;
-    width: 100%;
-    padding-bottom: 100%; /* aspect ratio */
-    vertical-align: top;
-    overflow: hidden;
+	display: inline-block;
+	position: relative;
+	width: 100%;
+	padding-bottom: 100%; /* aspect ratio */
+	vertical-align: top;
+	overflow: hidden;
 }
 #visualisation .svg-content-responsive {
-    display: inline-block;
-    position: absolute;
-    top: 10px;
-    left: 0;
+	display: inline-block;
+	position: absolute;
+	top: 10px;
+	left: 0;
+}
+
+#visualisation g, path{
+	top: 50px;
 }
 /*-----------------Newsletter Subscribers-----------------*/
 #newsletter{
 	background-color: #2C3546;
 	position: relative;
-	top:180px;
+	top:150px;
 	left:10px;
 }
 
 #newsletter .axis text {
-  font: 10px sans-serif;
-  fill: white;
+	font: 10px sans-serif;
+	fill: white;
 }
 
 #newsletter .axis path,
 #newsletter .axis line {
-  fill: none;
-  stroke: white;
-  shape-rendering: crispEdges;
+	fill: none;
+	stroke: white;
+	shape-rendering: crispEdges;
 }
 
 #newsletter .line{
 	stroke: #FF0066;
 	fill:none;
+}
+
+#newsletter h1{
+	color:white;
+	font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+}
+
+/*-------------------Total audience-----------------*/
+
+#Total-audience{
+	background-color: #2C3546;
+	height: 150px;
+	width: 300px;
+	position: relative;
+	right: 10px;
+	left: 30px;
+	top: 150px;
+}
+
+#Total-audience h1{
+	color:white;
+	font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 90px; 
 }

@@ -14,13 +14,13 @@ drawNewsletter(arrData);
 
 function drawNewsletter(arrData) {
 	var margin = {
-			top: 10,
-			right: 5,
+			top: 15,
+			right: 15,
 			bottom: 30,
 			left: 100
 		},
 		width = 320 - margin.left - margin.right,
-		height = 120 - margin.top - margin.bottom;
+		height = 100 - margin.top - margin.bottom;
 
 
 	var parseDate = d3.time.format("%Y-%m-%d").parse;
@@ -147,9 +147,9 @@ function getMax(data, data1) {
 
 function InitChart(data, data2, data3) {
 	var WIDTH = 400;
-	var HEIGHT = 350;
+	var HEIGHT = 320;
 	var MARGINS = {
-		top: 20,
+		top: 30,
 		right: 50,
 		bottom: 30,
 		left: 120
@@ -159,7 +159,7 @@ function InitChart(data, data2, data3) {
 		.classed("svg-container", true)
 		.append("svg")
 		.attr("preserveAspectRatio", "xMinYMin meet")
-		.attr("viewBox", "0 0 800 400")
+		.attr("viewBox", "30 -30 800 400")
 		.classed("svg-content-responsive", true)
 		.attr("id", "visualisation");
 
