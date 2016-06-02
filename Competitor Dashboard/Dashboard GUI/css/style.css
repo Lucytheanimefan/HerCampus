@@ -9,6 +9,16 @@ head, html, body{
 .container-fluid, .row{
 	background-color: #262C3A;
 }
+
+@media screen and (max-width: 600px) {
+   #one { 
+    float: none;
+    margin-right:0;
+    width:auto;
+    border:0;
+    border-bottom:2px solid #000;    
+  }
+}
 /*-----------------------tab bar-------------------------------*/
 #tabs{
 	width: 100%;
@@ -92,18 +102,16 @@ head, html, body{
 #pieChart {    
 	background-color: #2C3546;
 	position:absolute;
-	top:10px;
+	top:15px;
 	left:10px;
 	width:400px;
 	height: 400px; 
 }
 
-
-
 #lineChart { 
 	background-color: #2C3546;   
 	position:absolute;
-	top:10px;
+	top:15px;
 	left:410px;
 	height: 150px;
 }
@@ -111,7 +119,7 @@ head, html, body{
 #barChart {
 	background-color: #2C3546;
 	position:absolute;
-	top:160px;
+	top:165px;
 	left:410px;
 	height: 250px;
 }
@@ -246,23 +254,16 @@ head, html, body{
     left: 0;
 }
 /*-----------------Newsletter Subscribers-----------------*/
-#newsletter .svg-container {
-    display: inline-block;
-    position: relative;
-    width: 100%;
-    padding-bottom: 100%; /* aspect ratio */
-    vertical-align: top;
-    overflow: hidden;
-}
-#newsletter .svg-content-responsive {
-    display: inline-block;
-    position: absolute;
-    top: 10px;
-    left: 0;
+#newsletter{
+	background-color: #2C3546;
+	position: relative;
+	top:80px;
+	left: 30px;
 }
 
 #newsletter .axis text {
   font: 10px sans-serif;
+  fill: white;
 }
 
 #newsletter .axis path,

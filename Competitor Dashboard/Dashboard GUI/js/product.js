@@ -4,19 +4,19 @@ var hotpink = d3.rgb(255, 0, 102);
 var indigo = d3.rgb(102, 64, 204);
 
 //------------------------------Newsletter-------------------------
-var timeRange = [new Date(2016, 0, 1), new Date(2016, 4, 1)];
-var newsData=[150, 200, 220];
-drawNewsletter(timeRange);
+var timeRange = [new Date(2016, 1, 1), new Date(2016, 4, 0)];
+var newsData = [150, 200, 220];
+drawNewsletter(timeRange, newsData);
 
 function drawNewsletter(timeRange, data) {
 	var margin = {
 			top: 10,
 			right: 10,
 			bottom: 20,
-			left: 10
+			left: 20
 		},
-		width = 300 - margin.left - margin.right,
-		height = 400 - margin.top - margin.bottom;
+		width = 250 - margin.left - margin.right,
+		height = 200 - margin.top - margin.bottom;
 
 	var x = d3.time.scale()
 		.domain(timeRange)
@@ -29,15 +29,21 @@ function drawNewsletter(timeRange, data) {
 		.tickSize(3, 0)
 		.tickFormat(d3.time.format("%B"));
 
-	var svg = d3.select("#newsletter")
-		.append("div")
-		.classed("svg-container", true) //container class to make it responsive
-		.append("svg")
-		//responsive SVG needs these 2 attributes and no width and height attr
-		.attr("preserveAspectRatio", "xMinYMin meet")
-		.attr("viewBox", "0 0 300 400")
-		//class to make it responsive
-		.classed("svg-content-responsive", true);
+	var yScale = d3.scale.linear()
+		.range([height - margin.top, margin.bottom])
+		.domain([0, d3.max(data)]);
+
+	var yAxis = d3.svg.axis()
+		.scale(yScale)
+		.ticks(4)
+		.orient("left");
+
+	var svg = d3.select("#newsletter").append("svg")
+		.attr("width", width + margin.left + margin.right)
+		.attr("height", height + margin.top + margin.bottom)
+		.append("g")
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+		.attr("id","newsletterChart");
 
 	svg.append('g')
 		.attr("class", "x axis")
@@ -47,6 +53,12 @@ function drawNewsletter(timeRange, data) {
 		.style("text-anchor", "start")
 		.attr("x", 6)
 		.attr("y", 6);
+
+	svg.append("g")
+		.attr("class", "y axis")
+		.attr('stroke-width', 1)
+		.attr("transform", "translate(" + (margin.left) + ",0)")
+		.call(yAxis);
 }
 
 
