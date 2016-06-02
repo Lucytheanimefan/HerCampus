@@ -1,9 +1,57 @@
-//------------------------------MONTHLY UNIQUES/PAGEVIEW-------------------------
 var colors = ["#6640CC ", "#FF0066", "#FCBD12", "#00D6C2"]
 var aquablue = d3.rgb(0, 214, 194);
 var hotpink = d3.rgb(255, 0, 102);
 var indigo = d3.rgb(102, 64, 204);
 
+//------------------------------Newsletter-------------------------
+var timeRange = [new Date(2016, 0, 1), new Date(2016, 4, 1)];
+var newsData=[150, 200, 220];
+drawNewsletter(timeRange);
+
+function drawNewsletter(timeRange, data) {
+	var margin = {
+			top: 10,
+			right: 10,
+			bottom: 20,
+			left: 10
+		},
+		width = 300 - margin.left - margin.right,
+		height = 400 - margin.top - margin.bottom;
+
+	var x = d3.time.scale()
+		.domain(timeRange)
+		.range([0, width]);
+
+	var xAxis = d3.svg.axis()
+		.scale(x)
+		.orient("bottom")
+		.ticks(d3.time.months)
+		.tickSize(3, 0)
+		.tickFormat(d3.time.format("%B"));
+
+	var svg = d3.select("#newsletter")
+		.append("div")
+		.classed("svg-container", true) //container class to make it responsive
+		.append("svg")
+		//responsive SVG needs these 2 attributes and no width and height attr
+		.attr("preserveAspectRatio", "xMinYMin meet")
+		.attr("viewBox", "0 0 300 400")
+		//class to make it responsive
+		.classed("svg-content-responsive", true);
+
+	svg.append('g')
+		.attr("class", "x axis")
+		.attr("transform", "translate(0," + height + ")")
+		.call(xAxis)
+		.selectAll(".tick text")
+		.style("text-anchor", "start")
+		.attr("x", 6)
+		.attr("y", 6);
+}
+
+
+
+//------------------------------MONTHLY UNIQUES/PAGEVIEW-------------------------
 var hercampus = [{
 	"sale": "6000000",
 	"month": "2"
@@ -26,7 +74,7 @@ var influenceher = [{
 	"month": "4"
 }];
 
-var betches=[{
+var betches = [{
 	"sale": "1000000",
 	"month": "2"
 }, {
@@ -51,31 +99,40 @@ function getMax(data, data1) {
 }
 
 function InitChart(data, data2, data3) {
-	var vis = d3.select("#visualisation"),
-		WIDTH = 350,
-		HEIGHT = 150,
-		MARGINS = {
-			top: 20,
-			right: 50,
-			bottom: 20,
-			left: 80
-		},
-		xScale = d3.scale.linear().range([MARGINS.left, WIDTH - MARGINS.right]).domain([1.5, 4.5]),
-		yScale = d3.scale.linear().range([HEIGHT - MARGINS.top, MARGINS.bottom]).domain([0, getMax(data, data2)]),
-		xAxis = d3.svg.axis()
-		.scale(xScale),
-		yAxis = d3.svg.axis()
+	var WIDTH = 400;
+	var HEIGHT = 350;
+	var MARGINS = {
+		top: 20,
+		right: 50,
+		bottom: 10,
+		left: 70
+	};
+	var vis = d3.select("#monthlyUniques")
+		.append("div")
+		.classed("svg-container", true)
+		.append("svg")
+		.attr("preserveAspectRatio", "xMinYMin meet")
+		.attr("viewBox", "0 0 800 400")
+		.classed("svg-content-responsive", true)
+		.attr("id", "visualisation");
+
+	var xScale = d3.scale.linear().range([MARGINS.left, WIDTH - MARGINS.right]).domain([2, 4]);
+	var yScale = d3.scale.linear().range([HEIGHT - MARGINS.top, MARGINS.bottom]).domain([0, getMax(data, data2)]);
+	var xAxis = d3.svg.axis()
+		.scale(xScale)
+		.ticks(3);
+	var yAxis = d3.svg.axis()
 		.scale(yScale)
 		.orient("left");
 
-	xAxis.ticks(3)
-
 	vis.append("svg:g")
 		.attr("class", "x axis")
+		.attr('stroke-width', 1)
 		.attr("transform", "translate(0," + (HEIGHT - MARGINS.bottom) + ")")
 		.call(xAxis);
 	vis.append("svg:g")
 		.attr("class", "y axis")
+		.attr('stroke-width', 1)
 		.attr("transform", "translate(" + (MARGINS.left) + ",0)")
 		.call(yAxis);
 

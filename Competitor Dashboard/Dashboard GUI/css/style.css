@@ -5,6 +5,10 @@ head{
 head, html, body{
 	background-color: #262C3A;
 }
+
+.container-fluid, .row{
+	background-color: #262C3A;
+}
 /*-----------------------tab bar-------------------------------*/
 #tabs{
 	width: 100%;
@@ -196,11 +200,13 @@ head, html, body{
 
 /*------------------------------Line graphs--------------------------*/
 #monthlyUniques{
-	background-color: #2C3546;
+	background-color: #262C3A;
+	stroke-width: .5px;
 }
 
 #monthlyUniques line {
-	stroke: #A4B3BA;
+	stroke: white;
+	stroke-width: .5px;
 	fill:none;
 }
 
@@ -209,13 +215,59 @@ head, html, body{
 	font-size: 9pt;
 }
 
+#visualisation{
+	background-color: #2C3546;
+}
 #visualisation .axis path {
 	fill: none;
-	stroke: #A4B3BA;
 	shape-rendering: crispEdges;
+	stroke-width: 1px;
+	stroke: white;
 }
 #visualisation .axis text {
 	font-family: Lato;
 	font-size: 13px;
-	stroke: #A4B3BA;
+	fill: white;
+	stroke-width: 2px;
+}
+
+#visualisation .svg-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%; /* aspect ratio */
+    vertical-align: top;
+    overflow: hidden;
+}
+#visualisation .svg-content-responsive {
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    left: 0;
+}
+/*-----------------Newsletter Subscribers-----------------*/
+#newsletter .svg-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%; /* aspect ratio */
+    vertical-align: top;
+    overflow: hidden;
+}
+#newsletter .svg-content-responsive {
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    left: 0;
+}
+
+#newsletter .axis text {
+  font: 10px sans-serif;
+}
+
+#newsletter .axis path,
+#newsletter .axis line {
+  fill: none;
+  stroke: white;
+  shape-rendering: crispEdges;
 }
