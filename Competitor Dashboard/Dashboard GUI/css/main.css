@@ -1,0 +1,89 @@
+head{
+	background-color: #262C3A;
+}
+
+head, html, body{
+	background-color: #262C3A;
+}
+
+.container-fluid, .row{
+	background-color: #262C3A;
+}
+
+@media screen and (max-width: 600px) {
+	#one { 
+		float: none;
+		margin-right:0;
+		width:auto;
+		border:0;
+		border-bottom:2px solid #000;    
+	}
+}
+/*-----------------------tab bar-------------------------------*/
+#tabs{
+	width: 100%;
+	float: left;
+	margin: 0 0 1em 0;
+	padding: 0;
+	background-color: #f2f2f2;
+	border-bottom: 1px solid #ccc;;
+}
+
+#tabs ul {
+	list-style: none;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0; 
+}
+
+#tabs li {
+	float: left;
+	width: 16.66%; 
+}
+
+#tabs li a {
+	display: block;
+	padding: 8px 15px;
+	text-decoration: none;
+	font-weight: bold;
+	border-right: 1px solid #ccc; 
+}
+
+/*
+#nav li:first-child a {
+	border-left: 1px solid #ccc; 
+}
+*/
+#nav li a:hover {
+	color: #c00;
+	background-color: #fff; 
+}
+
+.nav-tabs a{
+	color: white;
+}
+
+.nav-tabs .audience{
+	background-color: #FF0066;
+}
+
+.nav-tabs .reach{
+	background-color: #00D6C2;
+}
+
+.nav-tabs .engagement{
+	background-color: #FCBD12;
+}
+
+.nav-tabs .team{
+	background-color: #6640CC;
+}
+
+.nav-tabs .product{
+	background-color: #FF0066;
+}
+
+.nav-tabs .competitors{
+	background-color: #00D6C2;
+}
+

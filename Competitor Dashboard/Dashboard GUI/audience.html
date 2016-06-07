@@ -2,29 +2,57 @@
 <html>
 <head>
 	<script src="../jquery-2.2.1.js"></script>
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/audience.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Her Campus Dashboard</title>
 </head>
 
 <body>
-	<div id = "tabs">
-	<ul class="nav nav-tabs navbar-fixed-bottom">
-		<li class="audience"><a href="#">Audience</a></li>
-		<li class="reach"><a href="#">Reach</a></li>
-		<li class="engagement"><a href="#">Engagements</a></li>
-		<li class="team"><a href="#">Team</a></li>
-		<li class="product"><a href="index.html">Product</a></li>
-		<li class="competitors"><a href="#">Competitors</a></li>
-	</ul>
-</div>
+	<div id = "tabs" class="container-fluid">
+		<ul class="nav nav-tabs navbar-fixed-bottom">
+			<li class="audience"><a href="audience.html">AUDIENCE</a></li>
+			<li class="reach"><a href="reach.html">REACH</a></li>
+			<li class="engagement"><a href="engagement.html">ENGAGEMENTS</a></li>
+			<li class="team"><a href="team.html">TEAM</a></li>
+			<li class="product"><a href="index.html">PRODUCT</a></li>
+			<li class="competitors"><a href="competitor.html">COMPETITORS</a></li>
+		</ul>
+	</div>
 
-	
+	<div class="container-fluid">
+		<div class="row">
+			<div id="monthlyUniques" class="col-sm-5"></div>
+			<div class="col-sm-7">
+				<div class="row" id="deviceTraffic"></div>
+				<div class="row" id="chapterPresence"></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid"> 
+		<div class="row">
+		<div id="socialmediareach" class="col-sm-6">
+			<div id="pieChart"></div>
+			<div id="barChart"></div>  
+			<div id="lineChart"></div>
+		</div>
+
+		<div id="newsletter" class="col-sm-3">
+			<h1>NEWSLETTER SUBSCRIBERS</h1>
+		</div>
+		<div id="Total-audience" class="col-sm-3">
+			<h1>TOTAL AUDIENCE</h1>
+		</div>
+	</div>
+	</div>
+
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<script src="js/d3.min.js"></script>
-	<script src="js/social_media_reach.js"></script>
+	<script src="js/audience.js"></script>
 </body>
 
 </html>

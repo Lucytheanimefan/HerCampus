@@ -1,0 +1,183 @@
+/*--------------------------Monthly uniques and total pageviews----------------------------*/
+.axis path, .axis line {
+    fill: none;
+    stroke: white;
+    shape-rendering: crispEdges;
+}
+.axis text {
+    font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+    font-size: 11px;
+}
+
+
+/*------------------social media reach css-------------------*/
+#socialmediareach{
+	background-color: #2C3546;
+	position: relative;
+	left: -92px;
+	-webkit-transform:scale(0.75);
+	-moz-transform:scale(0.75);
+	-ms-transform:scale(0.75);
+	transform:scale(0.75);
+}
+
+#pieChart {    
+	background-color: #2C3546;
+	position:absolute;
+	top:15px;
+	left:10px;
+	width:400px;
+	height: 400px; 
+}
+
+#lineChart { 
+	background-color: #2C3546;   
+	position:absolute;
+	top:15px;
+	left:410px;
+	height: 150px;
+}
+
+#barChart {
+	background-color: #2C3546;
+	position:absolute;
+	top:165px;
+	left:410px;
+	height: 250px;
+}
+
+#socialmediareach .slice {
+	font-size: 8pt;
+	font-family: Verdana;
+	fill: white; //svg specific - instead of color
+	font-weight: bold;	
+} 
+
+/*for line chart*/
+#socialmediareach .axis path, .axis line {
+	fill: none;
+	stroke: black;
+	shape-rendering: crispEdges; //The shape-rendering property is an SVG attribute, used here to make sure our axis and its tick mark lines are pixel-perfect. 
+}
+
+#socialmediareach .line {
+	fill: none;
+	/*stroke: steelblue;*/
+	stroke-width: 3px;
+}
+
+#socialmediareach .dot {
+	/*fill: white;*/
+	/*stroke: steelblue;*/
+	stroke-width: 1.5px;
+}
+
+
+#socialmediareach .axis text {
+	font-family: Verdana;
+	font-size: 11px;
+}
+
+#socialmediareach .title {
+	font-family: Verdana;
+	font-size: 15px;	
+
+}
+
+#socialmediareach .xAxis {
+	font-family: verdana;
+	font-size: 11px;
+	fill: black;
+}  
+
+#socialmediareach .yAxis {
+	font-family: verdana;
+	font-size: 11px;
+	fill: black;
+}
+
+
+#socialmediareach table {
+	border-collapse:collapse;
+	border: 0px;	
+	font-family: Verdana;	
+	color: #5C5558;
+	font-size: 12px;
+	text-align: right;			
+}
+
+#socialmediareach td {
+	padding-left: 10px;		
+}
+
+#lineChartTitle1 {
+	font-family: Verdana;
+	font-size  : 14px;
+	fill       : lightgrey;
+	font-weight: bold;
+	text-anchor: middle;
+}
+
+#lineChartTitle2 {
+	font-family: Verdana;
+	font-size  : 72px;
+	fill       : grey;
+	text-anchor: middle;
+	font-weight: bold;
+	/*font-style: italic;*/
+}
+
+/*-----------------Newsletter Subscribers-----------------*/
+#newsletter{
+	background-color: #2C3546;
+	position: relative;
+	top:150px;
+	left:10px;
+}
+
+#newsletter .axis text {
+	font: 10px sans-serif;
+	fill: white;
+}
+
+#newsletter .axis path,
+#newsletter .axis line {
+	fill: none;
+	stroke: white;
+	shape-rendering: crispEdges;
+}
+
+#newsletter .line{
+	stroke: #FF0066;
+	fill:none;
+}
+
+#newsletter h1{
+	color:white;
+	font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+}
+
+/*-------------------Total audience-----------------*/
+
+#Total-audience{
+	background-color: #2C3546;
+	height: 150px;
+	width: 300px;
+	position: relative;
+	right: 10px;
+	left: 30px;
+	top: 150px;
+}
+
+#Total-audience h1{
+	color:white;
+	font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 90px; 
+}
