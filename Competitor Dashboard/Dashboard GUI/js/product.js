@@ -157,11 +157,13 @@ function InitChart(data, data2, data3) {
 	var vis = d3.select("#monthlyUniques")
 		.append("div")
 		.classed("svg-container", true)
+		.attr("id", "visualisation1")
 		.append("svg")
 		.attr("preserveAspectRatio", "xMinYMin meet")
-		.attr("viewBox", "30 -30 800 400")
+		.attr("viewBox", "30 -30 600 400")
 		.classed("svg-content-responsive", true)
 		.attr("id", "visualisation");
+		
 
 	var xScale = d3.scale.linear().range([MARGINS.left, WIDTH - MARGINS.right]).domain([2, 4]);
 	var yScale = d3.scale.linear().range([HEIGHT - MARGINS.top, MARGINS.bottom]).domain([0, getMax(data, data2)]);
@@ -209,7 +211,75 @@ function InitChart(data, data2, data3) {
 		.attr('stroke-width', 2)
 		.attr('fill', 'none');
 }
+
+function InitChart2(data, data2, data3) {
+	var WIDTH = 400;
+	var HEIGHT = 320;
+	var MARGINS = {
+		top: 30,
+		right: 50,
+		bottom: 30,
+		left: 120
+	};
+	var vis = d3.select("#visualisation1")
+		.append("svg")
+		.attr("preserveAspectRatio", "xMinYMin meet")
+		.attr("viewBox", "0 0 600 400")
+		.classed("svg-content-responsive", true)
+		.attr("id", "visualisation2")
+
+	var xScale = d3.scale.linear().range([MARGINS.left, WIDTH - MARGINS.right]).domain([2, 4]);
+	var yScale = d3.scale.linear().range([HEIGHT - MARGINS.top, MARGINS.bottom]).domain([0, getMax(data, data2)]);
+	var xAxis = d3.svg.axis()
+		.scale(xScale)
+		.ticks(3);
+	var yAxis = d3.svg.axis()
+		.scale(yScale)
+		.orient("left");
+
+	vis.append("svg:g")
+		.attr("class", "x axis")
+		.attr('stroke-width', 1)
+		.attr("transform", "translate(0," + (HEIGHT - MARGINS.bottom) + ")")
+		.call(xAxis);
+	vis.append("svg:g")
+		.attr("class", "y axis")
+		.attr('stroke-width', 1)
+		.attr("transform", "translate(" + (MARGINS.left) + ",0)")
+		.call(yAxis);
+
+	var lineGen = d3.svg.line()
+		.x(function(d) {
+			return xScale(d.month);
+		})
+		.y(function(d) {
+			return yScale(d.sale);
+		})
+		//.interpolate("basis");
+	vis.append('svg:path')
+		.attr('d', lineGen(data))
+		.attr('stroke', hotpink)
+		.attr('stroke-width', 2)
+		.attr('fill', 'none');
+
+	vis.append('svg:path')
+		.attr('d', lineGen(data2))
+		.attr('stroke', aquablue)
+		.attr('stroke-width', 2)
+		.attr('fill', 'none');
+
+	vis.append('svg:path')
+		.attr('d', lineGen(data3))
+		.attr('stroke', indigo)
+		.attr('stroke-width', 2)
+		.attr('fill', 'none');
+
+}
+
+
+
 InitChart(hercampus, influenceher, betches);
+InitChart2(hercampus, influenceher, betches);
 //------------------------------SOCIAL MEDIA REACH-------------------------------
 
 /*

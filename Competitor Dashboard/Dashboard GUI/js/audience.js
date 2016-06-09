@@ -188,7 +188,7 @@ function InitChart(dataset) {
         months = dataset[0].map(function(d) {
             return d.y;
         }),
-        _ = console.log(months),
+
 
         yScale = d3.scale.ordinal()
         .domain(months)
@@ -223,7 +223,7 @@ function InitChart(dataset) {
             return yScale(d.y);
         })
         .attr('height', function(d) {
-            return yScale.rangeBand();
+            return yScale.rangeBand()-30;
         })
         .attr('width', function(d) {
             return xScale(d.x);
@@ -255,6 +255,7 @@ function InitChart(dataset) {
     svg.append('g')
         .attr('class', 'axis')
         .attr('stroke', 'white')
+        .attr('stroke-width', '1px')
         .call(yAxis);
 
     svg.append('rect')
@@ -267,9 +268,10 @@ function InitChart(dataset) {
     series.forEach(function(s, i) {
         svg.append('text')
             //.attr('fill', 'none')
-            .attr('x', width + margins.left + 8)
+            .attr('x', width + margins.left-40)
             .attr('y', i * 24 + 24)
             .attr('stroke', 'white')
+            .attr('stroke-width', '1px')
             .text(s);
         svg.append('rect')
             .attr('fill', colours(i))
