@@ -19,6 +19,15 @@ head, html, body{
 		border-bottom:2px solid #000;    
 	}
 }
+
+
+.Overview{
+	width: 100%;
+	background-color: #D5E5EE;
+	text-align: center;
+	font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+}
+
 /*-----------------------tab bar-------------------------------*/
 #tabs{
 	width: 100%;
