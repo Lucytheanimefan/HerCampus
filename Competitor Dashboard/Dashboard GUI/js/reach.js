@@ -129,29 +129,45 @@ function createMultiPlatformViews(data) {
 
 /*--------------------Social media reach---------------*/
 function createSocialMediaReach() {
-	/*
-	var margin = {
-			top: 5,
-			right: 100,
-			bottom: 10,
-			left: 140
-		},
-		width = 400 - margin.left - margin.right,
-		height = 230 - margin.top - margin.bottom;
 
-	d3.select("#socialMediaReach").append("svg")
-	.attr("width", width + margin.left + margin.right)
-		.attr("height", height + margin.top + margin.bottom)
-		.append("g")
-		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-	*/
 	var social = document.getElementById("socialMediaReach");
 	var block = document.createElement("div");
 	block.id="socialBlock";
 	social.appendChild(block);
 
+	block.innerHTML="SOCIAL MEDIA REACH";
 
 }
+
+createSocialMediaReach();
+
+
+/*--------------------College student reach---------------*/
+function createcollegeStudentReach(){
+	var college = document.getElementById("collegeStudentReach");
+	var block = document.createElement("div");
+	block.id="collegeBlock";
+	college.appendChild(block);
+
+	block.innerHTML="<b>COLLEGE STUDENT<br>REACH VIA CHAPTERS</b><p style='font-size: 11px !important;'>#FEMALE UNDERGRADS AT<br>SCHOOLS W/ HC CHAPTERS</p>";
+
+}
+
+createcollegeStudentReach();
+
+/*----total monthly multiplatform content views----*/
+function createMonthlyMultiPlat(){
+	var multi = document.getElementById("MonthlyMultiPlatformViews");
+	var block = document.createElement("div");
+	block.id="multiBlock";
+	multi.appendChild(block);
+
+	block.innerHTML="<b>TOTAL MONTHLY MULTI-<br>PLATFORM CONTENT VIEWS</b><p style='font-size: 11px !important;'>(PAGEVIEWS + SOCIAL CONTENT VIEWS<br>+ CHAPTER SOCIAL FOLLOWERS</p>";
+
+}
+
+createMonthlyMultiPlat();
+
 
 function wrap(text, width) {
 	text.each(function() {
