@@ -9,15 +9,21 @@ var multiPlatformData = [{
 createMultiPlatformViews(multiPlatformData);
 
 function createMultiPlatformViews(data) {
+	var platform = document.getElementById("multiplatformViews");
+	var title = document.createElement("div");
+	title.innerHTML = "MULTI-PLATFORM CONTENT VIEWS";
+	title.id = "multiplatformTitle";
+	platform.appendChild(title);
+
 	var uniqueColors = ["#6640CC ", "#FCBD12", "#00D6C2"];
 	var margin = {
-			top: 80,
-			right: 10,
-			bottom: 10,
+			top: 5,
+			right: 100,
+			bottom:10,
 			left: 140
 		},
-		width = 250 - margin.left - margin.right,
-		height = 250 - margin.top - margin.bottom,
+		width = 400 - margin.left - margin.right,
+		height = 230 - margin.top - margin.bottom,
 		that = this;
 
 
@@ -97,7 +103,7 @@ function createMultiPlatformViews(data) {
 	});
 
 	var legend = svg.selectAll(".legend").data(color.domain().slice().reverse()).enter().append("g").attr("class", "legend").attr("transform", function(d, i) {
-		return "translate(" + i * -70 + ",200)";
+		return "translate(30," + i * 50 +")";
 	});
 
 
@@ -111,8 +117,38 @@ function createMultiPlatformViews(data) {
 	.style("text-anchor", "start")
 	.text(function(d) {
 		return d;
-	});
+	})
+	.call(wrap, 80);
 
 
 
+}
+
+function wrap(text, width) {
+  text.each(function() {
+    var text = d3.select(this),
+        words = text.text().split(/\s+/).reverse(),
+        word,
+        line = [],
+        lineNumber = 0,
+        lineHeight = 1.1, // ems
+        y = text.attr("y"),
+        dy = parseFloat(text.attr("dy")),
+        tspan = text.text(null).append("tspan").attr("x", 130).attr("y", y).attr("dy", dy + "em");
+    while (word = words.pop()) {
+      line.push(word);
+      tspan.text(line.join(" "));
+      if (tspan.node().getComputedTextLength() > width) {
+        line.pop();
+        tspan.text(line.join(" "));
+        line = [word];
+        tspan = text.append("tspan").attr("x", 130).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+      }
+    }
+  });
+}
+
+function type(d) {
+  d.value = +d.value;
+  return d;
 }

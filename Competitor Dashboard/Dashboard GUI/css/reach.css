@@ -42,6 +42,14 @@ path { fill: #83B0EA;}
 }
 
 .legend text{
-  stroke: white;
+
   fill: white;
+}
+
+#multiplatformTitle{
+  color: white;
+  text-align: center;
+  margin-top: 60;
+  margin-bottom: 20px;
+  font-size: 20px;
 }
