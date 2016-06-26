@@ -4,18 +4,37 @@ var turq = d3.rgb(0,214,194);
 var pink=d3.rgb(255,0,102);
 var yellow = d3.rgb(252,189,18);
 
-var titlemappings = {
-	0: ["facebook", purp],
-	1: ["twitter", turq],
-	2: ["instagram", pink],
-	3: ["pinterest", yellow]
-};
-
 var fbdata = {
 	'Likes': 3,
 	'Comments': 6,
 	'Shares': 24
 };
+
+var twtdata = {
+	"Likes":500,
+	"Replies":230,
+	"Retweets":100,
+	"Clicks":1000
+};
+
+var instdata = {
+	"Likes":500,
+	"Re-pins":230
+}
+
+var pintdata = {
+	"Likes":370,
+	"Re-pins":200
+}
+
+var titlemappings = {
+	0: ["facebook", purp, fbdata],
+	1: ["twitter", turq, twtdata],
+	2: ["instagram", pink, instdata],
+	3: ["pinterest", yellow, pintdata]
+};
+
+
 
 function drawBarGraph(data, i) {
 	var divID=titlemappings[i][0];
@@ -172,7 +191,7 @@ function addTitles() {
 		title.innerHTML = "HC.COM " + titlemappings[i][0].toUpperCase() + " ENGAGEMENT";
 		area.appendChild(title);
 
-		drawBarGraph(fbdata, i);
+		drawBarGraph(titlemappings[i][2], i);
 	}
 }
 
