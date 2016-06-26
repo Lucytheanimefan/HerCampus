@@ -1,5 +1,9 @@
 #facebook, #twitter, #instagram, #pinterest{
 	background-color: #2C3546;
+	width:47%;
+	height: 47%;
+	margin: 1%;
+	text-align: center;
 }
 
 .titles{
