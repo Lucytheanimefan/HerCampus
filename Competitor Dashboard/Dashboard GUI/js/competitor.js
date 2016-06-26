@@ -207,15 +207,15 @@ function createMultiPlatformViews(data, idArea) {
 		.on('mouseout', tip.hide);
 
 	var legend = svg.selectAll(".legend").data(color.domain().slice().reverse()).enter().append("g").attr("class", "legend").attr("transform", function(d, i) {
-		return "translate(60," + i * 50 + ")";
+		return "translate(330," + i * 50 + ")";
 	});
 
 
-	legend.append("rect").attr("x", width + -53).attr("width", 10).attr("height", 10).style("fill", color);
+	legend.append("rect").attr("x", width-340).attr("width", 10).attr("height", 10).style("fill", color);
 
 	legend.append("text")
 		.attr("x", width - 40)
-		.attr("y", 0)
+		.attr("y", 5)
 		.attr("width", 50)
 		.attr("dy", ".35em")
 		.style("text-anchor", "start")
