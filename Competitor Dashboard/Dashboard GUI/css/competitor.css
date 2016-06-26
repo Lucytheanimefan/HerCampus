@@ -6,18 +6,28 @@
 .axis,
 .domain, .legend {
     fill: white;
+    font-size: 10px;
+}
+
+tspan{
+	font-size: 8px;
 }
 
 path.domain {
     stroke: white;
+
 }
 
 .domain {
     fill: none;
     stroke: #000;
     stroke-width: 1px;
+
 }
 
+#multiPlatSVG_comp_engagement{
+	
+}
 
 /*----------------tool tip------------------------*/
 .d3-tip {

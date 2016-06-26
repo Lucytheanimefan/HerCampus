@@ -51,24 +51,18 @@ var reachData = [{
 	"Pinterest": 66,
 	"Instagram": 20
 }, {
-	"interest_rate": "TEEN VOGUE",
-	"Facebook": 500,
-	"Twitter": 100,
-	"Pinterest": 66,
-	"Instagram": 20
-}, {
-	"interest_rate": "SEVENTEEN",
-	"Facebook": 500,
-	"Twitter": 100,
-	"Pinterest": 66,
-	"Instagram": 20
-}, {
 	"interest_rate": "GLAMOUR",
 	"Facebook": 500,
 	"Twitter": 100,
 	"Pinterest": 66,
 	"Instagram": 20
-}, {
+},  {
+	"interest_rate": "TEEN VOGUE",
+	"Facebook": 500,
+	"Twitter": 100,
+	"Pinterest": 66,
+	"Instagram": 20
+},{
 	"interest_rate": "REFINERY29",
 	"Facebook": 500,
 	"Twitter": 100,
@@ -82,6 +76,12 @@ var reachData = [{
 	"Instagram": 20
 }, {
 	"interest_rate": "MARIE CLAIRE",
+	"Facebook": 500,
+	"Twitter": 100,
+	"Pinterest": 66,
+	"Instagram": 20
+}, {
+	"interest_rate": "SEVENTEEN",
 	"Facebook": 500,
 	"Twitter": 100,
 	"Pinterest": 66,
@@ -100,12 +100,12 @@ function createMultiPlatformViews(data, idArea) {
 
 	var uniqueColors = ["#6640CC ", "#FF0066", "#FCBD12", "#00D6C2"];
 	var margin = {
-			top: 5,
+			top: 20,
 			right: 100,
-			bottom: 10,
-			left: 140
+			bottom: 40,
+			left: 80
 		},
-		width = 400 - margin.left - margin.right,
+		width = 500 - margin.left - margin.right,
 		height = 230 - margin.top - margin.bottom,
 		that = this;
 
@@ -133,6 +133,7 @@ function createMultiPlatformViews(data, idArea) {
 
 	var svg = d3.select("#multiPlat_" + idArea)
 		.append("svg")
+		.attr("id","multiPlatSVG_" + idArea)
 		.attr("width", width + margin.left + margin.right)
 		.attr("height", height + margin.top + margin.bottom)
 		.append("g")
@@ -173,13 +174,25 @@ function createMultiPlatformViews(data, idArea) {
 		return d.interest_rate;
 	}));
 
-	svg.append("g").attr("class", "x axis").attr("transform", "translate(0," + height + ")").call(xAxis);
+	svg.append("g")
+		.attr("class", "x axis")
+		.attr("transform", "translate(0," + (height) + ")")
+		.call(xAxis)
+	.selectAll(".tick text")
+		.call(wrap, x.rangeBand());
 
-	svg.append("g").attr("class", "y axis").call(yAxis);
+	svg.append("g")
+		.attr("class", "y axis")
+		.call(yAxis);
 
-	var interest_rate = svg.selectAll(".interest-rate").data(data).enter().append("g").attr("class", "interest-rate").attr("transform", function(d) {
-		return "translate(" + x(d.interest_rate) + ",0)";
-	});
+	var interest_rate = svg.selectAll(".interest-rate")
+		.data(data)
+		.enter()
+		.append("g")
+		.attr("class", "interest-rate")
+		.attr("transform", function(d) {
+			return "translate(" + x(d.interest_rate) + ",0)";
+		})
 
 	interest_rate.selectAll("rect").data(function(d) {
 			return d.rates;
@@ -190,21 +203,8 @@ function createMultiPlatformViews(data, idArea) {
 		}).style("fill", function(d) {
 			return color(d.name);
 		})
-		.on('mouseover', tip.show
-			/* function(d) {
-					var total_amt;
-					total_amt = d.amount;
-					
-					d3.select(".chart-tip").style('opacity', '1').html('Amount: <strong>$' + total_amt.toFixed(2) + '</strong>');
-
-				} */
-		)
-		.on('mouseout', tip.hide
-			/* function() {
-		tooltip.style("display", "none");
-		d3.select(".chart-tip").style('opacity', '0');
-	} */
-		);
+		.on('mouseover', tip.show)
+		.on('mouseout', tip.hide);
 
 	var legend = svg.selectAll(".legend").data(color.domain().slice().reverse()).enter().append("g").attr("class", "legend").attr("transform", function(d, i) {
 		return "translate(60," + i * 50 + ")";
@@ -238,7 +238,7 @@ function wrap(text, width) {
 			lineHeight = 1.1, // ems
 			y = text.attr("y"),
 			dy = parseFloat(text.attr("dy")),
-			tspan = text.text(null).append("tspan").attr("x", 130).attr("y", y).attr("dy", dy + "em");
+			tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
 		while (word = words.pop()) {
 			line.push(word);
 			tspan.text(line.join(" "));
@@ -246,7 +246,7 @@ function wrap(text, width) {
 				line.pop();
 				tspan.text(line.join(" "));
 				line = [word];
-				tspan = text.append("tspan").attr("x", 130).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+				tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
 			}
 		}
 	});
