@@ -56,13 +56,13 @@ var reachData = [{
 	"Twitter": 100,
 	"Pinterest": 66,
 	"Instagram": 20
-},  {
+}, {
 	"interest_rate": "TEEN VOGUE",
 	"Facebook": 500,
 	"Twitter": 100,
 	"Pinterest": 66,
 	"Instagram": 20
-},{
+}, {
 	"interest_rate": "REFINERY29",
 	"Facebook": 500,
 	"Twitter": 100,
@@ -88,13 +88,10 @@ var reachData = [{
 	"Instagram": 20
 }];
 
-createMultiPlatformViews(engagementData, "comp_engagement");
-createMultiPlatformViews(reachData, "comp_reach");
-
 function createMultiPlatformViews(data, idArea) {
 	var platform = document.getElementById(idArea);
 	var title = document.createElement("div");
-	title.innerHTML = "MULTI-PLATFORM CONTENT VIEWS";
+	title.innerHTML = "";
 	title.id = "multiPlat_" + idArea;
 	platform.appendChild(title);
 
@@ -133,7 +130,7 @@ function createMultiPlatformViews(data, idArea) {
 
 	var svg = d3.select("#multiPlat_" + idArea)
 		.append("svg")
-		.attr("id","multiPlatSVG_" + idArea)
+		.attr("id", "multiPlatSVG_" + idArea)
 		.attr("width", width + margin.left + margin.right)
 		.attr("height", height + margin.top + margin.bottom)
 		.append("g")
@@ -178,7 +175,7 @@ function createMultiPlatformViews(data, idArea) {
 		.attr("class", "x axis")
 		.attr("transform", "translate(0," + (height) + ")")
 		.call(xAxis)
-	.selectAll(".tick text")
+		.selectAll(".tick text")
 		.call(wrap, x.rangeBand());
 
 	svg.append("g")
@@ -211,7 +208,7 @@ function createMultiPlatformViews(data, idArea) {
 	});
 
 
-	legend.append("rect").attr("x", width-340).attr("width", 10).attr("height", 10).style("fill", color);
+	legend.append("rect").attr("x", width - 340).attr("width", 10).attr("height", 10).style("fill", color);
 
 	legend.append("text")
 		.attr("x", width - 40)
@@ -256,3 +253,170 @@ function type(d) {
 	d.value = +d.value;
 	return d;
 }
+
+//create the titles 
+function createTitles() {
+	var comp_engagement = document.getElementById("comp_engagement");
+	var comp_engagement_title = document.createElement("div");
+	comp_engagement_title.id = "comp_engagement_title";
+	comp_engagement_title.className = "titles";
+	comp_engagement_title.innerHTML = "ENGAGEMENT";
+	comp_engagement.appendChild(comp_engagement_title);
+
+	var comp_reach = document.getElementById("comp_reach");
+	var comp_reach_title = document.createElement("div");
+	comp_reach_title.id = "comp_reach_title";
+	comp_reach_title.className = "titles";
+	comp_reach_title.innerHTML = "REACH";
+	comp_reach.appendChild(comp_reach_title);
+}
+
+
+/*----------------------pie charts---------------------*/
+var dataset = [{
+	category: "TWITTER",
+	measure: 150
+}, {
+	category: "INSTAGRAM",
+	measure: 550
+}, {
+	category: "FACEBOOK",
+	measure: 300
+}, {
+	category: "PINTEREST",
+	measure: 100
+}, {
+	category: "YOUTUBE",
+	measure: 200
+}];
+
+var formatAsPercentage = d3.format("%"),
+	formatAsPercentage1Dec = d3.format(".1%"),
+	formatAsInteger = d3.format(","),
+	fsec = d3.time.format("%S s"),
+	fmin = d3.time.format("%M m"),
+	fhou = d3.time.format("%H h"),
+	fwee = d3.time.format("%a"),
+	fdat = d3.time.format("%d d"),
+	fmon = d3.time.format("%b");
+
+function dsPieChart(dataset, divID, total) {
+	var width = 150,
+		height = 150,
+		outerRadius = Math.min(width, height) / 2,
+		innerRadius = outerRadius * .999,
+		// for animation
+		innerRadiusFinal = outerRadius * .5,
+		innerRadiusFinal3 = outerRadius * .45,
+		color = d3.scale.ordinal()
+		.range(["#6640CC ", "#FF0066", "#FCBD12", "#00D6C2"]); //builtin range of colors
+	;
+
+	var vis = d3.select("#" + divID)
+		.append("svg:svg") //create the SVG element inside the <body>
+		.data([dataset]) //associate our data with the document
+		.attr("width", width) //set the width and height of our visualization (these will be attributes of the <svg> tag
+		.attr("height", height)
+		.append("svg:g") //make a group to hold our pie chart
+		.attr("transform", "translate(" + outerRadius + "," + outerRadius + ")") //move the center of the pie chart from 0, 0 to radius, radius
+	;
+
+	/**
+		vis.append("rect")
+			.attr("width", "100%")
+			.attr("height", "100%")
+			.attr("fill",function(d){return "#2C3546";})
+	**/
+	var arc = d3.svg.arc() //this will create <path> elements for us using arc data
+		.outerRadius(outerRadius).innerRadius(innerRadius);
+
+	// for animation
+	var arcFinal = d3.svg.arc().innerRadius(innerRadiusFinal).outerRadius(outerRadius);
+	var arcFinal3 = d3.svg.arc().innerRadius(innerRadiusFinal3).outerRadius(outerRadius);
+
+	var pie = d3.layout.pie() //this will create arc data for us given a list of values
+		.value(function(d) {
+			return d.measure;
+		}); //we must tell it out to access the value of each element in our data array
+
+	var arcs = vis.selectAll("g.slice") //this selects all <g> elements with class slice (there aren't any yet)
+		.data(pie) //associate the generated pie data (an array of arcs, each having startAngle, endAngle and value properties) 
+		.enter() //this will create <g> elements for every "extra" data element that should be associated with a selection. The result is creating a <g> for every object in the data array
+		.append("svg:g") //create a group to hold each slice (we will have a <path> and a <text> element associated with each slice)
+		.attr("class", "slice") //allow us to style things in the slices (like text)
+		//.on("mouseover", mouseover)
+		//.on("mouseout", mouseout)
+		//.on("click", up);
+
+	arcs.append("svg:path")
+		.attr("fill", function(d, i) {
+			return color(i);
+		}) //set the color for each slice to be chosen from the color function defined above
+		.attr("d", arc) //this creates the actual SVG path using the associated data (pie) with the arc drawing function
+		.append("svg:title") //mouseover title showing the figures
+		.text(function(d) {
+			return d.data.category + ": " + formatAsPercentage(d.data.measure);
+		});
+
+	d3.selectAll("g.slice").selectAll("path").transition()
+		.duration(750)
+		.delay(10)
+		.attr("d", arcFinal);
+
+	// Add a label to the larger arcs, translated to the arc centroid and rotated.
+	// source: http://bl.ocks.org/1305337#index.html
+	arcs.filter(function(d) {
+			return d.endAngle - d.startAngle > .2;
+		})
+		.append("svg:text")
+		.attr("dy", ".35em")
+		.attr("text-anchor", "middle")
+		.attr("transform", function(d) {
+			return "translate(" + arcFinal.centroid(d) + ")rotate(" + angle(d) + ")";
+		})
+		//.text(function(d) { return formatAsPercentage(d.value); })
+		.text(function(d) {
+			return d.data.category;
+		});
+	// Pie chart title			
+	vis.append("svg:text")
+		.attr("dy", ".35em")
+		.attr("text-anchor", "middle")
+		.text("TOTAL:" + total)
+		.attr("class", "title")
+		.attr("fill", "white");
+}
+
+// Computes the label angle of an arc, converting from radians to degrees.
+function angle(d) {
+	var a = (d.startAngle + d.endAngle) * 90 / Math.PI - 90;
+	return a > 90 ? a - 180 : a;
+}
+
+var titleMappings = {
+	0: "HERCAMPUS.COM",
+	1: "TEEN VOGUE",
+	2: "SEVENTEEN",
+	3: "COSMOPOLITAN",
+	4: "GLAMOUR",
+	5: "REFINERY29"
+};
+
+function createPies() {
+	for (var i = 0; i < 6; i++) {
+		var pieDiv = document.getElementById("pieChart_" + i.toString());
+		var title = document.createElement("div");
+		title.className = "titles";
+		title.innerHTML = titleMappings[i];
+
+		pieDiv.appendChild(title);
+		dsPieChart(dataset, "pieChart_" + i.toString(), "14,000,000");
+
+	}
+}
+
+//calling all the functions here
+createTitles();
+createMultiPlatformViews(engagementData, "comp_engagement");
+createMultiPlatformViews(reachData, "comp_reach");
+createPies();

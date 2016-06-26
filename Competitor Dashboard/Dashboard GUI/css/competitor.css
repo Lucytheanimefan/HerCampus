@@ -26,8 +26,17 @@ path.domain {
 }
 
 #multiPlatSVG_comp_engagement{
-	
+
 }
+
+.titles{
+	margin-top: 10px;
+	color: white;
+	text-align: center;
+	font-weight: bold;
+}
+
+/*-------------------------pie charts------------------*/
 
 /*----------------tool tip------------------------*/
 .d3-tip {
