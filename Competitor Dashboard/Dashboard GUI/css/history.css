@@ -1,42 +1,42 @@
-#monthlyUniques{
+.right{
     text-align: center;
 }
 
-#monthlyUniques .line {
+.right .line {
     stroke: rgb(247, 150, 29);
     stroke-width: 2;
     fill: none;
 }
 
-#monthlyUniques .axis {
+.right .axis {
   shape-rendering: crispEdges;
 }
 
-#monthlyUniques .x.axis line {
+.right .x.axis line {
   stroke: rgba(88, 89, 93, .12);
 }
 
-#monthlyUniques .x.axis .minor {
+.right .x.axis .minor {
   stroke-opacity: .5;
 }
 
-#monthlyUniques .x.axis path {
+.right .x.axis path {
   display: none;
 }
 
-#monthlyUniques .y.axis line, .y.axis path {
+.right .y.axis line, .y.axis path {
   fill: none;
   stroke: rgba(88, 89, 93, .5);
 }
 
-#monthlyUniques .axis path,
-#monthlyUniques .axis line {
+.right .axis path,
+.right .axis line {
   fill: none;
   stroke: rgba(88, 89, 93, .3);
   shape-rendering: crispEdges;
 }
 
-#monthlyUniques .axis text {
+.right .axis text {
   font: 10px sans-serif;
   fill: rgba(88, 89, 93, .5);
 }

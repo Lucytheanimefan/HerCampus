@@ -4,7 +4,9 @@ var hotpink = d3.rgb(255, 0, 102);
 var indigo = d3.rgb(102, 64, 204);
 
 
-createLineChart("#monthlyUniques");
+createLineChart("#chapterGrowth");
+createLineChart("#totalMonthlyViews");
+createLineChart("#newsletterSubscribers");
 
 function formatCurrency(d) {
         return "$" + d;
