@@ -13,9 +13,9 @@ function formatCurrency(d) {
     }
 
 function createLineChart(appendDiv) {
-    var m = [80, 80, 80, 80];
-    var w = 850 - m[1] - m[3];
-    var h = 400 - m[0] - m[2];
+    var m = [20, 80, 20, 80];
+    var w = 500 - m[1] - m[3];
+    var h = 200 - m[0] - m[2];
 
     var data = [24509, 19466, 18004, 18381, 17312, 19926, 24761, 24815, 24333, 29117, 24527, 17478];
 
