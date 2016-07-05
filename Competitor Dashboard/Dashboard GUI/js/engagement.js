@@ -42,12 +42,12 @@ function drawBarGraph(data, i) {
 
 	var margin = {
 		top: 70,
-		right: 50,
+		right: 45,
 		bottom: 70,
-		left: 50
+		left: 45
 	},
-	width = 400 - margin.left - margin.right,
-	height = 400 - margin.top - margin.bottom;
+	width = 250 - margin.left - margin.right,
+	height = 250 - margin.top - margin.bottom;
 
 	var x = d3.scale.ordinal()
 		.rangeRoundBands([0, width], .1)
