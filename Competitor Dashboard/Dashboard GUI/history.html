@@ -24,26 +24,31 @@
             <li class="competitors"><a href="competitor.html">COMPETITORS</a></li>
         </ul>
     </div>
-
     <div class="container-fluid">
-        <div id="leftColumn" class="col-sm-6" style="background-color: #2C3546;">
+        <div id="leftColumn" class="col-sm-6">
             <div class="row" id="monthlyUniques">
+            <div class="title">MONTHLY UNIQUES & PAGEVIEWS</div>
+            <div id="monthlyUniquesChart"></div>
             </div>
             <div class="row" id="nationalChapterReach">
+            <div class="title">NATIONAL + CHAPTER SOCIAL REACH</div>
+            <div id="nationalChart"></div>
             </div>
         </div>
-
-        <div id="rightColumn" class="col-sm-6" style="background-color: #2C3546;">
+        <div id="rightColumn" class="col-sm-6">
             <div class="row row-eq-height right" id="chapterGrowth">
+                <div class="title">CHAPTER GROWTH</div>
             </div>
             <div class="row row-eq-height right" id="totalMonthlyViews">
+                <div class="title">TOTAL MONTHLY MULTI-PLATFORM VIEWS</div>
             </div>
             <div class="row row-eq-height right" id="newsletterSubscribers">
+             <div class="title">NEWSLETTER SUBSCRIBERS</div>
             </div>
         </div>
     </div>
-    
     <script src="js/d3.min.js"></script>
+    <script src="js/c3.min.js"></script>
     <script src="js/history.js"></script>
 </body>
 

@@ -8,6 +8,40 @@ createLineChart("#chapterGrowth");
 createLineChart("#totalMonthlyViews");
 createLineChart("#newsletterSubscribers");
 
+
+var chart = c3.generate({
+	bindto: '#monthlyUniquesChart',
+    data: {
+        xs: {
+            'data1': 'x1',
+            'data2': 'x2',
+        },
+        columns: [
+            ['x1', 10, 30, 45, 50, 70, 100],
+            ['x2', 30, 50, 75, 100, 120],
+            ['data1', 30, 200, 100, 400, 150, 250],
+            ['data2', 20, 180, 240, 100, 190]
+        ]
+    }
+});
+
+var chart = c3.generate({
+	bindto: '#nationalChart',
+    data: {
+        xs: {
+            'data1': 'x1',
+            'data2': 'x2',
+        },
+        columns: [
+            ['x1', 10, 30, 45, 50, 70, 100],
+            ['x2', 30, 50, 75, 100, 120],
+            ['data1', 30, 200, 100, 400, 150, 250],
+            ['data2', 20, 180, 240, 100, 190]
+        ]
+    }
+});
+
+
 function formatCurrency(d) {
         return "$" + d;
     }
@@ -15,7 +49,7 @@ function formatCurrency(d) {
 function createLineChart(appendDiv) {
     var m = [20, 80, 20, 80];
     var w = 500 - m[1] - m[3];
-    var h = 200 - m[0] - m[2];
+    var h = 190 - m[0] - m[2];
 
     var data = [24509, 19466, 18004, 18381, 17312, 19926, 24761, 24815, 24333, 29117, 24527, 17478];
 
