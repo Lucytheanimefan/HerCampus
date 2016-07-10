@@ -1,7 +1,7 @@
 
 
 /*--------------------------Monthly uniques and total pageviews----------------------------*/
-.axis path, .axis line {
+.axis path {
     fill: none;
     stroke: white;
     shape-rendering: crispEdges;
@@ -9,6 +9,11 @@
 .axis text {
     font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
     font-size: 11px;
+}
+
+#monthlyUniques text{
+	fill: white !important;
+	stroke: none !important;
 }
 
 

@@ -99,6 +99,179 @@ function drawNewsletter(arrData) {
 
 
 //------------------------------MONTHLY UNIQUES/PAGEVIEW-------------------------
+var newData = [{
+    "interest_rate": "HC.COM",
+    "Facebook": 500,
+    "Twitter": 100,
+    "Pinterest": 66,
+    "Instagram": 20
+}, {
+    "interest_rate": "TEEN VOGUE",
+    "Facebook": 300,
+    "Twitter": 150,
+    "Pinterest": 206,
+    "Instagram": 60
+}];
+
+//createMultiPlatformViews(newData, 'monthlyUniques')
+
+function createMultiPlatformViews(data, idArea) {
+
+    var uniqueColors = ["#6640CC ", "#FF0066", "#FCBD12", "#00D6C2"];
+    var margin = {
+            top: 20,
+            right: 100,
+            bottom: 40,
+            left: 80
+        },
+        width = 500 - margin.left - margin.right,
+        height = 230 - margin.top - margin.bottom,
+        that = this;
+
+
+    var x = d3.scale.ordinal().rangeRoundBands([0, width], .3);
+
+    var y = d3.scale.linear().rangeRound([height, 0]);
+
+    var color = d3.scale.ordinal()
+        .range(uniqueColors);
+
+    var xAxis = d3.svg.axis().scale(x).orient("bottom");
+
+    var yAxis = d3.svg.axis().scale(y).orient("left").tickFormat(d3.format(".0%"));
+
+    var tip = d3.tip()
+        .attr('class', 'd3-tip')
+        .offset([-10, 0])
+        .html(function(d) {
+            var total_amt;
+            total_amt = d.amount;
+            return total_amt;
+
+        });
+
+    var svg = d3.select(idArea)
+        .append("svg")
+        .attr("id", idArea)
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    svg.call(tip);
+
+    color.domain(d3.keys(data[0]).filter(function(key) {
+        return key !== "interest_rate";
+    }));
+
+
+    data.forEach(function(d) {
+        var y0 = 0;
+
+        d.rates = color.domain().map(function(name) {
+            console.log();;
+            return {
+                name: name,
+                y0: y0,
+                y1: y0 += +d[name],
+                amount: d[name]
+            };
+        });
+        d.rates.forEach(function(d) {
+            d.y0 /= y0;
+            d.y1 /= y0;
+        });
+
+        console.log(data);
+    });
+
+    data.sort(function(a, b) {
+        return b.rates[0].y1 - a.rates[0].y1;
+    });
+
+    x.domain(data.map(function(d) {
+        return d.interest_rate;
+    }));
+
+    svg.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + (height) + ")")
+        .call(xAxis)
+        .selectAll(".tick text")
+        .call(wrap, x.rangeBand());
+
+    svg.append("g")
+        .attr("class", "y axis")
+        .call(yAxis);
+
+    var interest_rate = svg.selectAll(".interest-rate")
+        .data(data)
+        .enter()
+        .append("g")
+        .attr("class", "interest-rate")
+        .attr("transform", function(d) {
+            return "translate(" + x(d.interest_rate) + ",0)";
+        })
+
+    interest_rate.selectAll("rect").data(function(d) {
+            return d.rates;
+        }).enter().append("rect").attr("width", x.rangeBand()).attr("y", function(d) {
+            return y(d.y1);
+        }).attr("height", function(d) {
+            return y(d.y0) - y(d.y1);
+        }).style("fill", function(d) {
+            return color(d.name);
+        })
+        .on('mouseover', tip.show)
+        .on('mouseout', tip.hide);
+
+    var legend = svg.selectAll(".legend").data(color.domain().slice().reverse()).enter().append("g").attr("class", "legend").attr("transform", function(d, i) {
+        return "translate(330," + i * 50 + ")";
+    });
+
+
+    legend.append("rect").attr("x", width - 340).attr("width", 10).attr("height", 10).style("fill", color);
+
+    legend.append("text")
+        .attr("x", width - 40)
+        .attr("y", 5)
+        .attr("width", 50)
+        .attr("dy", ".35em")
+        .style("text-anchor", "start")
+        .text(function(d) {
+            return d;
+        })
+        .call(wrap, 80);
+}
+
+function wrap(text, width) {
+    text.each(function() {
+        var text = d3.select(this),
+            words = text.text().split(/\s+/).reverse(),
+            word,
+            line = [],
+            lineNumber = 0,
+            lineHeight = 1.1, // ems
+            y = text.attr("y"),
+            dy = parseFloat(text.attr("dy")),
+            tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
+        while (word = words.pop()) {
+            line.push(word);
+            tspan.text(line.join(" "));
+            if (tspan.node().getComputedTextLength() > width) {
+                line.pop();
+                tspan.text(line.join(" "));
+                line = [word];
+                tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+            }
+        }
+    });
+}
+
+function type(d) {
+    d.value = +d.value;
+    return d;
+}
 
 var dataset = [{
     data: [{
@@ -223,7 +396,7 @@ function InitChart(dataset) {
             return yScale(d.y);
         })
         .attr('height', function(d) {
-            return yScale.rangeBand()-30;
+            return yScale.rangeBand() - 30;
         })
         .attr('width', function(d) {
             return xScale(d.x);
@@ -268,7 +441,7 @@ function InitChart(dataset) {
     series.forEach(function(s, i) {
         svg.append('text')
             //.attr('fill', 'none')
-            .attr('x', width + margins.left-40)
+            .attr('x', width + margins.left - 40)
             .attr('y', i * 24 + 24)
             .attr('stroke', 'white')
             .attr('stroke-width', '1px')
@@ -342,10 +515,10 @@ function dsPieChart() {
     ;
 
     /**
-    	vis.append("rect")
-    		.attr("width", "100%")
-    		.attr("height", "100%")
-    		.attr("fill",function(d){return "#2C3546";})
+        vis.append("rect")
+            .attr("width", "100%")
+            .attr("height", "100%")
+            .attr("fill",function(d){return "#2C3546";})
     **/
     var arc = d3.svg.arc() //this will create <path> elements for us using arc data
         .outerRadius(outerRadius).innerRadius(innerRadius);
@@ -405,7 +578,7 @@ function dsPieChart() {
         return a > 90 ? a - 180 : a;
     }
 
-    // Pie chart title			
+    // Pie chart title          
     vis.append("svg:text")
         .attr("dy", ".35em")
         .attr("text-anchor", "middle")
@@ -688,10 +861,10 @@ function dsBarChart() {
         .attr("id", "barChartPlot");
 
     /**
-    	svg.append("rect")
-    		.attr("width", "100%")
-    		.attr("height", "100%")
-    		.attr("fill",function(d){return "#2C3546";})
+        svg.append("rect")
+            .attr("width", "100%")
+            .attr("height", "100%")
+            .attr("fill",function(d){return "#2C3546";})
     **/
     var plot = svg
         .append("g")
@@ -714,7 +887,7 @@ function dsBarChart() {
         .attr("fill", "lightgrey");
 
 
-    // Add y labels to plot	
+    // Add y labels to plot 
 
     plot.selectAll("text")
         .data(firstDatasetBarChart)
@@ -732,14 +905,14 @@ function dsBarChart() {
             return yScale(d.measure) + 14;
         })
         .attr("class", "yAxis")
-        /* moved to CSS			   
+        /* moved to CSS            
         .attr("font-family", "sans-serif")
         .attr("font-size", "11px")
         .attr("fill", "white")
         */
     ;
 
-    // Add x labels to chart	
+    // Add x labels to chart    
 
     var xLabels = svg
         .append("g")
