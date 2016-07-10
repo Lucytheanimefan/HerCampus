@@ -37,20 +37,24 @@
 #socialmediareach {
     background-color: #2C3546;
     margin-bottom: 50px;
+    margin-top: 10px;
 }
 
-#socialmediareach tspan{
-	color: white;
+#socialmediareach tspan {
+    color: white;
 }
+
 text {
     fill: white !important;
     stroke: none !important;
 }
+
+
 /*-----------------Newsletter Subscribers-----------------*/
 
 #newsletter {
     background-color: #2C3546;
-    margin-left: 10px;
+    text-align: center;
 }
 
 #newsletter h1 {
@@ -61,9 +65,13 @@ text {
     text-align: center;
 }
 
+#newletterSubscribers span {
+    text-align: right;
+}
+
 #newsletterImage {
-    float: left;
-    margin-top: -10px;
+    float: center;
+    margin-top: 5px;
 }
 
 span {
@@ -75,7 +83,7 @@ span {
 
 #Total-audience {
     background-color: #2C3546;
-    margin-left: 10px;
+    margin-left: 5px;
 }
 
 #Total-audience h1 {
@@ -91,7 +99,8 @@ span {
 
 /*----------------------Device traffic and chapter presence-------------------*/
 
-#deviceTraffic, #chapterPresence {
+#deviceTraffic,
+#chapterPresence {
     color: white;
     background-color: #2C3546;
     margin-top: 5px;
@@ -102,6 +111,6 @@ span {
     text-align: right;
 }
 
-#deviceImages img{
+#deviceImages img {
     float: right;
 }

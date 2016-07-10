@@ -4,9 +4,14 @@ var hotpink = d3.rgb(255, 0, 102);
 var indigo = d3.rgb(102, 64, 204);
 
 //------------------------------Newsletter-------------------------
+function addSubscribers(numSubs) {
+    var newsletter = document.getElementById('newletterSubscribers');
+    var sub_count = document.createElement('span');
+    sub_count.innerHTML = numSubs.toString() +" SUBSCRIBERS";
+    newsletter.appendChild(sub_count);
+}
 
-
-
+addSubscribers(233817);
 
 //------------------------------MONTHLY UNIQUES/PAGEVIEW-------------------------
 var newData = [{
@@ -85,11 +90,11 @@ var chart = c3.generate({
 //------------------------------SOCIAL MEDIA REACH-------------------------------
 
 var chart = c3.generate({
-    bindto: "#socialmediareach", 
+    bindto: "#socialmediareach",
     data: {
         x: 'x',
         columns: [
-        ['x', 'INFLUENCEHER', 'BETCHES','NATIONAL','CHAPTERS'],
+            ['x', 'INFLUENCEHER', 'BETCHES', 'NATIONAL', 'CHAPTERS'],
             ['Facebook', 30, 200, 200, 400],
             ['Twitter', 130, 100, 100, 200],
             ['Instagram', 230, 200, 200, 300],
@@ -99,16 +104,16 @@ var chart = c3.generate({
         ],
         type: 'bar',
         groups: [
-            ['Facebook', 'Twitter', 'Instagram','Pinterest','YouTube']
+            ['Facebook', 'Twitter', 'Instagram', 'Pinterest', 'YouTube']
         ],
         colors: {
-                Facebook: '#FF0066',
-                Twitter: '#00D6C2',
-                Instagram: '#6640CC',
-                Pinterest: '#FCBD12',
-                YouTube: '#B5E136',
-                Tumblr: '#B2167E'
-            },
+            Facebook: '#FF0066',
+            Twitter: '#00D6C2',
+            Instagram: '#6640CC',
+            Pinterest: '#FCBD12',
+            YouTube: '#B5E136',
+            Tumblr: '#B2167E'
+        },
     },
     axis: {
         x: {
@@ -117,23 +122,29 @@ var chart = c3.generate({
     },
     grid: {
         y: {
-            lines: [{value:0}]
+            lines: [{ value: 0 }]
         }
     }
 });
 
-setTimeout(function () {
-    chart.groups([['Facebook', 'Twitter', 'Instagram','Pinterest','YouTube', 'Tumblr']])
+setTimeout(function() {
+    chart.groups([
+        ['Facebook', 'Twitter', 'Instagram', 'Pinterest', 'YouTube', 'Tumblr']
+    ])
 }, 1000);
 
-setTimeout(function () {
+setTimeout(function() {
     chart.load({
-        columns: [["B'",  50, 200, 200, 60]]
+        columns: [
+            ["B'", 50, 200, 200, 60]
+        ]
     });
 }, 1500);
 
-setTimeout(function () {
-    chart.groups([['Facebook', 'Twitter', 'Instagram','Pinterest','YouTube', 'Tumblr',"B'"]])
+setTimeout(function() {
+    chart.groups([
+        ['Facebook', 'Twitter', 'Instagram', 'Pinterest', 'YouTube', 'Tumblr', "B'"]
+    ])
 }, 2000);
 
 
@@ -143,9 +154,9 @@ function setSitetraffic(mobileP, desktopP, tabletP) {
     var mobile = document.getElementById('mobilePercent');
     mobile.innerHTML = "MOBILE: " + mobileP;
     var desktop = document.getElementById('desktopPercent');
-    desktop.innerHTML="DESKTOP: "+desktopP;
+    desktop.innerHTML = "DESKTOP: " + desktopP;
     var tablet = document.getElementById('tabletPercent');
-    tablet.innerHTML="TABLET: "+tabletP;
+    tablet.innerHTML = "TABLET: " + tabletP;
 }
 
 setSitetraffic("66%", "27.70%", "5.50%");
