@@ -9,35 +9,49 @@ createLineChart("#totalMonthlyViews");
 createLineChart("#newsletterSubscribers");
 
 
-var chart = c3.generate({
+var chart1 = c3.generate({
 	bindto: '#monthlyUniquesChart',
     data: {
-        xs: {
-            'data1': 'x1',
-            'data2': 'x2',
-        },
+        x : 'x',
         columns: [
-            ['x1', 10, 30, 45, 50, 70, 100],
-            ['x2', 30, 50, 75, 100, 120],
-            ['data1', 30, 200, 100, 400, 150, 250],
-            ['data2', 20, 180, 240, 100, 190]
-        ]
+            ['x', 'JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN'],
+//            ['x', '20130101', '20130102', '20130103', '20130104', '20130105', '20130106'],
+            ['HC.com Monthly Uniques', 30, 200, 100, 400, 150, 250],
+            ['HC.com Monthly Pageviews', 130, 340, 200, 500, 250, 350]
+        ],
+        groups: [
+            ['download', 'loading']
+        ],
+        type: 'line'
+    },
+    axis: {
+        x: {
+            type: 'category' // this needed to load string x value
+        }
     }
 });
 
 var chart = c3.generate({
 	bindto: '#nationalChart',
     data: {
-        xs: {
-            'data1': 'x1',
-            'data2': 'x2',
-        },
+        x : 'x',
         columns: [
-            ['x1', 10, 30, 45, 50, 70, 100],
-            ['x2', 30, 50, 75, 100, 120],
-            ['data1', 30, 200, 100, 400, 150, 250],
-            ['data2', 20, 180, 240, 100, 190]
-        ]
+            ['x', 'JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN'],
+//            ['x', '20130101', '20130102', '20130103', '20130104', '20130105', '20130106'],
+            ['Facebook', 30, 200, 100, 400, 150, 250],
+            ['Twitter', 130, 340, 200, 500, 250, 350],
+            ['Pinterest', 50, 140, 150, 600, 200, 300],
+            ['Instagram', 100, 200, 100, 550, 100, 400]
+        ],
+        groups: [
+            ['download', 'loading']
+        ],
+        type: 'line'
+    },
+    axis: {
+        x: {
+            type: 'category' // this needed to load string x value
+        }
     }
 });
 

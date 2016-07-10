@@ -1,14 +1,21 @@
-#totalMonthlyViews, #chapterGrowth, #newsletterSubscribers, #monthlyUniques, #nationalChapterReach{
-  background-color: #2C3546;
-  margin-bottom: 10px;
+#totalMonthlyViews,
+#chapterGrowth,
+#newsletterSubscribers,
+#monthlyUniques,
+#nationalChapterReach {
+    background-color: #2C3546;
+    margin-bottom: 10px;
 }
 
-#monthlyUniques, #nationalChapterReach{
-  margin-right: 10px;
+#monthlyUniques,
+#nationalChapterReach {
+    margin-right: 10px;
 }
 
-#totalMonthlyViews, #chapterGrowth, #newsletterSubscribers{
-  text-align: right;
+#totalMonthlyViews,
+#chapterGrowth,
+#newsletterSubscribers {
+    text-align: right;
 }
 
 .right {
@@ -74,7 +81,29 @@
     text-align: center;
 }
 
-.c3-chart-lines, .c3-shapes{
-  stroke: white !important;
-  fill: none !important;
+.c3-chart-lines,
+.c3-shapes {
+    fill: none !important;
+}
+
+.c3-tooltip {
+
+}
+
+.domain,
+.c3-axis-x-label {
+    stroke: white !important;
+    stroke-width: 2 !important;
+}
+
+.tick {
+    fill: white;
+}
+
+.c3-axis {
+    visibility: none;
+}
+
+.c3-legend-item text{
+  fill: white !important;
 }
