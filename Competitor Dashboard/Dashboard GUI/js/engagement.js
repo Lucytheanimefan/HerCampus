@@ -183,7 +183,7 @@ function sortDescending(data) {
 
 
 
-function addTitles() {
+function addTitlesGraphs() {
 	for (var i = 0; i < 4; i++) {
 		var area = document.getElementById(titlemappings[i][0]);
 		var title = document.createElement("div");
@@ -192,7 +192,14 @@ function addTitles() {
 		area.appendChild(title);
 
 		drawBarGraph(titlemappings[i][2], i);
+
+		var img = document.createElement("img");
+		img.src = "css/Images/SocialEngagement_"+titlemappings[i][0]+".svg";
+		img.width="40";
+		img.height="50";
+		img.className="svg_image";
+		area.appendChild(img);
 	}
 }
 
-addTitles();
+addTitlesGraphs();

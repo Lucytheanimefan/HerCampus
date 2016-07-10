@@ -98,3 +98,13 @@ head, html, body{
 	background-color: #00D6C2;
 }
 
+
+
+/*-------------------Images-------------------------*/
+.svg_image{
+	float: left;
+	margin-left: 50px;
+	margin-top: 23%;
+	vertical-align: middle;
+	position: relative;
+}
