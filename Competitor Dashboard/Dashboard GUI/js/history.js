@@ -25,7 +25,11 @@ var chart1 = c3.generate({
         groups: [
             ['download', 'loading']
         ],
-        type: 'line'
+        type: 'line',
+        colors: {
+            'HC.com Monthly Uniques': '#FF0066',
+            'HC.com Monthly Pageviews': '#00D6C2'
+        }
     },
     axis: {
         x: {
@@ -49,7 +53,13 @@ var chart = c3.generate({
         groups: [
             ['download', 'loading']
         ],
-        type: 'line'
+        type: 'line',
+         colors: {
+            Facebook: '#FF0066',
+            Twitter: '#00D6C2',
+            Pinterest:'#FCBD12',
+            Instagram: '#6640CC'
+        },
     },
     axis: {
         x: {
