@@ -5,17 +5,20 @@ var indigo = d3.rgb(102, 64, 204);
 
 
 createLineChart("#chapterGrowth");
+addImage("Chapter", "chapterGrowth"); 
 createLineChart("#totalMonthlyViews");
+addImage("Laptop", "totalMonthlyViews"); 
 createLineChart("#newsletterSubscribers");
+addImage("Newsletter", "newsletterSubscribers"); 
 
 
 var chart1 = c3.generate({
-	bindto: '#monthlyUniquesChart',
+    bindto: '#monthlyUniquesChart',
     data: {
-        x : 'x',
+        x: 'x',
         columns: [
             ['x', 'JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN'],
-//            ['x', '20130101', '20130102', '20130103', '20130104', '20130105', '20130106'],
+            //            ['x', '20130101', '20130102', '20130103', '20130104', '20130105', '20130106'],
             ['HC.com Monthly Uniques', 30, 200, 100, 400, 150, 250],
             ['HC.com Monthly Pageviews', 130, 340, 200, 500, 250, 350]
         ],
@@ -32,12 +35,12 @@ var chart1 = c3.generate({
 });
 
 var chart = c3.generate({
-	bindto: '#nationalChart',
+    bindto: '#nationalChart',
     data: {
-        x : 'x',
+        x: 'x',
         columns: [
             ['x', 'JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN'],
-//            ['x', '20130101', '20130102', '20130103', '20130104', '20130105', '20130106'],
+            //            ['x', '20130101', '20130102', '20130103', '20130104', '20130105', '20130106'],
             ['Facebook', 30, 200, 100, 400, 150, 250],
             ['Twitter', 130, 340, 200, 500, 250, 350],
             ['Pinterest', 50, 140, 150, 600, 200, 300],
@@ -57,8 +60,8 @@ var chart = c3.generate({
 
 
 function formatCurrency(d) {
-        return "$" + d;
-    }
+    return "$" + d;
+}
 
 function createLineChart(appendDiv) {
     var m = [20, 80, 20, 80];
@@ -104,4 +107,14 @@ function createLineChart(appendDiv) {
         .attr("d", line(data))
         .attr('class', 'line');
 
+}
+
+function addImage(imageName, divArea) {
+    var area = document.getElementById(divArea);
+    var img = document.createElement("img");
+    img.src = "css/Images/History_" + imageName + ".svg";
+    img.width = "110";
+    img.height = "110";
+    img.className = "svg_image";
+    area.appendChild(img);
 }

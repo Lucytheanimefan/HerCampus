@@ -55,3 +55,10 @@ path.domain {
   top: 100%;
   left: 0;
 }
+
+.svg_image{
+  float: left;
+  margin-left: 50px;
+  margin-top: 15%;
+  position: relative;
+}

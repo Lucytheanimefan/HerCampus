@@ -107,3 +107,11 @@
 .c3-legend-item text{
   fill: white !important;
 }
+
+
+
+.svg_image{
+    float: left;
+    margin-left: 40px;
+    margin-top: 50px;
+}
