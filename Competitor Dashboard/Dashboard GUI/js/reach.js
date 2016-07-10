@@ -128,6 +128,9 @@ function createMultiPlatformViews(data) {
 }
 
 /*--------------------Social media reach---------------*/
+var socialMedia=["FB", "Twitter", "Pinterest", "Insta","Snapchat"];
+var socialMediaCounts=["34,155,441", "4,850,000", "25,974,379", "41,782", "3,000"];
+
 function createSocialMediaReach() {
 
 	var social = document.getElementById("socialMediaReach");
@@ -136,9 +139,28 @@ function createSocialMediaReach() {
 	social.appendChild(block);
 
 	block.innerHTML="SOCIAL MEDIA REACH";
+	imagesAndText(social);
 
 }
 
+function imagesAndText(parent){
+	for (var i=0; i<socialMedia.length; i++){
+		var div = document.createElement("div");
+		div.className = "imageAndCount";
+		var img = document.createElement("img");
+		img.src = "css/Images/Reach_"+socialMedia[i]+".svg";
+		img.width="40";
+		img.height="40";
+		div.appendChild(img);
+
+		var count = document.createElement("span");
+		count.innerHTML="   "+socialMediaCounts[i];
+		div.appendChild(count);
+
+		parent.appendChild(div);
+	}
+
+}
 createSocialMediaReach();
 
 
