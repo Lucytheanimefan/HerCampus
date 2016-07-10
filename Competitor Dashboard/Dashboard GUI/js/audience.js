@@ -57,7 +57,7 @@ var dataset = [{
 var chart = c3.generate({
     bindto: '#monthlyUniquesdiv',
     data: {
-        x : 'x',
+        x: 'x',
         columns: [
             ['x', 'Uniques', 'Pageviews'],
             ['Her Campus', 30, 200, 100, 400],
@@ -65,13 +65,13 @@ var chart = c3.generate({
             ['BetchesLoveThis.com', 50, 120, 130, 210]
         ],
         groups: [
-            ['Her Campus', 'InfluenceHer Collective','BetchesLoveThis.com']
+            ['Her Campus', 'InfluenceHer Collective', 'BetchesLoveThis.com']
         ],
         colors: {
             'Her Campus': '#FF0066',
             'InfluenceHer Collective': '#00D6C2',
-            'BetchesLoveThis.com':'#6640CC',
-            
+            'BetchesLoveThis.com': '#6640CC',
+
         },
         type: 'bar'
     },
@@ -875,3 +875,16 @@ function updateLineChart(group, colorChosen) {
         });
 
 }
+
+/*--------------------------Site traffic----------------*/
+
+function setSitetraffic(mobileP, desktopP, tabletP) {
+    var mobile = document.getElementById('mobilePercent');
+    mobile.innerHTML = "MOBILE: " + mobileP;
+    var desktop = document.getElementById('desktopPercent');
+    desktop.innerHTML="DESKTOP: "+desktopP;
+    var tablet = document.getElementById('tabletPercent');
+    tablet.innerHTML="TABLET: "+tabletP;
+}
+
+setSitetraffic("66%", "27.70%", "5.50%");
