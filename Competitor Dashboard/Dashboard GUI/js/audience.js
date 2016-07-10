@@ -4,97 +4,7 @@ var hotpink = d3.rgb(255, 0, 102);
 var indigo = d3.rgb(102, 64, 204);
 
 //------------------------------Newsletter-------------------------
-var timeRange = [new Date(2016, 1, 1), new Date(2016, 4, 0)];
-var arrData = [
-    ["2012-10-00", 200],
-    ["2012-11-00", 300],
-    ["2012-12-10", 250]
-];
-drawNewsletter(arrData);
 
-function drawNewsletter(arrData) {
-    var margin = {
-            top: 15,
-            right: 15,
-            bottom: 30,
-            left: 100
-        },
-        width = 320 - margin.left - margin.right,
-        height = 100 - margin.top - margin.bottom;
-
-
-    var parseDate = d3.time.format("%Y-%m-%d").parse;
-
-
-    var x = d3.time.scale()
-        .range([0, width])
-
-    var y = d3.scale.linear()
-        .range([height, 0]);
-
-    var xAxis = d3.svg.axis()
-        .scale(x)
-        .ticks(3)
-        .orient("bottom");
-
-    var yAxis = d3.svg.axis()
-        .scale(y)
-        .ticks(3)
-        .orient("left");
-
-    var line = d3.svg.line()
-        .x(function(d) {
-            return x(d.date);
-        })
-        .y(function(d) {
-            return y(d.close);
-        });
-
-    var svg = d3.select("#newsletter").append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-    var data = arrData.map(function(d) {
-        return {
-            date: parseDate(d[0]),
-            close: d[1]
-        };
-
-    });
-
-    console.log(data);
-
-
-    x.domain(d3.extent(data, function(d) {
-        return d.date;
-    }));
-    y.domain(d3.extent(data, function(d) {
-        return d.close;
-    }));
-
-    svg.append("g")
-        .attr("class", "x axis")
-        .attr("transform", "translate(0," + height + ")")
-        .call(xAxis);
-
-    svg.append("g")
-        .attr("class", "y axis")
-        .call(yAxis)
-        .append("text")
-        .attr("transform", "rotate(-90)")
-        .attr("y", 6)
-        .attr("dy", ".71em")
-        .style("text-anchor", "end");
-
-    svg.append("path")
-        .datum(data)
-        .attr("class", "line")
-        .attr("d", line);
-
-
-}
 
 
 
@@ -113,165 +23,7 @@ var newData = [{
     "Instagram": 60
 }];
 
-//createMultiPlatformViews(newData, 'monthlyUniques')
 
-function createMultiPlatformViews(data, idArea) {
-
-    var uniqueColors = ["#6640CC ", "#FF0066", "#FCBD12", "#00D6C2"];
-    var margin = {
-            top: 20,
-            right: 100,
-            bottom: 40,
-            left: 80
-        },
-        width = 500 - margin.left - margin.right,
-        height = 230 - margin.top - margin.bottom,
-        that = this;
-
-
-    var x = d3.scale.ordinal().rangeRoundBands([0, width], .3);
-
-    var y = d3.scale.linear().rangeRound([height, 0]);
-
-    var color = d3.scale.ordinal()
-        .range(uniqueColors);
-
-    var xAxis = d3.svg.axis().scale(x).orient("bottom");
-
-    var yAxis = d3.svg.axis().scale(y).orient("left").tickFormat(d3.format(".0%"));
-
-    var tip = d3.tip()
-        .attr('class', 'd3-tip')
-        .offset([-10, 0])
-        .html(function(d) {
-            var total_amt;
-            total_amt = d.amount;
-            return total_amt;
-
-        });
-
-    var svg = d3.select(idArea)
-        .append("svg")
-        .attr("id", idArea)
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-    svg.call(tip);
-
-    color.domain(d3.keys(data[0]).filter(function(key) {
-        return key !== "interest_rate";
-    }));
-
-
-    data.forEach(function(d) {
-        var y0 = 0;
-
-        d.rates = color.domain().map(function(name) {
-            console.log();;
-            return {
-                name: name,
-                y0: y0,
-                y1: y0 += +d[name],
-                amount: d[name]
-            };
-        });
-        d.rates.forEach(function(d) {
-            d.y0 /= y0;
-            d.y1 /= y0;
-        });
-
-        console.log(data);
-    });
-
-    data.sort(function(a, b) {
-        return b.rates[0].y1 - a.rates[0].y1;
-    });
-
-    x.domain(data.map(function(d) {
-        return d.interest_rate;
-    }));
-
-    svg.append("g")
-        .attr("class", "x axis")
-        .attr("transform", "translate(0," + (height) + ")")
-        .call(xAxis)
-        .selectAll(".tick text")
-        .call(wrap, x.rangeBand());
-
-    svg.append("g")
-        .attr("class", "y axis")
-        .call(yAxis);
-
-    var interest_rate = svg.selectAll(".interest-rate")
-        .data(data)
-        .enter()
-        .append("g")
-        .attr("class", "interest-rate")
-        .attr("transform", function(d) {
-            return "translate(" + x(d.interest_rate) + ",0)";
-        })
-
-    interest_rate.selectAll("rect").data(function(d) {
-            return d.rates;
-        }).enter().append("rect").attr("width", x.rangeBand()).attr("y", function(d) {
-            return y(d.y1);
-        }).attr("height", function(d) {
-            return y(d.y0) - y(d.y1);
-        }).style("fill", function(d) {
-            return color(d.name);
-        })
-        .on('mouseover', tip.show)
-        .on('mouseout', tip.hide);
-
-    var legend = svg.selectAll(".legend").data(color.domain().slice().reverse()).enter().append("g").attr("class", "legend").attr("transform", function(d, i) {
-        return "translate(330," + i * 50 + ")";
-    });
-
-
-    legend.append("rect").attr("x", width - 340).attr("width", 10).attr("height", 10).style("fill", color);
-
-    legend.append("text")
-        .attr("x", width - 40)
-        .attr("y", 5)
-        .attr("width", 50)
-        .attr("dy", ".35em")
-        .style("text-anchor", "start")
-        .text(function(d) {
-            return d;
-        })
-        .call(wrap, 80);
-}
-
-function wrap(text, width) {
-    text.each(function() {
-        var text = d3.select(this),
-            words = text.text().split(/\s+/).reverse(),
-            word,
-            line = [],
-            lineNumber = 0,
-            lineHeight = 1.1, // ems
-            y = text.attr("y"),
-            dy = parseFloat(text.attr("dy")),
-            tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
-        while (word = words.pop()) {
-            line.push(word);
-            tspan.text(line.join(" "));
-            if (tspan.node().getComputedTextLength() > width) {
-                line.pop();
-                tspan.text(line.join(" "));
-                line = [word];
-                tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
-            }
-        }
-    });
-}
-
-function type(d) {
-    d.value = +d.value;
-    return d;
-}
 
 var dataset = [{
     data: [{
@@ -302,159 +54,34 @@ var dataset = [{
     name: 'BetchesLoveThis.com'
 }];
 
-function InitChart(dataset) {
-    var uniqueColors = ["#6640CC ", "#FF0066", "#00D2C1"];
-    //Width and height
-    var margins = {
-            top: 12,
-            left: 100,
-            right: 70,
-            bottom: 24
+var chart = c3.generate({
+    bindto: '#monthlyUniquesdiv',
+    data: {
+        x : 'x',
+        columns: [
+            ['x', 'Uniques', 'Pageviews'],
+            ['Her Campus', 30, 200, 100, 400],
+            ['InfluenceHer Collective', 90, 100, 140, 200],
+            ['BetchesLoveThis.com', 50, 120, 130, 210]
+        ],
+        groups: [
+            ['Her Campus', 'InfluenceHer Collective','BetchesLoveThis.com']
+        ],
+        colors: {
+            'Her Campus': '#FF0066',
+            'InfluenceHer Collective': '#00D6C2',
+            'BetchesLoveThis.com':'#6640CC',
+            
         },
-        legendPanel = {
-            width: 180
-        },
-        width = 600 - margins.left - margins.right - legendPanel.width,
-        height = 320 - margins.top - margins.bottom,
+        type: 'bar'
+    },
+    axis: {
+        x: {
+            type: 'category' // this needed to load string x value
+        }
+    }
+});
 
-        series = dataset.map(function(d) {
-            return d.name;
-        }),
-        dataset = dataset.map(function(d) {
-            return d.data.map(function(o, i) {
-                // Structure it so that your numeric
-                // axis (the stacked amount) is y
-                return {
-                    y: o.count,
-                    x: o.month
-                };
-            });
-        }),
-        stack = d3.layout.stack();
-
-    stack(dataset);
-
-    var dataset = dataset.map(function(group) {
-            return group.map(function(d) {
-                // Invert the x and y values, and y0 becomes x0
-                return {
-                    x: d.y,
-                    y: d.x,
-                    x0: d.y0
-                };
-            });
-        }),
-        svg = d3.select('#monthlyUniques')
-        .append('svg')
-        .attr('width', width + margins.left + margins.right + legendPanel.width)
-        .attr('height', height + margins.top + margins.bottom)
-        .append('g')
-        .attr('transform', 'translate(' + margins.left + ',' + margins.top + ')'),
-        xMax = d3.max(dataset, function(group) {
-            return d3.max(group, function(d) {
-                return d.x + d.x0;
-            });
-        }),
-        xScale = d3.scale.linear()
-        .domain([0, xMax])
-        .range([0, width]),
-        months = dataset[0].map(function(d) {
-            return d.y;
-        }),
-
-
-        yScale = d3.scale.ordinal()
-        .domain(months)
-        .rangeRoundBands([0, height], .1),
-
-        xAxis = d3.svg.axis()
-        .scale(xScale)
-        .orient('bottom'),
-
-        yAxis = d3.svg.axis()
-        .scale(yScale)
-        .orient('left'),
-        colours = d3.scale.ordinal()
-        .range(uniqueColors),
-        groups = svg.selectAll('g')
-        .data(dataset)
-        .enter()
-        .append('g')
-        .style('fill', function(d, i) {
-            return colours(i);
-        }),
-        rects = groups.selectAll('rect')
-        .data(function(d) {
-            return d;
-        })
-        .enter()
-        .append('rect')
-        .attr('x', function(d) {
-            return xScale(d.x0);
-        })
-        .attr('y', function(d, i) {
-            return yScale(d.y);
-        })
-        .attr('height', function(d) {
-            return yScale.rangeBand() - 30;
-        })
-        .attr('width', function(d) {
-            return xScale(d.x);
-        })
-        /*
-        .on('mouseover', function(d) {
-            var xPos = parseFloat(d3.select(this).attr('x')) / 2 + width / 2;
-            var yPos = parseFloat(d3.select(this).attr('y')) + yScale.rangeBand() / 2;
-
-            d3.select('#tooltip')
-                .style('left', xPos + 'px')
-                .style('top', yPos + 'px')
-                .select('#value')
-                .text(d.x);
-
-            d3.select('#tooltip').classed('hidden', false);
-        })
-        .on('mouseout', function() {
-            d3.select('#tooltip').classed('hidden', true);
-        })
-*/
-    svg.append('g')
-        .attr('class', 'axis')
-        .attr('transform', 'translate(0,' + height + ')')
-        .attr('stroke', 'white')
-        .attr('stroke-width', '1px')
-        .call(xAxis);
-
-    svg.append('g')
-        .attr('class', 'axis')
-        .attr('stroke', 'white')
-        .attr('stroke-width', '1px')
-        .call(yAxis);
-
-    svg.append('rect')
-        .attr('fill', 'none')
-        .attr('width', 200)
-        .attr('height', 30 * dataset.length)
-        .attr('x', width - margins.left)
-        .attr('y', 0);
-
-    series.forEach(function(s, i) {
-        svg.append('text')
-            //.attr('fill', 'none')
-            .attr('x', width + margins.left - 40)
-            .attr('y', i * 24 + 24)
-            .attr('stroke', 'white')
-            .attr('stroke-width', '1px')
-            .text(s);
-        svg.append('rect')
-            .attr('fill', colours(i))
-            .attr('width', 60)
-            .attr('height', 20)
-            .attr('x', width + margins.left + 90)
-            .attr('y', i * 24 + 6);
-    });
-}
-InitChart(dataset);
 //------------------------------SOCIAL MEDIA REACH-------------------------------
 
 /*

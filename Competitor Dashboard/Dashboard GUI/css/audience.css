@@ -167,6 +167,14 @@
 	text-align: center;
 }
 
+#newsletterImage{
+	float: left;
+	margin-top: -10px;
+}
+
+span{
+	color: white;
+}
 /*-------------------Total audience-----------------*/
 
 #Total-audience{
