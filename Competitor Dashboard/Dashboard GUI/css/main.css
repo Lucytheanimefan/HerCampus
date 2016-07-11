@@ -27,7 +27,8 @@ head, html, body{
 	width: 100%;
 	background-color: #D5E5EE;
 	text-align: center;
-	font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+	/* font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif; */
+	font-family: 'Yanone Kaffeesatz', serif;
 }
 
 /*-----------------------tab bar-------------------------------*/

@@ -104,7 +104,7 @@ var chart = c3.generate({
         ],
         type: 'bar',
         groups: [
-            ['Facebook', 'Twitter', 'Instagram', 'Pinterest', 'YouTube']
+            ['Facebook']
         ],
         colors: {
             Facebook: '#FF0066',
@@ -127,11 +127,36 @@ var chart = c3.generate({
     }
 });
 
+
+setTimeout(function() {
+    chart.groups([
+        ['Facebook', 'Twitter']
+    ])
+}, 500);
+
+setTimeout(function() {
+    chart.groups([
+        ['Facebook', 'Twitter', 'Instagram']
+    ])
+}, 1000);
+
+setTimeout(function() {
+    chart.groups([
+        ['Facebook', 'Twitter', 'Instagram', 'Pinterest']
+    ])
+}, 1500);
+
+setTimeout(function() {
+    chart.groups([
+        ['Facebook', 'Twitter', 'Instagram', 'Pinterest', 'YouTube']
+    ])
+}, 2000);
+
 setTimeout(function() {
     chart.groups([
         ['Facebook', 'Twitter', 'Instagram', 'Pinterest', 'YouTube', 'Tumblr']
     ])
-}, 1000);
+}, 2500);
 
 setTimeout(function() {
     chart.load({
@@ -139,13 +164,13 @@ setTimeout(function() {
             ["B'", 50, 200, 200, 60]
         ]
     });
-}, 1500);
+}, 3000);
 
 setTimeout(function() {
     chart.groups([
         ['Facebook', 'Twitter', 'Instagram', 'Pinterest', 'YouTube', 'Tumblr', "B'"]
     ])
-}, 2000);
+}, 3500);
 
 
 /*--------------------------Site traffic----------------*/
