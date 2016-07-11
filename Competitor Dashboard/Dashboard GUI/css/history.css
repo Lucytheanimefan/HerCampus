@@ -69,21 +69,26 @@
     fill: none;
     stroke: rgba(88, 89, 93, .3);
     shape-rendering: crispEdges;
+    font-family: 'Montserrat', serif;
 }
 
 .right .axis text {
-    font: 10px sans-serif;
+    font-size: 10px;
     fill: white;
+    font-family: 'Montserrat', serif;
 }
 
 .title {
     color: white;
     text-align: center;
+    font-family: 'Yanone Kaffeesatz', serif;
+    font-size: 18px;
 }
 
 .c3-chart-lines,
 .c3-shapes {
     fill: none !important;
+
 }
 
 .c3-tooltip {
@@ -94,6 +99,7 @@
 .c3-axis-x-label {
     stroke: white !important;
     stroke-width: 2 !important;
+    font-family: 'Montserrat', serif;
 }
 
 .tick {

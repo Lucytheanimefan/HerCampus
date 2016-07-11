@@ -47,6 +47,8 @@
 text {
     fill: white !important;
     stroke: none !important;
+    font-family: 'Montserrat', serif;
+    font-size: 8px;
 }
 
 
@@ -58,8 +60,9 @@ text {
 }
 
 #newsletter h1 {
+	margin-top: 20px;
     color: white;
-    font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+    font-family: 'Yanone Kaffeesatz', serif;
     font-size: 20px;
     font-weight: bold;
     text-align: center;
@@ -67,6 +70,7 @@ text {
 
 #newletterSubscribers span {
     text-align: right;
+    font-family: 'Montserrat', serif;
 }
 
 #newsletterImage {
@@ -84,11 +88,12 @@ span {
 #Total-audience {
     background-color: #2C3546;
     margin-left: 5px;
+    font-family: 'Montserrat', serif;
 }
 
 #Total-audience h1 {
     color: white;
-    font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+    font-family: 'Yanone Kaffeesatz', serif;
     font-size: 20px;
     font-weight: bold;
     text-align: center;
@@ -105,6 +110,7 @@ span {
     background-color: #2C3546;
     margin-top: 5px;
     margin-bottom: 5px;
+    font-family: 'Yanone Kaffeesatz', serif;
 }
 
 #deviceImages {

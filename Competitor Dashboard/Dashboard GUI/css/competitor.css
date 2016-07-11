@@ -18,15 +18,22 @@
     fill: white;
 }
 
+.c3-chart-arcs-title{
+    font-family: 'Yanone Kaffeesatz', serif;
+    font-size: 18px !important;
+}
+
 .axis,
 .domain,
 .legend {
     fill: white;
     font-size: 10px;
+
 }
 
 tspan {
     font-size: 8px;
+    font-family: 'Montserrat', serif;
 }
 
 #comp_engagement_reach path.domain {
@@ -50,7 +57,8 @@ tspan {
     text-align: center;
     font-weight: bold;
     font-size: 15px;
-    important!
+    font-family: 'Yanone Kaffeesatz', serif;
+
 }
 
 
@@ -60,6 +68,7 @@ tspan {
 .pieChart{
   text-align: center;
   font-size: 7px;
+  font-family: 'Yanone Kaffeesatz', serif;
 }
 
 
@@ -68,6 +77,7 @@ tspan {
 .d3-tip {
     line-height: 1;
     font-weight: bold;
+    font-family: 'Montserrat', serif;
     padding: 12px;
     background: rgba(0, 0, 0, 0.8);
     color: #fff;
