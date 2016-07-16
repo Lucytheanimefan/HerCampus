@@ -11,9 +11,10 @@
 
 text {
     font-family: 'Montserrat', serif;
+
 }
 
-.teamSizeText {
+.teamSizeText,.activeChText,.teamMemText {
     font-family: 'Yanone Kaffeesatz', serif;
     transform: scale(1.5, 1);
     /* W3C */
