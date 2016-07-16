@@ -33,15 +33,15 @@ for (var i = 0; i < colors.length; i++) {
 */
 
 var circleLocations = [
-    [40, 'white'],
-    [140, '#FF0066'],
-    [190, '#FF0066'],
-    [290, '#FCBD12'],
-    [340, '#FCBD12'],
-    [390, '#FCBD12'],
-    [490, '#6640CC'],
-    [540, '#6640CC'],
-    [590, '#6640CC']
+    [50, 'white'],
+    [150, '#FF0066'],
+    [200, '#FF0066'],
+    [300, '#FCBD12'],
+    [350, '#FCBD12'],
+    [400, '#FCBD12'],
+    [500, '#6640CC'],
+    [550, '#6640CC'],
+    [600, '#6640CC']
 ];
 
 console.log(circleLocations);
@@ -59,9 +59,9 @@ var leftCol = d3.select("#leftColumn").append("div")
 var line = leftCol.append("line")
     .style("stroke", "white")
     .attr("x1", 130)
-    .attr("y1", 40)
+    .attr("y1", 50)
     .attr("x2", 130)
-    .attr("y2", 590);
+    .attr("y2", 600);
 
 leftCol.selectAll("circle")
     .data(circleLocations)
@@ -112,25 +112,24 @@ leftCol.selectAll('text')
         return d;
     });
 
-var teamText = [
-    [140, 'FULL TIME EMPLOYEES'],
-    [190, 'INTERNS'],
-    [290, 'CHAPTER ADVISORS'],
-    [340, 'CHAPTER EXPANSION ASSISTANTS'],
-    [390, 'CHAPTER TEAM MEMBERS'],
-    [490, 'NATIONAL WRITERS/BLOGGERS'],
-    [540, 'IHC ACTIVE MEMBERS'],
-    [590, 'HIGH SCHOOL AMBASSADORS']
+var teamData = [
+    [150, 'FULL TIME EMPLOYEES',22],
+    [200, 'INTERNS',40],
+    [300, 'CHAPTER ADVISORS',49],
+    [350, 'CHAPTER EXPANSION ASSISTANTS',28],
+    [400, 'CHAPTER TEAM MEMBERS',7000],
+    [500, 'NATIONAL WRITERS/BLOGGERS',113],
+    [550, 'IHC ACTIVE MEMBERS',1400],
+    [600, 'HIGH SCHOOL AMBASSADORS',545]
 ];
-var teamNumbers = [22, 40, 49, 28, 7000, 113, 1400, 545];
 
-//right text
+//team size text
 leftCol.selectAll('text.teamSize')
-    .data(teamText)
+    .data(teamData)
     .enter().append('text')
     .attr('x', 100)
     .attr('y', function(d) {
-      console.log(d);
+        console.log(d);
         return d[0];
     })
     .attr('width', 130)
@@ -138,6 +137,50 @@ leftCol.selectAll('text.teamSize')
     .attr('fill', 'white')
     .attr('class', 'teamSizeText')
     .text(function(d) {
-      console.log(d);
+        console.log(d);
         return d[1];
     });
+
+//team size stats
+leftCol.selectAll('text.teamStats')
+    .data(teamData)
+    .enter().append('text')
+    .attr('x', 80)
+    .attr('y', function(d) {
+        console.log(d);
+        return d[0];
+    })
+    .attr('width', 130)
+    .attr('height', 50)
+    .attr('fill', 'white')
+    .attr('class', 'teamSizeStats')
+    .text(function(d) {
+        console.log(d);
+        return d[2];
+    });
+
+
+//main title
+leftCol.append('text')
+.attr('x', 170)
+.attr('y', 50)
+.attr('font-size','50px')
+.attr('fill','white')
+.text("9,000")
+
+leftCol.append('text')
+.attr('x', 160)
+.attr('y', 74)
+.attr('font-size','20px')
+.attr('fill','white')
+.text("TOTAL HCM TEAM SIZE")
+
+//append svg image
+var g=leftCol.append('g')
+var img = g.append('svg:image')
+ img = g.append("svg:image")
+    .attr("xlink:href", "css/Images/Team_Woman.svg")
+    .attr("width", 80)
+    .attr("height", 80)
+    .attr('x', 40)
+    .attr('y', 0)
