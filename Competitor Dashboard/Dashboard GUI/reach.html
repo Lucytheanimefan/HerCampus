@@ -2,7 +2,6 @@
 <html>
 
 <head>
-    <script src="../jquery-2.2.1.js"></script>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/reach.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -14,7 +13,10 @@
 </head>
 
 <body>
-    <div class="Overview">REACH OVERVIEW</div>
+<div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    </div>
+    <div class="Overview"><span class="hamburger" style="font-size:30px;cursor:pointer" onclick="openNav()">☰ open</span>REACH OVERVIEW</div>
     <div id="tabs">
         <ul class="nav nav-tabs navbar-fixed-bottom">
             <li class="audience"><a href="audience.html">AUDIENCE</a></li>
@@ -25,7 +27,7 @@
             <li class="competitors"><a href="competitor.html">COMPETITORS</a></li>
         </ul>
     </div>
-    <div class="container-fluid">
+    <div class="container-fluid" id="main">
         <div class="row" style="height: 50%">
             <div id="multiplatformViews" class="col-sm-6"></div>
             <div id="socialMediaReach" class="col-sm-6"></div>
@@ -39,6 +41,7 @@
             </div>
         </div>
     </div>
+    <script src="js/jquery-2.2.1.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="js/d3.min.js"></script>
     <script src="js/reach.js"></script>
