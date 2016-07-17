@@ -193,7 +193,7 @@ var activeCh = d3.select("#activeChapters").append("div")
     .append("svg")
     //responsive SVG needs these 2 attributes and no width and height attr
     .attr("preserveAspectRatio", "xMinYMin meet")
-    .attr("viewBox", "0 0 600 325")
+    .attr("viewBox", "0 0 600 310")
     //class to make it responsive
     .classed("svg-content-responsive", true);
 
@@ -295,7 +295,7 @@ var teamMem = d3.select("#teamMembers").append("div")
     .append("svg")
     //responsive SVG needs these 2 attributes and no width and height attr
     .attr("preserveAspectRatio", "xMinYMin meet")
-    .attr("viewBox", "0 0 600 325")
+    .attr("viewBox", "0 0 600 310")
     //class to make it responsive
     .classed("svg-content-responsive", true);
 
