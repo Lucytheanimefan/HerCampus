@@ -1,0 +1,97 @@
+/*Main stuff*/
+
+body,
+html,
+.container-fluid {
+    height: 100%;
+}
+
+
+/*Multiplatform view graph*/
+
+h1 {
+    font-family: 'Yanone Kaffeesatz', serif;
+    text-align: center;
+    margin-top: 80px;
+}
+
+.axis,
+.domain,
+.legend {
+    fill: white;
+}
+
+path.domain {
+    stroke: white;
+}
+
+#multiplatformViews {
+    background-color: #2C3546;
+    font-family: 'Yanone Kaffeesatz', serif;
+    margin-left: 20px;
+    margin-top: 20px;
+    font-size: 10px;
+    width: 640px;
+    height: 100%;
+}
+
+path {
+    fill: #83B0EA;
+}
+
+.domain {
+    fill: none;
+    stroke: #000;
+    stroke-width: 1px;
+}
+
+.legend text {
+    font-family: 'Yanone Kaffeesatz', serif;
+    fill: white;
+}
+
+#socialBlock,
+#multiplatformTitle,
+#collegeBlock,
+#multiBlock {
+    font-family: 'Yanone Kaffeesatz', serif;
+    color: white;
+    text-align: center;
+    margin-top: 60;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+/* Social media reach */
+
+#socialMediaReach,
+#collegeStudentReach,
+#MonthlyMultiPlatformViews {
+    margin-top: 20px;
+    margin-left: 20px;
+    height: 100%;
+    width: 640px;
+    background-color: #2C3546;
+}
+
+#collegeBlock,
+#multiBlock {
+    margin-top: 50px;
+    margin-left: 50px;
+    text-justify: auto;
+}
+
+span {
+    color: white;
+}
+
+.imageAndCount {
+    margin-left: 40%;
+}
+
+.svg_image {
+    float: left;
+    margin-left: 50px;
+    margin-top: 25px;
+    position: relative;
+}
