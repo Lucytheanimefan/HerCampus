@@ -1,12 +1,34 @@
-var connect = require('connect');
+//var connect = require('connect');
 //var Twitter = require('twitter');
-var serveStatic = require('serve-static');
+//var serveStatic = require('serve-static');
 var Twitter = require('twitter-node-client').Twitter;
-var http = require('http');
+//var http = require('http');
 
+var express = require('express')
+var app = express();
+var bodyParser = require('body-parser')
+var serveIndex = require('serve-index');
+var path = require('path');
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+app.use(bodyParser.json());
+
+
+app.use("/", serveIndex("public"));
+
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.listen(3000);
+/*
 connect().use(serveStatic('./public')).listen(8080, function() {
     console.log('Server running on 8080...');
 });
+
+*/
 
 var config = {
     "consumerKey": "uwAcM2cGOqcuslNIFHgYoyJRL",
@@ -46,13 +68,10 @@ twitter.getTweet({
 }, error, success);
 
 
-
+/*
 http.createServer(function(req, res) {
     res.end();
 }).listen(8070);
-
-
+*/
 
 /*-----------------Google Analytics-------------------*/
-
-

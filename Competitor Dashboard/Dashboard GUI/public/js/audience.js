@@ -9,8 +9,10 @@ var indigo = d3.rgb(102, 64, 204);
 function addSubscribers(numSubs) {
     var newsletter = document.getElementById('newletterSubscribers');
     var sub_count = document.createElement('span');
-    sub_count.innerHTML = numSubs.toString() + " SUBSCRIBERS";
-    newsletter.appendChild(sub_count);
+    if (numSubs != "" && numSubs != null) {
+        sub_count.innerHTML = numSubs.toString() + " SUBSCRIBERS";
+        newsletter.appendChild(sub_count);
+    }
 }
 
 addSubscribers(localStorage.getItem("numSubs"));
@@ -189,7 +191,7 @@ function setSitetraffic(mobileP, desktopP, tabletP) {
 setSitetraffic(localStorage.getItem("deviceData[0]"), localStorage.getItem("deviceData[1]"), localStorage.getItem("deviceData[2]"));
 
 /*----------------set total audience----------------------*/
- $("#audienceCount").html(localStorage.getItem("totalAudience"));
+$("#audienceCount").html(localStorage.getItem("totalAudience"));
 
 /*---------------hamburger menu-----------------*/
 $("#submit").click(function(e) {
@@ -227,7 +229,7 @@ $("#submit").click(function(e) {
     setSitetraffic(localStorage.getItem("deviceData[0]"), localStorage.getItem("deviceData[1]"), localStorage.getItem("deviceData[2]"));
     addSubscribers(localStorage.getItem("numSubs"));
 
-     $("#audienceCount").html(localStorage.getItem("totalAudience"));
+    $("#audienceCount").html(localStorage.getItem("totalAudience"));
 
 
     e.preventDefault();
