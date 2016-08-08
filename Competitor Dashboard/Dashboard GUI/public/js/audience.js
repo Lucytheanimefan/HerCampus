@@ -9,11 +9,11 @@ var indigo = d3.rgb(102, 64, 204);
 function addSubscribers(numSubs) {
     var newsletter = document.getElementById('newletterSubscribers');
     var sub_count = document.createElement('span');
-    sub_count.innerHTML = numSubs.toString() +" SUBSCRIBERS";
+    sub_count.innerHTML = numSubs.toString() + " SUBSCRIBERS";
     newsletter.appendChild(sub_count);
 }
 
-addSubscribers(233817);
+addSubscribers(localStorage.getItem("numSubs"));
 
 //------------------------------MONTHLY UNIQUES/PAGEVIEW-------------------------
 var newData = [{
@@ -179,11 +179,57 @@ setTimeout(function() {
 
 function setSitetraffic(mobileP, desktopP, tabletP) {
     var mobile = document.getElementById('mobilePercent');
-    mobile.innerHTML = "MOBILE: " + mobileP +"<br>" +mobile.innerHTML;
+    mobile.innerHTML = "<span>MOBILE: " + mobileP + "%<br></span>" + mobile.innerHTML;
     var desktop = document.getElementById('desktopPercent');
-    desktop.innerHTML = "DESKTOP: " + desktopP+ "<br>" + desktop.innerHTML;
+    desktop.innerHTML = "<span>DESKTOP: " + desktopP + "%<br></span>" + desktop.innerHTML;
     var tablet = document.getElementById('tabletPercent');
-    tablet.innerHTML = "TABLET: " + tabletP + "<br>" + tablet.innerHTML;
+    tablet.innerHTML = "<span>TABLET: " + tabletP + "%<br></span>" + tablet.innerHTML;
 }
 
-setSitetraffic("66%", "27.70%", "5.50%");
+setSitetraffic(localStorage.getItem("deviceData[0]"), localStorage.getItem("deviceData[1]"), localStorage.getItem("deviceData[2]"));
+
+/*----------------set total audience----------------------*/
+ $("#audienceCount").html(localStorage.getItem("totalAudience"));
+
+/*---------------hamburger menu-----------------*/
+$("#submit").click(function(e) {
+    console.log("Clicked");
+
+    var deviceData = [];
+    var siteTrafficData = $("#siteTrafficPerc").val();
+    console.log(siteTrafficData);
+    if (siteTrafficData != "") {
+        var siteTrafficData = siteTrafficData.split(',');
+
+        for (var i = 0; i < siteTrafficData.length; i++) {
+            deviceData[i] = parseInt(siteTrafficData[i]);
+            localStorage.setItem("deviceData[" + i.toString() + "]", deviceData[i]);
+        }
+    }
+    console.log(deviceData);
+
+
+    var numSubs = parseInt($("#newsletterSubs").val());
+    if (numSubs != "") {
+        localStorage.setItem("numSubs", numSubs);
+    }
+
+    var totalAudience = $("#totalAudience").val();
+    if (totalAudience != "") {
+        localStorage.setItem("totalAudience", totalAudience);
+    }
+
+
+    $(".devices span").empty();
+    $("#newletterSubscribers span").empty();
+    $("#audienceCount").empty();
+
+    setSitetraffic(localStorage.getItem("deviceData[0]"), localStorage.getItem("deviceData[1]"), localStorage.getItem("deviceData[2]"));
+    addSubscribers(localStorage.getItem("numSubs"));
+
+     $("#audienceCount").html(localStorage.getItem("totalAudience"));
+
+
+    e.preventDefault();
+
+})

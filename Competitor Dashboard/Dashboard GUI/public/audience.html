@@ -16,6 +16,16 @@
 
 <body>
     <div id="mySidenav" class="sidenav">
+        <form id="form">
+        % of Site Traffic (mobile, desktop, tablet):
+            <textarea form="form" id="siteTrafficPerc" placeholder="Enter % separated by commas ie. 1,2,3,4,5"></textarea>
+            <br> Newsletter Subscribers
+            <input type="text" id="newsletterSubs" placeholder="Newsletter Subscriber">
+            <br>Total Audience
+            <input type="text" id="totalAudience" placeholder="Total Audience">
+            <br>
+            <input type="submit" id="submit" value="Submit">
+        </form>
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
     </div>
     <div class="Overview"><span class="hamburger" style="font-size:30px;cursor:pointer" onclick="openNav()">☰ open</span>AUDIENCE OVERVIEW</div>
@@ -66,6 +76,7 @@
                 <div class="col-sm-6">
                     <div id="Total-audience">
                         <h1>TOTAL AUDIENCE</h1>
+                        <div id="audienceCount"></div>
                     </div>
                 </div>
             </div>
