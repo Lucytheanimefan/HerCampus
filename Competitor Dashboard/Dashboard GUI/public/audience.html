@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <script src="../jquery-2.2.1.js"></script>
+    <script src="js/jquery-2.2.1.js"></script>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/audience.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -19,6 +19,7 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
     </div>
     <div class="Overview"><span class="hamburger" style="font-size:30px;cursor:pointer" onclick="openNav()">☰ open</span>AUDIENCE OVERVIEW</div>
+    <div id="embed-api-auth-container"></div>
     <div id="tabs" class="container-fluid">
         <ul class="nav nav-tabs navbar-fixed-bottom">
             <li class="audience"><a href="audience.html">AUDIENCE</a></li>
@@ -43,12 +44,12 @@
         <div class="col-sm-6">
             <div class="row" id="deviceTraffic">
                 <div id="deviceImages">
-                    <div id="mobilePercent"></div>
-                    <img src="css/Images/Audience_Mobile.svg" id="audienceMobile" width="20%" height="20%">
-                    <div id="desktopPercent"></div>
-                    <img src="css/Images/Audience_Desktop.svg" id="audienceDesktop" width="30%" height="30%">
-                    <div id="tabletPercent"></div>
-                    <img src="css/Images/Audience_Tablet.svg" id="audienceTablet" width="20%" height="20%">
+                    <div id="mobilePercent" class="devices"><img src="css/Images/Audience_Mobile.svg" id="audienceMobile" width="70%" height="70%"></div>
+                    
+                    <div id="desktopPercent" class="devices"><img src="css/Images/Audience_Desktop.svg" id="audienceDesktop" width="60%" height="60%"></div>
+                    
+                    <div id="tabletPercent" class="devices"> <img src="css/Images/Audience_Tablet.svg" id="audienceTablet" width="70%" height="70%"></div>
+                   
                     <span id="trafficTitle"><br><br><br>% OF SITE TRAFFIC<br>PER DEVICE</span>
                 </div>
             </div>
@@ -83,11 +84,11 @@
         </div>
     </div>-->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="js/jquery-2.2.1.js"></script>
     <script src="js/c3.min.js"></script>
     <script src="js/d3.min.js"></script>
     <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
     <script src="js/audience.js"></script>
+
 </body>
 
 </html>

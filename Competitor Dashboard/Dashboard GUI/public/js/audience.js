@@ -3,6 +3,8 @@ var aquablue = d3.rgb(0, 214, 194);
 var hotpink = d3.rgb(255, 0, 102);
 var indigo = d3.rgb(102, 64, 204);
 
+
+
 //------------------------------Newsletter-------------------------
 function addSubscribers(numSubs) {
     var newsletter = document.getElementById('newletterSubscribers');
@@ -177,11 +179,11 @@ setTimeout(function() {
 
 function setSitetraffic(mobileP, desktopP, tabletP) {
     var mobile = document.getElementById('mobilePercent');
-    mobile.innerHTML = "MOBILE: " + mobileP;
+    mobile.innerHTML = "MOBILE: " + mobileP +"<br>" +mobile.innerHTML;
     var desktop = document.getElementById('desktopPercent');
-    desktop.innerHTML = "DESKTOP: " + desktopP;
+    desktop.innerHTML = "DESKTOP: " + desktopP+ "<br>" + desktop.innerHTML;
     var tablet = document.getElementById('tabletPercent');
-    tablet.innerHTML = "TABLET: " + tabletP;
+    tablet.innerHTML = "TABLET: " + tabletP + "<br>" + tablet.innerHTML;
 }
 
 setSitetraffic("66%", "27.70%", "5.50%");

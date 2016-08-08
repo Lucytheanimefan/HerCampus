@@ -113,10 +113,15 @@ span {
     font-family: 'Yanone Kaffeesatz', serif;
 }
 
-#deviceImages {
-    text-align: right;
+#trafficTitle{
+display: inline;
 }
 
-#deviceImages img {
+.devices {
     float: right;
+
+    text-align: center;
+
 }
+
+
