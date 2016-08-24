@@ -56,7 +56,7 @@ head, html, body{
 	display: block;
 	padding: 8px 15px;
 	text-decoration: none;
-	font-weight: bold;
+
 	border-right: 1px solid #ccc; 
 }
 
@@ -67,7 +67,12 @@ head, html, body{
 */
 #nav li a:hover {
 	color: #c00;
-	background-color: #fff; 
+	/* background-color: #fff; */
+
+}
+
+li.active{
+	font-weight: bolder;
 }
 
 .nav-tabs a{

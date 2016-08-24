@@ -6,6 +6,7 @@ html,
     height: 100%;
 }
 
+
 /*Multiplatform view graph*/
 
 h1 {
@@ -14,8 +15,6 @@ h1 {
     margin-top: 80px;
 }
 
-
-
 path.domain {
     stroke: white;
 }
@@ -23,12 +22,14 @@ path.domain {
 #multiplatformViews {
     background-color: #2C3546;
     font-family: 'Yanone Kaffeesatz', serif;
-    margin-left: 20px;
-    margin-top: 20px;
+    margin-left: 2%;
+    margin-top: 10px;
+    margin-bottom: 10px;
     font-size: 10px;
     width: 48%;
     height: 100%;
 }
+
 .axis path {
     fill: none;
     stroke: white;
@@ -40,20 +41,22 @@ path.domain {
     font-size: 11px;
 }
 
-
 .domain {
     fill: none;
     stroke: white !important;
 }
-tspan,.c3-legend-item text{
+
+tspan,
+.c3-legend-item text {
     fill: white;
 }
+
 .c3-axis-x-label {
     stroke: white !important;
     stroke-width: 2 !important;
 }
 
-text{
+text {
     fill: white !important;
 }
 
@@ -64,18 +67,26 @@ text{
     font-family: 'Yanone Kaffeesatz', serif;
     color: white;
     text-align: center;
-    margin-top: 50px;
     margin-bottom: 20px;
     font-size: 28px;
+    margin-top: 7%;
 }
+
+#multiplatformTitle,
+#collegeBlock,
+#multiBlock {
+    vertical-align: middle;
+}
+
 
 /* Social media reach */
 
 #socialMediaReach,
 #collegeStudentReach,
 #MonthlyMultiPlatformViews {
-    margin-top: 20px;
-    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 2%;
     height: 100%;
     width: 48%;
     background-color: #2C3546;

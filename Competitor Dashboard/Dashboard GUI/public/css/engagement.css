@@ -66,3 +66,7 @@ path.domain {
   margin-top: 15%;
   position: relative;
 }
+
+#facebook, #twitter, #instagram, #pinterest{
+  height: 100%;
+}

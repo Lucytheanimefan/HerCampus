@@ -188,15 +188,15 @@ function addTitlesGraphs() {
 		var area = document.getElementById(titlemappings[i][0]);
 		var title = document.createElement("div");
 		title.className = "titles";
-		title.innerHTML = "HC.COM " + titlemappings[i][0].toUpperCase() + " ENGAGEMENT";
+		title.innerHTML = "HerCampus.com " + titlemappings[i][0].toUpperCase() + " ENGAGEMENT";
 		area.appendChild(title);
 
 		drawBarGraph(titlemappings[i][2], i);
 
 		var img = document.createElement("img");
 		img.src = "css/Images/SocialEngagement_"+titlemappings[i][0]+".svg";
-		img.width="40";
-		img.height="50";
+		img.width="100";
+		img.height="120";
 		img.className="svg_image";
 		area.appendChild(img);
 	}
