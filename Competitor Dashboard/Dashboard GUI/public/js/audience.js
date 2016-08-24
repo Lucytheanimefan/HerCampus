@@ -32,37 +32,6 @@ var newData = [{
     "Instagram": 60
 }];
 
-
-
-var dataset = [{
-    data: [{
-        month: 'May Uniques',
-        count: 123
-    }, {
-        month: 'May Pageviews',
-        count: 234
-    }],
-    name: 'Her Campus'
-}, {
-    data: [{
-        month: 'May Uniques',
-        count: 235
-    }, {
-        month: 'May Pageviews',
-        count: 267
-    }],
-    name: 'InfluenceHer Collective'
-}, {
-    data: [{
-        month: 'May Uniques',
-        count: 235
-    }, {
-        month: 'May Pageviews',
-        count: 267
-    }],
-    name: 'BetchesLoveThis.com'
-}];
-
 var chart1 = c3.generate({
     bindto: '#monthlyUniquesdiv',
     data: {
