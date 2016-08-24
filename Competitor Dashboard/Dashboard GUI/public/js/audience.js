@@ -63,7 +63,7 @@ var dataset = [{
     name: 'BetchesLoveThis.com'
 }];
 
-var chart = c3.generate({
+var chart1 = c3.generate({
     bindto: '#monthlyUniquesdiv',
     data: {
         x: 'x',
@@ -74,7 +74,7 @@ var chart = c3.generate({
             ['BetchesLoveThis.com', 50, 120]
         ],
         groups: [
-            ['Her Campus', 'InfluenceHer Collective', 'BetchesLoveThis.com']
+            ['Her Campus']
         ],
         colors: {
             'Her Campus': '#FF0066',
@@ -91,6 +91,12 @@ var chart = c3.generate({
     }
 });
 
+setTimeout(function() {
+    chart1.groups([
+        ['Her Campus', 'InfluenceHer Collective', 'BetchesLoveThis.com']
+    ])
+}, 500);
+
 //------------------------------SOCIAL MEDIA REACH-------------------------------
 
 var chart = c3.generate({
@@ -105,6 +111,7 @@ var chart = c3.generate({
             ['Pinterest', 30, 100, 150, 230],
             ['YouTube', 230, 90, 200, 300],
             ['Tumblr', 130, 70, 500, 300],
+            ["B'", 50, 200, 200, 60]
         ],
         type: 'bar',
         groups: [
@@ -119,15 +126,18 @@ var chart = c3.generate({
             Tumblr: '#B2167E'
         },
     },
+    bar: {
+        width: {
+            ratio: 0.5
+        }
+    },
     axis: {
         x: {
             type: 'category' // this needed to load string x value
         }
     },
-    grid: {
-        y: {
-            lines: [{ value: 0 }]
-        }
+    transition: {
+        duration: 2000
     }
 });
 
@@ -136,45 +146,45 @@ setTimeout(function() {
     chart.groups([
         ['Facebook', 'Twitter']
     ])
-}, 500);
+}, 800);
 
 setTimeout(function() {
     chart.groups([
         ['Facebook', 'Twitter', 'Instagram']
     ])
-}, 1000);
+}, 1800);
 
 setTimeout(function() {
     chart.groups([
         ['Facebook', 'Twitter', 'Instagram', 'Pinterest']
     ])
-}, 1500);
+}, 2600);
 
 setTimeout(function() {
     chart.groups([
         ['Facebook', 'Twitter', 'Instagram', 'Pinterest', 'YouTube']
     ])
-}, 2000);
+}, 3400);
 
 setTimeout(function() {
     chart.groups([
         ['Facebook', 'Twitter', 'Instagram', 'Pinterest', 'YouTube', 'Tumblr']
     ])
-}, 2500);
-
-setTimeout(function() {
-    chart.load({
-        columns: [
-            ["B'", 50, 200, 200, 60]
-        ]
-    });
-}, 3000);
+}, 4200);
 
 setTimeout(function() {
     chart.groups([
         ['Facebook', 'Twitter', 'Instagram', 'Pinterest', 'YouTube', 'Tumblr', "B'"]
     ])
-}, 3500);
+}, 5000);
+
+
+/*-------------------------Chapter Presence----------------------------*/
+function createChapterPresence(){
+    var chPresence = document.getElementById("chapterPresence");
+    
+}
+
 
 
 /*--------------------------Site traffic----------------*/
