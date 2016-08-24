@@ -17,6 +17,7 @@
 }
 
 #monthlyUniquesdiv {
+    margin-top: 10px;
     background-color: #2C3546;
     margin-right: 10px;
 }
@@ -37,7 +38,7 @@
 #socialmediareach {
     background-color: #2C3546;
     margin-bottom: 50px;
-    margin-top: 10px;
+    margin-top: 20px;
     margin-right: 10px;
 }
 
@@ -56,12 +57,13 @@ text {
 /*-----------------Newsletter Subscribers-----------------*/
 
 #newsletter {
+    margin-top: 10px;
     background-color: #2C3546;
     text-align: center;
 }
 
 #newsletter h1 {
-	margin-top: 20px;
+    margin-top: 10px;
     color: white;
     font-family: 'Yanone Kaffeesatz', serif;
     font-size: 20px;
@@ -86,9 +88,10 @@ span {
 
 /*-------------------Total audience-----------------*/
 
-#Total-audience{
+#Total-audience {
     background-color: #2C3546;
-    margin-left: 5px;
+    margin-top: 10px;
+    margin-left: 4%;
     font-family: 'Montserrat', serif;
     color: white;
 }
@@ -100,14 +103,12 @@ span {
     font-weight: bold;
     text-align: center;
     vertical-align: middle;
-
 }
 
-#audienceCount{
+#audienceCount {
     color: white;
-    font-family: 'Yanone Kaffeesatz', serif;
-    font-size: 20px;
-    font-weight: bold;
+    font-family: 'Montserrat', serif;
+    
     text-align: center;
     vertical-align: middle;
 }
@@ -119,20 +120,25 @@ span {
 #chapterPresence {
     color: white;
     background-color: #2C3546;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     font-family: 'Yanone Kaffeesatz', serif;
 }
 
-#trafficTitle{
-display: inline;
+#chapterPresence {
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+#chapterPresence h1 {
+    text-align: center;
+}
+
+#trafficTitle {
+    display: inline;
 }
 
 .devices {
     float: right;
-
     text-align: center;
-
 }
-
-
